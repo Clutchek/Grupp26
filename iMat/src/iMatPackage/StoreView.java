@@ -62,6 +62,7 @@ public class StoreView extends javax.swing.JPanel {
         searchTextField = new javax.swing.JTextField();
         featurePanel = new javax.swing.JPanel();
         featureScrollPane = new javax.swing.JScrollPane();
+        itemResultPanel = new javax.swing.JPanel();
         startFeaturePanel = new javax.swing.JPanel();
         howToPanel = new javax.swing.JPanel();
         faqPanel = new javax.swing.JPanel();
@@ -258,6 +259,10 @@ public class StoreView extends javax.swing.JPanel {
         featurePanel.setLayout(new java.awt.CardLayout());
 
         featureScrollPane.setPreferredSize(new java.awt.Dimension(750, 335));
+
+        itemResultPanel.setLayout(new java.awt.GridLayout());
+        featureScrollPane.setViewportView(itemResultPanel);
+
         featurePanel.add(featureScrollPane, "card2");
 
         startFeaturePanel.setPreferredSize(new java.awt.Dimension(750, 335));
@@ -435,6 +440,7 @@ public class StoreView extends javax.swing.JPanel {
     private javax.swing.JButton homeButton;
     private javax.swing.JButton howToButton;
     private javax.swing.JPanel howToPanel;
+    private javax.swing.JPanel itemResultPanel;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;

@@ -25,7 +25,7 @@ public class ShoppingCartView extends javax.swing.JPanel implements ActionListen
 	 */
 	public ShoppingCartView() {
 		initComponents();
-                itemList.setLayout(new GridLayout(1, 1000));
+                //itemList.setLayout(new GridLayout(1, 1000));
                 registeredProducts = new HashSet<Product>();
                 
 	}
