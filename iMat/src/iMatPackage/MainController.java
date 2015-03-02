@@ -25,6 +25,7 @@ public class MainController extends javax.swing.JFrame implements ActionListener
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLayout(new BorderLayout());
         setLocationRelativeTo(null);
+        
     }
 
     /**
