@@ -5,6 +5,8 @@
  */
 package iMatPackage;
 
+import javax.swing.SwingConstants;
+
 /**
  *
  * @author Alexander
@@ -15,6 +17,7 @@ public class StoreView extends javax.swing.JPanel {
      * Creates new form StoreView
      */
     public StoreView() {
+        shoppingCartView = new ShoppingCartView();
         initComponents();
     }
 
@@ -434,4 +437,5 @@ public class StoreView extends javax.swing.JPanel {
     private javax.swing.JPanel topMenuPanel;
     private javax.swing.JPanel topPanel;
     // End of variables declaration//GEN-END:variables
+    private ShoppingCartView shoppingCartView;
 }

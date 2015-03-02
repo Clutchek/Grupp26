@@ -7,6 +7,7 @@ package iMatPackage;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import javax.swing.JFrame;
 
 /**
  *
@@ -20,6 +21,10 @@ public class MainController extends javax.swing.JFrame implements ActionListener
     public MainController(StoreModel m) {
         model = m;
         initComponents();
+        setSize(1000,1000);
+        add(new StoreView());
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setLocationRelativeTo(null);
     }
 
     /**
