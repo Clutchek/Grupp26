@@ -5,6 +5,8 @@
  */
 package iMatPackage;
 
+import javax.swing.ImageIcon;
+import se.chalmers.ait.dat215.project.*;
 /**
  *
  * @author Poya
@@ -14,8 +16,9 @@ public class ItemTile extends javax.swing.JPanel {
     /**
      * Creates new form ItemTile
      */
-    public ItemTile() {
+    public ItemTile(Product p) {
         initComponents();
+        
     }
 
     /**
@@ -30,27 +33,36 @@ public class ItemTile extends javax.swing.JPanel {
         itemButtonsPanel = new javax.swing.JPanel();
         addToCartButton = new javax.swing.JButton();
         addToFavoritesButton = new javax.swing.JButton();
+        itemPriceLabel = new javax.swing.JLabel();
         itemPicPanel = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
+        foodPicLabel = new javax.swing.JLabel();
 
         addToCartButton.setText("+");
 
         addToFavoritesButton.setText("jButton1");
+
+        itemPriceLabel.setText("pris");
 
         javax.swing.GroupLayout itemButtonsPanelLayout = new javax.swing.GroupLayout(itemButtonsPanel);
         itemButtonsPanel.setLayout(itemButtonsPanelLayout);
         itemButtonsPanelLayout.setHorizontalGroup(
             itemButtonsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, itemButtonsPanelLayout.createSequentialGroup()
-                .addGap(0, 11, Short.MAX_VALUE)
+                .addContainerGap()
                 .addComponent(addToFavoritesButton, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(addToCartButton, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(itemButtonsPanelLayout.createSequentialGroup()
+                .addGap(35, 35, 35)
+                .addComponent(itemPriceLabel)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         itemButtonsPanelLayout.setVerticalGroup(
             itemButtonsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, itemButtonsPanelLayout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
+                .addGap(0, 19, Short.MAX_VALUE)
+                .addComponent(itemPriceLabel)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(itemButtonsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(addToCartButton)
                     .addComponent(addToFavoritesButton)))
@@ -58,7 +70,7 @@ public class ItemTile extends javax.swing.JPanel {
 
         itemPicPanel.setPreferredSize(new java.awt.Dimension(80, 70));
 
-        jLabel1.setText("jLabel1");
+        foodPicLabel.setText("FOOD PIC LOL");
 
         javax.swing.GroupLayout itemPicPanelLayout = new javax.swing.GroupLayout(itemPicPanel);
         itemPicPanel.setLayout(itemPicPanelLayout);
@@ -66,12 +78,12 @@ public class ItemTile extends javax.swing.JPanel {
             itemPicPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, itemPicPanelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(foodPicLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 97, Short.MAX_VALUE)
                 .addContainerGap())
         );
         itemPicPanelLayout.setVerticalGroup(
             itemPicPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 89, Short.MAX_VALUE)
+            .addComponent(foodPicLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -81,19 +93,17 @@ public class ItemTile extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(itemButtonsPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 6, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(itemPicPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 109, Short.MAX_VALUE)))
+                        .addComponent(itemPicPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 109, Short.MAX_VALUE))
+                    .addComponent(itemButtonsPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(itemPicPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 89, Short.MAX_VALUE)
+                .addComponent(itemPicPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(itemButtonsPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(itemButtonsPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -101,8 +111,9 @@ public class ItemTile extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton addToCartButton;
     private javax.swing.JButton addToFavoritesButton;
+    private javax.swing.JLabel foodPicLabel;
     private javax.swing.JPanel itemButtonsPanel;
     private javax.swing.JPanel itemPicPanel;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel itemPriceLabel;
     // End of variables declaration//GEN-END:variables
 }

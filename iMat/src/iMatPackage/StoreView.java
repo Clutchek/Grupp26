@@ -7,6 +7,8 @@ package iMatPackage;
 
 import java.awt.BorderLayout;
 import javax.swing.SwingConstants;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 /**
  *
@@ -467,4 +469,7 @@ public class StoreView extends javax.swing.JPanel {
     private javax.swing.JPanel topPanel;
     // End of variables declaration//GEN-END:variables
     private ShoppingCartView shoppingCartView;
+    
+    
+    
 }
