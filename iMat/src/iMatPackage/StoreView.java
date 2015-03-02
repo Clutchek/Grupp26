@@ -260,6 +260,8 @@ public class StoreView extends javax.swing.JPanel {
         featurePanel.setPreferredSize(new java.awt.Dimension(750, 335));
         featurePanel.setLayout(new java.awt.CardLayout());
 
+        featureScrollPane.setToolTipText("");
+        featureScrollPane.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);
         featureScrollPane.setPreferredSize(new java.awt.Dimension(750, 335));
 
         itemResultPanel.setLayout(new java.awt.GridLayout(1, 0));

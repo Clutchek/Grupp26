@@ -6,6 +6,7 @@
 package iMatPackage;
 
 import java.awt.BorderLayout;
+import java.awt.CardLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JFrame;
@@ -23,7 +24,7 @@ public class MainController extends javax.swing.JFrame implements ActionListener
         model = m;
         initComponents();
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setLayout(new BorderLayout());
+        setLayout(new CardLayout());
         setLocationRelativeTo(null);
         
     }

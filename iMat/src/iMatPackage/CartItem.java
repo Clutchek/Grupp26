@@ -42,6 +42,12 @@ public class CartItem extends javax.swing.JPanel implements ChangeListener,Actio
         unitLabel = new javax.swing.JLabel();
         priceLabel = new javax.swing.JLabel();
         removeButton = new javax.swing.JButton();
+        jPanel1 = new javax.swing.JPanel();
+        nameLabel1 = new javax.swing.JLabel();
+        priceSpinner1 = new javax.swing.JSpinner();
+        unitLabel1 = new javax.swing.JLabel();
+        priceLabel1 = new javax.swing.JLabel();
+        removeButton1 = new javax.swing.JButton();
 
         nameLabel.setText(product.getName());
 
@@ -54,6 +60,46 @@ public class CartItem extends javax.swing.JPanel implements ChangeListener,Actio
         priceLabel.setText(new Double(item.getTotal()).toString());
 
         removeButton.setIcon(new javax.swing.ImageIcon("C:\\Users\\Alexander\\Pictures\\closeicon.png")); // NOI18N
+
+        nameLabel1.setText(product.getName());
+
+        priceSpinner1.setModel(new javax.swing.SpinnerNumberModel(Integer.valueOf(0), Integer.valueOf(0), null, Integer.valueOf(1)));
+        priceSpinner1.setToolTipText("Ändra Antalet av varan");
+        priceSpinner1.setValue(item.getAmount());
+
+        unitLabel1.setText(product.getUnit());
+
+        priceLabel1.setText(new Double(item.getTotal()).toString());
+
+        removeButton1.setIcon(new javax.swing.ImageIcon("C:\\Users\\Alexander\\Pictures\\closeicon.png")); // NOI18N
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addComponent(nameLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(priceSpinner1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(unitLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(priceLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(removeButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(nameLabel1)
+                    .addComponent(priceSpinner1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(unitLabel1)
+                    .addComponent(priceLabel1)
+                    .addComponent(removeButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -69,6 +115,11 @@ public class CartItem extends javax.swing.JPanel implements ChangeListener,Actio
                 .addComponent(priceLabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(removeButton, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -81,16 +132,27 @@ public class CartItem extends javax.swing.JPanel implements ChangeListener,Actio
                     .addComponent(priceLabel)
                     .addComponent(removeButton, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
         );
     }// </editor-fold>//GEN-END:initComponents
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel nameLabel;
+    private javax.swing.JLabel nameLabel1;
     private javax.swing.JLabel priceLabel;
+    private javax.swing.JLabel priceLabel1;
     private javax.swing.JSpinner priceSpinner;
+    private javax.swing.JSpinner priceSpinner1;
     private javax.swing.JButton removeButton;
+    private javax.swing.JButton removeButton1;
     private javax.swing.JLabel unitLabel;
+    private javax.swing.JLabel unitLabel1;
     // End of variables declaration//GEN-END:variables
     private ShoppingItem item;
     private Product product;
