@@ -5,6 +5,7 @@
  */
 package iMatPackage;
 
+import java.awt.BorderLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JFrame;
@@ -21,9 +22,8 @@ public class MainController extends javax.swing.JFrame implements ActionListener
     public MainController(StoreModel m) {
         model = m;
         initComponents();
-        setSize(1000,1000);
-        add(new StoreView());
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setLayout(new BorderLayout());
         setLocationRelativeTo(null);
     }
 
@@ -37,6 +37,7 @@ public class MainController extends javax.swing.JFrame implements ActionListener
     private void initComponents() {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setResizable(false);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);

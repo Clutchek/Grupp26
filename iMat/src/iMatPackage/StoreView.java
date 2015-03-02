@@ -5,6 +5,7 @@
  */
 package iMatPackage;
 
+import java.awt.BorderLayout;
 import javax.swing.SwingConstants;
 
 /**
@@ -19,6 +20,8 @@ public class StoreView extends javax.swing.JPanel {
     public StoreView() {
         shoppingCartView = new ShoppingCartView();
         initComponents();
+        rightPanel.setLayout(new BorderLayout());
+        rightPanel.add(shoppingCartView);
     }
 
     /**

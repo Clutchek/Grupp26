@@ -18,7 +18,8 @@ public class Main {
         StoreModel model = new StoreModel();
         MainController controller = new MainController(model);
         StoreView storeview = new StoreView();
-        //controller.add(storeview);
+        controller.add(storeview);
+        controller.pack();
         controller.setVisible(true);
     }
 }
