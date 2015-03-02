@@ -15,7 +15,7 @@ import javax.swing.JFrame;
 public class Main {
     
     public static void main(String[] args){
-        StoreModel model = new StoreModel();
+        StoreModel model = null;
         MainController controller = new MainController(model);
         StoreView storeview = new StoreView();
         controller.add(storeview);

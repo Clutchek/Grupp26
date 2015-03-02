@@ -25,7 +25,7 @@ public class ShoppingCartView extends javax.swing.JPanel implements ActionListen
 	 */
 	public ShoppingCartView() {
 		initComponents();
-                itemList.setLayout(new GridLayout(1, 1000));
+                //itemList.setLayout(new ));
                 registeredProducts = new HashSet<Product>();
                 
 	}
@@ -42,7 +42,8 @@ public class ShoppingCartView extends javax.swing.JPanel implements ActionListen
         favoriteButton = new javax.swing.JButton();
         clearButton = new javax.swing.JButton();
         buyButton = new javax.swing.JButton();
-        itemList = new javax.swing.JScrollPane();
+        scrollPane = new javax.swing.JScrollPane();
+        itemList = new javax.swing.JPanel();
 
         favoriteButton.setText("Spara");
 
@@ -50,6 +51,19 @@ public class ShoppingCartView extends javax.swing.JPanel implements ActionListen
         clearButton.addActionListener(this);
 
         buyButton.setText("Köp");
+
+        javax.swing.GroupLayout itemListLayout = new javax.swing.GroupLayout(itemList);
+        itemList.setLayout(itemListLayout);
+        itemListLayout.setHorizontalGroup(
+            itemListLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 127, Short.MAX_VALUE)
+        );
+        itemListLayout.setVerticalGroup(
+            itemListLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 269, Short.MAX_VALUE)
+        );
+
+        scrollPane.setViewportView(itemList);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -64,14 +78,14 @@ public class ShoppingCartView extends javax.swing.JPanel implements ActionListen
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(buyButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(itemList))
+                    .addComponent(scrollPane))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(itemList, javax.swing.GroupLayout.PREFERRED_SIZE, 271, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(scrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 271, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(favoriteButton)
@@ -85,19 +99,19 @@ public class ShoppingCartView extends javax.swing.JPanel implements ActionListen
     @Override
     public void actionPerformed(ActionEvent e){
         if(e.getSource() == clearButton){
-            itemList.removeAll();
+            scrollPane.removeAll();
         }
     }
     
     public static void addProduct(ShoppingItem item){
         CartItem cartItem = new CartItem(item);
-        itemList.add(cartItem);
+        scrollPane.add(cartItem);
         if(!registeredProducts.contains(item)){
             registeredProducts.add(item.getProduct());
         }
     }
     public static void removeProduct(CartItem item){
-        itemList.remove(item);
+        scrollPane.remove(item);
         registeredProducts.remove(item.getProduct());
     }
 
@@ -106,7 +120,8 @@ public class ShoppingCartView extends javax.swing.JPanel implements ActionListen
     private javax.swing.JButton buyButton;
     private javax.swing.JButton clearButton;
     private javax.swing.JButton favoriteButton;
-    private static javax.swing.JScrollPane itemList;
+    private javax.swing.JPanel itemList;
+    private static javax.swing.JScrollPane scrollPane;
     // End of variables declaration//GEN-END:variables
     private  static HashSet<Product> registeredProducts;
 }
