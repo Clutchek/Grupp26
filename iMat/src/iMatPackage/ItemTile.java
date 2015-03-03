@@ -33,11 +33,18 @@ public class ItemTile extends javax.swing.JPanel implements ChangeListener, Acti
     }
     
     public void actionPerformed(ActionEvent e){
-        temp = shoppingItem.getAmount();
-        amount = amount + temp;
-        shoppingItem.setAmount(amount);
-        backend.getShoppingCart().addItem(shoppingItem);
+        temp = ((Integer)(amountSpinner.getValue())).doubleValue();
+        amount = temp + amount;
+        System.out.println(itemIsInCart(shoppingItem.getProduct()));
         
+        if(itemIsInCart(shoppingItem.getProduct())){
+            shoppingItem.setAmount(amount);
+            backend.getShoppingCart().fireShoppingCartChanged(shoppingItem, true);
+        }
+        else{
+            //shoppingItem.setAmount(amount);
+            backend.getShoppingCart().addItem(shoppingItem);
+        }
         System.out.println(shoppingItem.getAmount());
     }
     
@@ -46,10 +53,16 @@ public class ItemTile extends javax.swing.JPanel implements ChangeListener, Acti
         
             shoppingItem.setAmount(((Integer)(amountSpinner.getValue())).doubleValue());
             itemPriceLabel.setText("Pris: " + String.valueOf(shoppingItem.getTotal()));
-        
-        
     }
     
+    public boolean itemIsInCart(Product p){
+        for(ShoppingItem item : backend.getShoppingCart().getItems()){
+            if(item.getProduct().equals(p)){
+                return true;
+            }
+        }
+        return false;
+    }
     
 
     /**
