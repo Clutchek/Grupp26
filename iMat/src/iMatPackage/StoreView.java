@@ -9,6 +9,10 @@ import java.awt.BorderLayout;
 import javax.swing.SwingConstants;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyListener;
+import java.awt.event.KeyEvent;
+//import javax.swing.event.ChangeEvent;
+//import javax.swing.event.ChangeListener;
 import se.chalmers.ait.dat215.project.IMatDataHandler;
 import se.chalmers.ait.dat215.project.Product;
 
@@ -16,7 +20,7 @@ import se.chalmers.ait.dat215.project.Product;
  *
  * @author Alexander
  */
-public class StoreView extends javax.swing.JPanel {
+public class StoreView extends javax.swing.JPanel implements KeyListener{
 
     /**
      * Creates new form StoreView
@@ -30,8 +34,12 @@ public class StoreView extends javax.swing.JPanel {
         rightPanel.add(shoppingCartView);
         leftPanel.setLayout(new BorderLayout());
         leftPanel.add(itemTile);
+        searchField.addKeyListener(this);
     }
 
+    
+    
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -484,6 +492,21 @@ public class StoreView extends javax.swing.JPanel {
     private ShoppingCartView shoppingCartView;
     private ItemTile itemTile;
     private Product p;
+
+    @Override
+    public void keyTyped(KeyEvent e) {
+       
+    }
+
+    @Override
+    public void keyPressed(KeyEvent e) {
+        
+    }
+
+    @Override
+    public void keyReleased(KeyEvent e) {
+        
+    }
     
     
     
