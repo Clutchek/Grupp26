@@ -9,6 +9,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
+import se.chalmers.ait.dat215.project.IMatDataHandler;
 import se.chalmers.ait.dat215.project.Product;
 import se.chalmers.ait.dat215.project.ShoppingItem;
 
@@ -25,6 +26,7 @@ public class CartItem extends javax.swing.JPanel implements ChangeListener,Actio
         this.item = item;
         this.product = item.getProduct();
         initComponents();
+        removeButton.addActionListener(this);
         priceSpinner.addChangeListener(this);
     }
 
@@ -139,7 +141,23 @@ public class CartItem extends javax.swing.JPanel implements ChangeListener,Actio
                     .addGap(0, 0, Short.MAX_VALUE)))
         );
     }// </editor-fold>//GEN-END:initComponents
+    @Override
+    public void actionPerformed(ActionEvent e){
+        if(e.getSource() == removeButton){
+            IMatDataHandler.getInstance().getShoppingCart().removeItem(item);
+        }
+    }
 
+    @Override
+    public void stateChanged(ChangeEvent e) {
+        item.setAmount(((Integer)(priceSpinner.getValue())).doubleValue());
+        priceLabel.setText(priceSpinner.getValue().toString());
+        //IMatDataHandler.getInstance().getShoppingCart().fireShoppingCartChanged(item, true);
+    }
+    
+    public Product getProduct(){
+        return product;
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel jPanel1;
@@ -157,15 +175,6 @@ public class CartItem extends javax.swing.JPanel implements ChangeListener,Actio
     private ShoppingItem item;
     private Product product;
 
-    @Override
-    public void stateChanged(ChangeEvent e) {
-        item.setAmount((double) priceSpinner.getValue());
-        priceLabel.setText(new Double(item.getTotal()).toString());
-    }
-    public void actionPerformed(ActionEvent e){
-        ShoppingCartView.removeProduct(this);
-    }
-    public Product getProduct(){
-        return product;
-    }
+    
+
 }

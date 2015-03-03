@@ -9,16 +9,23 @@ import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.HashSet;
+import java.util.List;
 import javax.swing.DefaultListModel;
 import javax.swing.JPanel;
+import javax.swing.event.ChangeEvent;
+import javax.swing.event.ChangeListener;
+import se.chalmers.ait.dat215.project.CartEvent;
+import se.chalmers.ait.dat215.project.IMatDataHandler;
 import se.chalmers.ait.dat215.project.Product;
+import se.chalmers.ait.dat215.project.ShoppingCart;
+import se.chalmers.ait.dat215.project.ShoppingCartListener;
 import se.chalmers.ait.dat215.project.ShoppingItem;
 
 /**
  *
  * @author Poya
  */
-public class ShoppingCartView extends javax.swing.JPanel implements ActionListener {
+public class ShoppingCartView extends javax.swing.JPanel implements ShoppingCartListener,ActionListener {
 
 	/**
 	 * Creates new form ShoppingCartView
@@ -26,7 +33,8 @@ public class ShoppingCartView extends javax.swing.JPanel implements ActionListen
 	public ShoppingCartView() {
 		initComponents();
                 itemList.setLayout(new GridLayout(1, 1000));
-                registeredProducts = new HashSet<Product>();
+                this.cart = IMatDataHandler.getInstance().getShoppingCart();
+                cart.addShoppingCartListener(this);
                 
 	}
 
@@ -96,23 +104,29 @@ public class ShoppingCartView extends javax.swing.JPanel implements ActionListen
         );
     }// </editor-fold>//GEN-END:initComponents
 	
+
+    public void updateView(){
+        scrollPane.removeAll();
+        List<ShoppingItem> items = cart.getItems();
+        for(ShoppingItem item : items){
+            addProduct(item);
+        } 
+    }
+    
+    private void addProduct(ShoppingItem item){
+        CartItem cartItem = new CartItem(item);
+        scrollPane.add(cartItem);
+    }
+    
     @Override
     public void actionPerformed(ActionEvent e){
         if(e.getSource() == clearButton){
             scrollPane.removeAll();
         }
     }
-    
-    public static void addProduct(ShoppingItem item){
-        CartItem cartItem = new CartItem(item);
-        scrollPane.add(cartItem);
-        if(!registeredProducts.contains(item)){
-            registeredProducts.add(item.getProduct());
-        }
-    }
-    public static void removeProduct(CartItem item){
-        scrollPane.remove(item);
-        registeredProducts.remove(item.getProduct());
+    @Override
+    public void shoppingCartChanged(CartEvent ce) {
+        updateView();
     }
 
 
@@ -123,5 +137,9 @@ public class ShoppingCartView extends javax.swing.JPanel implements ActionListen
     private javax.swing.JPanel itemList;
     private static javax.swing.JScrollPane scrollPane;
     // End of variables declaration//GEN-END:variables
-    private  static HashSet<Product> registeredProducts;
+
+    private ShoppingCart cart;
+
+  
+
 }
