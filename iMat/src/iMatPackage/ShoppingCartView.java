@@ -106,7 +106,7 @@ public class ShoppingCartView extends javax.swing.JPanel implements ShoppingCart
 	
 
     public void updateView(){
-        scrollPane.removeAll();
+        itemList.removeAll();
         List<ShoppingItem> items = cart.getItems();
         for(ShoppingItem item : items){
             addProduct(item);
@@ -115,13 +115,13 @@ public class ShoppingCartView extends javax.swing.JPanel implements ShoppingCart
     
     private void addProduct(ShoppingItem item){
         CartItem cartItem = new CartItem(item);
-        scrollPane.add(cartItem);
+        itemList.add(cartItem);
     }
     
     @Override
     public void actionPerformed(ActionEvent e){
         if(e.getSource() == clearButton){
-            scrollPane.removeAll();
+            cart.clear();
         }
     }
     @Override
