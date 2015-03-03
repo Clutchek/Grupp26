@@ -9,6 +9,8 @@ import java.awt.BorderLayout;
 import javax.swing.SwingConstants;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import se.chalmers.ait.dat215.project.IMatDataHandler;
+import se.chalmers.ait.dat215.project.Product;
 
 /**
  *
@@ -21,9 +23,13 @@ public class StoreView extends javax.swing.JPanel {
      */
     public StoreView() {
         shoppingCartView = new ShoppingCartView();
+        IMatDataHandler backend = IMatDataHandler.getInstance();
+        itemTile = new ItemTile(backend.getProduct(5));
         initComponents();
         rightPanel.setLayout(new BorderLayout());
         rightPanel.add(shoppingCartView);
+        leftPanel.setLayout(new BorderLayout());
+        leftPanel.add(itemTile);
     }
 
     /**
@@ -504,6 +510,8 @@ public class StoreView extends javax.swing.JPanel {
     private javax.swing.JPanel topPanel;
     // End of variables declaration//GEN-END:variables
     private ShoppingCartView shoppingCartView;
+    private ItemTile itemTile;
+    private Product p;
     
     
     

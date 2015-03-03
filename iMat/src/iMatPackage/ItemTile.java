@@ -5,6 +5,8 @@
  */
 package iMatPackage;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import javax.swing.ImageIcon;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
@@ -13,27 +15,42 @@ import se.chalmers.ait.dat215.project.*;
  *
  * @author Poya
  */
-public class ItemTile extends javax.swing.JPanel implements ChangeListener {
+public class ItemTile extends javax.swing.JPanel implements ChangeListener, ActionListener{
 
     /**
      * Creates new form ItemTile
      */
     public ItemTile(Product p) {
-        initComponents();
+        this.p = p;
         shoppingItem = new ShoppingItem(p);
+        backend = IMatDataHandler.getInstance();
+        initComponents();  
+        amountSpinner.addChangeListener(this);
+        addProductButton.addActionListener(this);
+        foodPicLabel.setIcon(backend.getImageIcon(p, 80, 60));
+        foodNameLabel.setText(p.getName());
+        itemPriceLabel.setText("Pris: " + String.valueOf(shoppingItem.getTotal()));
+    }
+    
+    public void actionPerformed(ActionEvent e){
+        temp = shoppingItem.getAmount();
+        amount = amount + temp;
+        shoppingItem.setAmount(amount);
+        backend.getShoppingCart().addItem(shoppingItem);
+        
+        System.out.println(shoppingItem.getAmount());
+    }
+    
+    
+    public void stateChanged(ChangeEvent e){
+        
+            shoppingItem.setAmount(((Integer)(amountSpinner.getValue())).doubleValue());
+            itemPriceLabel.setText("Pris: " + String.valueOf(shoppingItem.getTotal()));
         
         
     }
     
-    public void stateChanged(ChangeEvent e){
-        shoppingItem.setAmount((double) amountSpinner.getValue());
-        if((double)amountSpinner.getValue() > 0){
-        itemPriceLabel.setText(String.valueOf(shoppingItem.getTotal()));
-        }
-        if(addProductButton == e.getSource()){
-            store.getShoppingCart().addProduct(shoppingItem.getProduct(), shoppingItem.getAmount());
-        }
-    }
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -50,10 +67,12 @@ public class ItemTile extends javax.swing.JPanel implements ChangeListener {
         addProductButton = new javax.swing.JButton();
         itemPicPanel = new javax.swing.JPanel();
         foodPicLabel = new javax.swing.JLabel();
+        foodNameLabel = new javax.swing.JLabel();
 
-        itemPriceLabel.setText(String.valueOf(p.getPrice()));
+        setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         amountSpinner.addChangeListener(this);
+        amountSpinner.setModel(new javax.swing.SpinnerNumberModel(Integer.valueOf(1), Integer.valueOf(1), null, Integer.valueOf(1)));
 
         addProductButton.setText("+");
 
@@ -86,8 +105,6 @@ public class ItemTile extends javax.swing.JPanel implements ChangeListener {
 
         itemPicPanel.setPreferredSize(new java.awt.Dimension(80, 70));
 
-        foodPicLabel.setText("FOOD PIC LOL");
-
         javax.swing.GroupLayout itemPicPanelLayout = new javax.swing.GroupLayout(itemPicPanel);
         itemPicPanel.setLayout(itemPicPanelLayout);
         itemPicPanelLayout.setHorizontalGroup(
@@ -100,9 +117,11 @@ public class ItemTile extends javax.swing.JPanel implements ChangeListener {
         itemPicPanelLayout.setVerticalGroup(
             itemPicPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(itemPicPanelLayout.createSequentialGroup()
-                .addComponent(foodPicLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addComponent(foodPicLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 9, Short.MAX_VALUE))
         );
+
+        foodNameLabel.setText("jLabel1");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -115,27 +134,39 @@ public class ItemTile extends javax.swing.JPanel implements ChangeListener {
                         .addComponent(itemPicPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 114, Short.MAX_VALUE))
                     .addComponent(itemButtonsPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(foodNameLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(itemPicPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(foodNameLabel)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 10, Short.MAX_VALUE)
                 .addComponent(itemButtonsPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
 
-    
+    double temp;
+    double amount;
     Product p;
     ShoppingItem shoppingItem;
-    StoreModel store;
+    IMatDataHandler backend;
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton addProductButton;
     private javax.swing.JSpinner amountSpinner;
+    private javax.swing.JLabel foodNameLabel;
     private javax.swing.JLabel foodPicLabel;
     private javax.swing.JPanel itemButtonsPanel;
     private javax.swing.JPanel itemPicPanel;
     private javax.swing.JLabel itemPriceLabel;
     // End of variables declaration//GEN-END:variables
+
+    
+
 }
