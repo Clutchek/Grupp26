@@ -10,6 +10,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.HashSet;
 import java.util.List;
+import javax.swing.BoxLayout;
 import javax.swing.DefaultListModel;
 import javax.swing.JPanel;
 import javax.swing.event.ChangeEvent;
@@ -32,7 +33,7 @@ public class ShoppingCartView extends javax.swing.JPanel implements ShoppingCart
 	 */
 	public ShoppingCartView() {
 		initComponents();
-                itemList.setLayout(new GridLayout(1, 1000));
+                itemList.setLayout(new BoxLayout(itemList, BoxLayout.Y_AXIS));
                 this.cart = IMatDataHandler.getInstance().getShoppingCart();
                 cart.addShoppingCartListener(this);
                 
@@ -59,6 +60,8 @@ public class ShoppingCartView extends javax.swing.JPanel implements ShoppingCart
         clearButton.addActionListener(this);
 
         buyButton.setText("Köp");
+
+        scrollPane.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
 
         javax.swing.GroupLayout itemListLayout = new javax.swing.GroupLayout(itemList);
         itemList.setLayout(itemListLayout);
@@ -110,7 +113,10 @@ public class ShoppingCartView extends javax.swing.JPanel implements ShoppingCart
         List<ShoppingItem> items = cart.getItems();
         for(ShoppingItem item : items){
             addProduct(item);
-        } 
+        }
+        itemList.repaint();
+        scrollPane.repaint();
+        repaint();
     }
     
     private void addProduct(ShoppingItem item){
@@ -122,6 +128,7 @@ public class ShoppingCartView extends javax.swing.JPanel implements ShoppingCart
     public void actionPerformed(ActionEvent e){
         if(e.getSource() == clearButton){
             cart.clear();
+            updateView();
         }
     }
     @Override

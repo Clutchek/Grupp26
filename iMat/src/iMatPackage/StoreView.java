@@ -203,6 +203,8 @@ public class StoreView extends javax.swing.JPanel {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
+        centrePanel.setLayout(new java.awt.CardLayout());
+
         jButton1.setText("jButton1");
 
         jButton2.setText("jButton2");
@@ -263,13 +265,16 @@ public class StoreView extends javax.swing.JPanel {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
+        centrePanel.add(mainBrowsePanel, "card2");
+
         searchTextField.setText("Sök här");
+        centrePanel.add(searchTextField, "card3");
 
         featurePanel.setPreferredSize(new java.awt.Dimension(750, 335));
         featurePanel.setLayout(new java.awt.CardLayout());
 
+        featureScrollPane.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
         featureScrollPane.setToolTipText("");
-        featureScrollPane.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);
         featureScrollPane.setPreferredSize(new java.awt.Dimension(750, 335));
 
         itemResultPanel.setLayout(new java.awt.GridLayout(1, 0));
@@ -278,11 +283,11 @@ public class StoreView extends javax.swing.JPanel {
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 748, Short.MAX_VALUE)
+            .addGap(0, 869, Short.MAX_VALUE)
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 374, Short.MAX_VALUE)
+            .addGap(0, 512, Short.MAX_VALUE)
         );
 
         itemResultPanel.add(jPanel1);
@@ -297,11 +302,11 @@ public class StoreView extends javax.swing.JPanel {
         startFeaturePanel.setLayout(startFeaturePanelLayout);
         startFeaturePanelLayout.setHorizontalGroup(
             startFeaturePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 750, Short.MAX_VALUE)
+            .addGap(0, 871, Short.MAX_VALUE)
         );
         startFeaturePanelLayout.setVerticalGroup(
             startFeaturePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 376, Short.MAX_VALUE)
+            .addGap(0, 514, Short.MAX_VALUE)
         );
 
         featurePanel.add(startFeaturePanel, "card3");
@@ -312,11 +317,11 @@ public class StoreView extends javax.swing.JPanel {
         howToPanel.setLayout(howToPanelLayout);
         howToPanelLayout.setHorizontalGroup(
             howToPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 750, Short.MAX_VALUE)
+            .addGap(0, 871, Short.MAX_VALUE)
         );
         howToPanelLayout.setVerticalGroup(
             howToPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 376, Short.MAX_VALUE)
+            .addGap(0, 514, Short.MAX_VALUE)
         );
 
         featurePanel.add(howToPanel, "card4");
@@ -327,11 +332,11 @@ public class StoreView extends javax.swing.JPanel {
         faqPanel.setLayout(faqPanelLayout);
         faqPanelLayout.setHorizontalGroup(
             faqPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 750, Short.MAX_VALUE)
+            .addGap(0, 871, Short.MAX_VALUE)
         );
         faqPanelLayout.setVerticalGroup(
             faqPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 376, Short.MAX_VALUE)
+            .addGap(0, 514, Short.MAX_VALUE)
         );
 
         featurePanel.add(faqPanel, "card5");
@@ -342,11 +347,11 @@ public class StoreView extends javax.swing.JPanel {
         contactsPanel.setLayout(contactsPanelLayout);
         contactsPanelLayout.setHorizontalGroup(
             contactsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 750, Short.MAX_VALUE)
+            .addGap(0, 871, Short.MAX_VALUE)
         );
         contactsPanelLayout.setVerticalGroup(
             contactsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 376, Short.MAX_VALUE)
+            .addGap(0, 514, Short.MAX_VALUE)
         );
 
         featurePanel.add(contactsPanel, "card6");
@@ -357,57 +362,29 @@ public class StoreView extends javax.swing.JPanel {
         prevOrdersPanel.setLayout(prevOrdersPanelLayout);
         prevOrdersPanelLayout.setHorizontalGroup(
             prevOrdersPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 750, Short.MAX_VALUE)
+            .addGap(0, 871, Short.MAX_VALUE)
         );
         prevOrdersPanelLayout.setVerticalGroup(
             prevOrdersPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 376, Short.MAX_VALUE)
+            .addGap(0, 514, Short.MAX_VALUE)
         );
 
         featurePanel.add(prevOrdersPanel, "card7");
+
+        centrePanel.add(featurePanel, "card4");
 
         javax.swing.GroupLayout leftPanelLayout = new javax.swing.GroupLayout(leftPanel);
         leftPanel.setLayout(leftPanelLayout);
         leftPanelLayout.setHorizontalGroup(
             leftPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 120, Short.MAX_VALUE)
+            .addGap(0, 871, Short.MAX_VALUE)
         );
         leftPanelLayout.setVerticalGroup(
             leftPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 325, Short.MAX_VALUE)
+            .addGap(0, 514, Short.MAX_VALUE)
         );
 
-        javax.swing.GroupLayout centrePanelLayout = new javax.swing.GroupLayout(centrePanel);
-        centrePanel.setLayout(centrePanelLayout);
-        centrePanelLayout.setHorizontalGroup(
-            centrePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(centrePanelLayout.createSequentialGroup()
-                .addGroup(centrePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(centrePanelLayout.createSequentialGroup()
-                        .addGap(139, 139, 139)
-                        .addComponent(mainBrowsePanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(centrePanelLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(leftPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(featurePanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(centrePanelLayout.createSequentialGroup()
-                        .addGap(266, 266, 266)
-                        .addComponent(searchTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 464, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        centrePanelLayout.setVerticalGroup(
-            centrePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(centrePanelLayout.createSequentialGroup()
-                .addComponent(mainBrowsePanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(2, 2, 2)
-                .addComponent(searchTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(centrePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(featurePanel, javax.swing.GroupLayout.PREFERRED_SIZE, 376, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(leftPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
+        centrePanel.add(leftPanel, "card5");
 
         rightPanel.setMaximumSize(new java.awt.Dimension(155, 389));
         rightPanel.setPreferredSize(new java.awt.Dimension(155, 389));
@@ -449,7 +426,7 @@ public class StoreView extends javax.swing.JPanel {
                     .addGroup(framePanelLayout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(rightPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(centrePanel, javax.swing.GroupLayout.PREFERRED_SIZE, 514, Short.MAX_VALUE)))
+                    .addComponent(centrePanel, javax.swing.GroupLayout.DEFAULT_SIZE, 514, Short.MAX_VALUE)))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
