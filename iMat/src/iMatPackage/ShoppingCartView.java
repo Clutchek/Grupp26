@@ -54,6 +54,8 @@ public class ShoppingCartView extends javax.swing.JPanel implements ShoppingCart
         scrollPane = new javax.swing.JScrollPane();
         itemList = new javax.swing.JPanel();
 
+        setPreferredSize(new java.awt.Dimension(235, 367));
+
         favoriteButton.setText("Spara");
 
         clearButton.setText("Rensa");
@@ -74,6 +76,8 @@ public class ShoppingCartView extends javax.swing.JPanel implements ShoppingCart
             .addGap(0, 269, Short.MAX_VALUE)
         );
 
+        itemList.setPreferredSize(new java.awt.Dimension(230, 363));
+        itemList.setLayout(new javax.swing.BoxLayout(itemList, javax.swing.BoxLayout.LINE_AXIS));
         scrollPane.setViewportView(itemList);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -81,15 +85,16 @@ public class ShoppingCartView extends javax.swing.JPanel implements ShoppingCart
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(favoriteButton, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(clearButton, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(buyButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(scrollPane))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(favoriteButton, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(clearButton, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(buyButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(scrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
