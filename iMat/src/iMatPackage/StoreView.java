@@ -25,12 +25,12 @@ public class StoreView extends javax.swing.JPanel implements KeyListener{
     public StoreView(){
         shoppingCartView = new ShoppingCartView();
         IMatDataHandler backend = IMatDataHandler.getInstance();
-        itemTile = new ItemTile(backend.getProduct(5));
+        //itemTile = new ItemTile(backend.getProduct(5));
         initComponents();
         rightPanel.setLayout(new BorderLayout());
         rightPanel.add(shoppingCartView);
         leftPanel.setLayout(new BorderLayout());
-        leftPanel.add(itemTile);
+       // leftPanel.add(itemTile);
         searchTextField.setText("");
         searchTextField.addKeyListener(this);
     }
@@ -262,7 +262,7 @@ public class StoreView extends javax.swing.JPanel implements KeyListener{
         featureScrollPane.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);
         featureScrollPane.setPreferredSize(new java.awt.Dimension(750, 335));
 
-        itemResultPanel.setLayout(new java.awt.GridLayout(1, 0));
+        itemResultPanel.setLayout(new java.awt.GridLayout(1, 5));
         featureScrollPane.setViewportView(itemResultPanel);
 
         featurePanel.add(featureScrollPane, "card2");
@@ -362,7 +362,7 @@ public class StoreView extends javax.swing.JPanel implements KeyListener{
                             .addGroup(framePanelLayout.createSequentialGroup()
                                 .addGap(0, 125, Short.MAX_VALUE)
                                 .addComponent(rightPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(centrePanel, javax.swing.GroupLayout.PREFERRED_SIZE, 514, Short.MAX_VALUE)))))
+                            .addComponent(centrePanel, javax.swing.GroupLayout.DEFAULT_SIZE, 514, Short.MAX_VALUE)))))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);

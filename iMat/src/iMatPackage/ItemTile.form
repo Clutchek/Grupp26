@@ -7,6 +7,15 @@
         <LineBorder/>
       </Border>
     </Property>
+    <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+      <Dimension value="[130, 130]"/>
+    </Property>
+    <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+      <Dimension value="[130, 130]"/>
+    </Property>
+    <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+      <Dimension value="[130, 130]"/>
+    </Property>
   </Properties>
   <AuxValues>
     <AuxValue name="FormSettings_autoResourcing" type="java.lang.Integer" value="0"/>
@@ -27,7 +36,7 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="itemPicPanel" pref="114" max="32767" attributes="0"/>
+                      <Component id="itemPicPanel" pref="116" max="32767" attributes="0"/>
                   </Group>
                   <Component id="itemButtonsPanel" alignment="0" max="32767" attributes="0"/>
               </Group>
@@ -46,7 +55,7 @@
               <Component id="itemPicPanel" min="-2" pref="76" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
               <Component id="foodNameLabel" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="10" max="32767" attributes="0"/>
+              <EmptySpace max="32767" attributes="0"/>
               <Component id="itemButtonsPanel" min="-2" max="-2" attributes="0"/>
           </Group>
       </Group>
