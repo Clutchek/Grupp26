@@ -34,11 +34,10 @@ public class ItemTile extends javax.swing.JPanel implements ChangeListener, Acti
     
     public void actionPerformed(ActionEvent e){
         temp = ((Integer)(amountSpinner.getValue())).doubleValue();
-        amount = temp + amount;
         System.out.println(itemIsInCart(shoppingItem.getProduct()));
         
         if(itemIsInCart(shoppingItem.getProduct())){
-            shoppingItem.setAmount(amount);
+            shoppingItem.setAmount(shoppingItem.getAmount() + temp);
             backend.getShoppingCart().fireShoppingCartChanged(shoppingItem, true);
         }
         else{
