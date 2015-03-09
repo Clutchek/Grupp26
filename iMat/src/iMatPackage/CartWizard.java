@@ -23,6 +23,7 @@ public class CartWizard extends javax.swing.JPanel {
     public CartWizard() {
         listModel = new DefaultListModel();
         initComponents();
+        updateView();
     }
 
     /**
@@ -42,6 +43,10 @@ public class CartWizard extends javax.swing.JPanel {
         logoLabel = new javax.swing.JLabel();
         titleLabel = new javax.swing.JLabel();
         progressPanel = new javax.swing.JPanel();
+        itemLabel = new javax.swing.JLabel();
+        priceNumberLabel = new javax.swing.JLabel();
+        priceLabel = new javax.swing.JLabel();
+        numberOfItemsLabel = new javax.swing.JLabel();
 
         backButton.setText("< Tillbaka");
 
@@ -84,6 +89,14 @@ public class CartWizard extends javax.swing.JPanel {
             .addGap(0, 88, Short.MAX_VALUE)
         );
 
+        itemLabel.setText("Antal varor:");
+
+        priceNumberLabel.setText("jLabel1");
+
+        priceLabel.setText("Totalt pris:");
+
+        numberOfItemsLabel.setText("jLabel3");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -102,13 +115,22 @@ public class CartWizard extends javax.swing.JPanel {
                         .addComponent(nextButton)
                         .addGap(155, 155, 155))))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(554, Short.MAX_VALUE)
                 .addComponent(titleLabel)
                 .addGap(550, 550, 550))
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(itemLabel)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(numberOfItemsLabel)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(priceLabel)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(priceNumberLabel))
+                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -120,7 +142,13 @@ public class CartWizard extends javax.swing.JPanel {
                 .addComponent(titleLabel)
                 .addGap(32, 32, 32)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(64, 64, 64)
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(itemLabel)
+                    .addComponent(priceNumberLabel)
+                    .addComponent(priceLabel)
+                    .addComponent(numberOfItemsLabel))
+                .addGap(30, 30, 30)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(backButton)
                     .addComponent(nextButton))
@@ -135,9 +163,15 @@ public class CartWizard extends javax.swing.JPanel {
     public void updateView(){
         listModel.clear();
         List<ShoppingItem> cart = IMatDataHandler.getInstance().getShoppingCart().getItems();
+        double totalPrice = 0;
         for(ShoppingItem item : cart){
             listModel.addElement(item.toString());
+            totalPrice = totalPrice + item.getTotal();
         }
+        priceNumberLabel.setText(String.valueOf(totalPrice));
+        numberOfItemsLabel.setText(String.valueOf(cart.size()));
+        priceNumberLabel.repaint();
+        numberOfItemsLabel.repaint();
         cartList.repaint();
     }
 
@@ -145,10 +179,14 @@ public class CartWizard extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton backButton;
     private javax.swing.JList cartList;
+    private javax.swing.JLabel itemLabel;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel logoLabel;
     private javax.swing.JButton nextButton;
+    private javax.swing.JLabel numberOfItemsLabel;
+    private javax.swing.JLabel priceLabel;
+    private javax.swing.JLabel priceNumberLabel;
     private javax.swing.JPanel progressPanel;
     private javax.swing.JLabel titleLabel;
     // End of variables declaration//GEN-END:variables
