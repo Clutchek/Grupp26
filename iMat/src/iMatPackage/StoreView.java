@@ -459,9 +459,9 @@ public class StoreView extends javax.swing.JPanel implements KeyListener{
             itemResultPanel.add(tile);
         }
         
-        /*for(int i = 0; i < getNbrOfEmptyContainers(nbrOfRows(columns, nbrOfProducts), nbrOfProducts); i++){
+        for(int i = 0; i < getNbrOfEmptyContainers(nbrOfRows(columns, nbrOfProducts), nbrOfProducts); i++){
             itemResultPanel.add(new Component(){});
-        }*/
+        }
         centrePanel.revalidate();
         itemResultPanel.revalidate();
     

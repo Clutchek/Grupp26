@@ -85,6 +85,7 @@ public class ItemTile extends javax.swing.JPanel implements ChangeListener, Acti
         setMaximumSize(new java.awt.Dimension(130, 130));
         setMinimumSize(new java.awt.Dimension(130, 130));
         setPreferredSize(new java.awt.Dimension(130, 130));
+        setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         amountSpinner.addChangeListener(this);
         amountSpinner.setModel(new javax.swing.SpinnerNumberModel(Integer.valueOf(1), Integer.valueOf(1), null, Integer.valueOf(1)));
@@ -118,6 +119,8 @@ public class ItemTile extends javax.swing.JPanel implements ChangeListener, Acti
                 .addContainerGap())
         );
 
+        add(itemButtonsPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(1, 105, 122, -1));
+
         itemPicPanel.setPreferredSize(new java.awt.Dimension(80, 70));
 
         javax.swing.GroupLayout itemPicPanelLayout = new javax.swing.GroupLayout(itemPicPanel);
@@ -136,33 +139,10 @@ public class ItemTile extends javax.swing.JPanel implements ChangeListener, Acti
                 .addGap(0, 9, Short.MAX_VALUE))
         );
 
-        foodNameLabel.setText("jLabel1");
+        add(itemPicPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(7, 1, 116, 76));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(itemPicPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 116, Short.MAX_VALUE))
-                    .addComponent(itemButtonsPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap())
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(foodNameLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(itemPicPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(foodNameLabel)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(itemButtonsPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-        );
+        foodNameLabel.setText("jLabel1");
+        add(foodNameLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(7, 83, 106, -1));
     }// </editor-fold>//GEN-END:initComponents
 
 
