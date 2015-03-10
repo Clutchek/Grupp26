@@ -6,6 +6,7 @@
 package iMatPackage;
 
 import java.awt.BorderLayout;
+import java.awt.Component;
 import javax.swing.SwingConstants;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -14,6 +15,7 @@ import java.awt.event.KeyListener;
 import java.util.List;
 import se.chalmers.ait.dat215.project.IMatDataHandler;
 import se.chalmers.ait.dat215.project.Product;
+import javax.swing.JComponent;
 
 /**
  *
@@ -257,12 +259,11 @@ public class StoreView extends javax.swing.JPanel implements KeyListener{
         featurePanel.setPreferredSize(new java.awt.Dimension(750, 335));
         featurePanel.setLayout(new java.awt.CardLayout());
 
-        featureScrollPane.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
         featureScrollPane.setToolTipText("");
-        featureScrollPane.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);
         featureScrollPane.setPreferredSize(new java.awt.Dimension(750, 335));
 
-        itemResultPanel.setLayout(new java.awt.GridLayout(1, 5));
+        itemResultPanel.setDoubleBuffered(false);
+        itemResultPanel.setLayout(new java.awt.GridLayout(6, 5));
         featureScrollPane.setViewportView(itemResultPanel);
 
         featurePanel.add(featureScrollPane, "card2");
@@ -422,14 +423,48 @@ public class StoreView extends javax.swing.JPanel implements KeyListener{
 
     @Override
     public void keyTyped(KeyEvent e) {
+        updateView();
+    }
+    
+    public int nbrOfRows(int columns, int size){
+        if(size%columns == 0){
+            return size/columns;
+        }
+        else{
+            return (size/columns) + 1;
+        }
+    }
+    public int getNbrOfEmptyContainers(int rows, int size){
+        return (rows * columns) - size;
+    }
+    
+    public int nbrOfAddedRows(int rows, int size){
+        if(nbrOfRows(rows, size) > 3){
+            return nbrOfRows(rows, size);
+        }
+        else{
+            return 3;
+        }
+    }
+    
+    public void updateView(){
         itemResultPanel.removeAll();
-        List<Product> products = IMatDataHandler.getInstance().findProducts(searchTextField.getText());
+        products = IMatDataHandler.getInstance().findProducts(searchTextField.getText());
+        nbrOfProducts = products.size();
+        itemResultPanel.setSize(750, (nbrOfRows(columns, nbrOfProducts) * 135));
+        itemResultPanel.setLayout(new java.awt.GridLayout(nbrOfAddedRows(nbrOfRows(columns, nbrOfProducts), nbrOfProducts), columns));
+        
         for(Product p : products){
             ItemTile tile = new ItemTile(p);
             itemResultPanel.add(tile);
         }
-        centrePanel.repaint();
-        itemResultPanel.repaint();
+        
+        /*for(int i = 0; i < getNbrOfEmptyContainers(nbrOfRows(columns, nbrOfProducts), nbrOfProducts); i++){
+            itemResultPanel.add(new Component(){});
+        }*/
+        centrePanel.revalidate();
+        itemResultPanel.revalidate();
+    
     }
 
     @Override
@@ -441,6 +476,11 @@ public class StoreView extends javax.swing.JPanel implements KeyListener{
     public void keyReleased(KeyEvent e) {
         //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+    private int nbrOfProducts;
+    private final int columns = 5;
+    List<Product> products;
+    
+    
     
     
     
