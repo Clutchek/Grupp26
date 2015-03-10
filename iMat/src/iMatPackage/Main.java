@@ -44,6 +44,7 @@ public class Main {
            //UIManager.setLookAndFeel("javax.swing.plaf.metal.MetalLookAndFeel");
         }
         controller.pack();
+        controller.setLocationRelativeTo(null);
         controller.setVisible(true);
     }
 }

@@ -33,7 +33,6 @@ public class StoreView extends javax.swing.JPanel implements KeyListener{
         rightPanel.add(shoppingCartView);
         leftPanel.setLayout(new BorderLayout());
        // leftPanel.add(itemTile);
-        searchTextField.setText("");
         searchTextField.addKeyListener(this);
     }
 
@@ -255,6 +254,21 @@ public class StoreView extends javax.swing.JPanel implements KeyListener{
         );
 
         searchTextField.setText("Sök här");
+        searchTextField.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                searchTextFieldMouseClicked(evt);
+            }
+        });
+        searchTextField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                searchTextFieldActionPerformed(evt);
+            }
+        });
+        searchTextField.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                searchTextFieldFocusGained(evt);
+            }
+        });
 
         featurePanel.setPreferredSize(new java.awt.Dimension(750, 335));
         featurePanel.setLayout(new java.awt.CardLayout());
@@ -363,7 +377,7 @@ public class StoreView extends javax.swing.JPanel implements KeyListener{
                             .addGroup(framePanelLayout.createSequentialGroup()
                                 .addGap(0, 125, Short.MAX_VALUE)
                                 .addComponent(rightPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(centrePanel, javax.swing.GroupLayout.DEFAULT_SIZE, 514, Short.MAX_VALUE)))))
+                            .addComponent(centrePanel, javax.swing.GroupLayout.PREFERRED_SIZE, 514, Short.MAX_VALUE)))))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -381,6 +395,18 @@ public class StoreView extends javax.swing.JPanel implements KeyListener{
                 .addGap(0, 29, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
+
+    private void searchTextFieldFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_searchTextFieldFocusGained
+        searchTextField.setText("");
+    }//GEN-LAST:event_searchTextFieldFocusGained
+
+    private void searchTextFieldMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_searchTextFieldMouseClicked
+        //searchTextField.setText("");
+    }//GEN-LAST:event_searchTextFieldMouseClicked
+
+    private void searchTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchTextFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_searchTextFieldActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
