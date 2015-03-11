@@ -50,7 +50,6 @@ public class ItemTile extends javax.swing.JPanel implements ChangeListener, Acti
     
     public void stateChanged(ChangeEvent e){
         
-            shoppingItem.setAmount(((Integer)(amountSpinner.getValue())).doubleValue());
             itemPriceLabel.setText("Pris: " + String.valueOf(shoppingItem.getTotal()));
     }
     

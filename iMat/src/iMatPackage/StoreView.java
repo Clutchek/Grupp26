@@ -254,6 +254,14 @@ public class StoreView extends javax.swing.JPanel implements KeyListener{
         );
 
         searchTextField.setText("Sök här");
+        searchTextField.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                searchTextFieldFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                searchTextFieldFocusLost(evt);
+            }
+        });
         searchTextField.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 searchTextFieldMouseClicked(evt);
@@ -262,11 +270,6 @@ public class StoreView extends javax.swing.JPanel implements KeyListener{
         searchTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 searchTextFieldActionPerformed(evt);
-            }
-        });
-        searchTextField.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                searchTextFieldFocusGained(evt);
             }
         });
 
@@ -407,6 +410,10 @@ public class StoreView extends javax.swing.JPanel implements KeyListener{
     private void searchTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchTextFieldActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_searchTextFieldActionPerformed
+
+    private void searchTextFieldFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_searchTextFieldFocusLost
+        searchTextField.setText("Sök här");
+    }//GEN-LAST:event_searchTextFieldFocusLost
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
