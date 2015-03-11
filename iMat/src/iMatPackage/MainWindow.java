@@ -29,6 +29,7 @@ public class MainWindow extends javax.swing.JFrame {
     private static InformationGuestView informationGuestView;
     private static InformationUserView informationUserView;
     private static InformationRegisterView informationRegisterView;
+    private static OrderHistoryView orderHistoryView;
     private static CardLayout cardManager;
     
 
@@ -44,6 +45,7 @@ public class MainWindow extends javax.swing.JFrame {
         informationUserView = new InformationUserView();
         informationRegisterView = new InformationRegisterView();
         deliveryWizardView = new DeliveryWizardView();
+        orderHistoryView = new OrderHistoryView();
         
         initComponents();
         cardManager = (CardLayout)cardPanel.getLayout();
@@ -59,6 +61,7 @@ public class MainWindow extends javax.swing.JFrame {
         cardPanel.add(informationRegisterView);
         cardPanel.add(paymentWizardView);
         cardPanel.add(deliveryWizardView);
+        cardPanel.add(orderHistoryView);
         
         cardManager.addLayoutComponent("StoreView", storeView);
         cardManager.addLayoutComponent("CartWizardView", cartWizardView);
@@ -68,6 +71,7 @@ public class MainWindow extends javax.swing.JFrame {
         cardManager.addLayoutComponent("InformationRegisterView", informationRegisterView);
         cardManager.addLayoutComponent("PaymentWizardView", paymentWizardView);
         cardManager.addLayoutComponent("DeliveryWizardView", deliveryWizardView);
+        cardManager.addLayoutComponent("OrderHistoryView", orderHistoryView);
         cardManager.show(cardPanel, "StoreView");
         
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -100,8 +104,8 @@ public class MainWindow extends javax.swing.JFrame {
     public static void showDeliveryWizardView(){
         cardManager.show(cardPanel, "DeliveryWizardView");
     }
-    public static void showPrevious(){
-        cardManager.previous(cardPanel);
+    public static void showOrderHistoryView(){
+        cardManager.show(cardPanel, "OrderHistoryView");
     }
     /**
      * This method is called from within the constructor to initialize the form.

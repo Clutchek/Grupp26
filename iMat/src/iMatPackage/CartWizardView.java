@@ -228,7 +228,7 @@ public class CartWizardView extends javax.swing.JPanel {
             listModel.addElement(item.getProduct().getName() + "                                " + item.getAmount() + "st                                " + item.getTotal() + "kr");
             totalPrice = totalPrice + item.getTotal();
         }
-        priceNumberLabel.setText(String.valueOf(totalPrice));
+        priceNumberLabel.setText(String.valueOf(totalPrice)+ "kr");
         numberOfItemsLabel.setText(String.valueOf(cart.size()));
         priceNumberLabel.repaint();
         numberOfItemsLabel.repaint();
