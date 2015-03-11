@@ -18,10 +18,7 @@ import javax.swing.UnsupportedLookAndFeelException;
 public class Main {
     
     public static void main(String[] args) {
-        StoreModel model = null;
-        MainController controller = new MainController(model);
-        StoreView storeview = new StoreView();
-        controller.add(storeview);
+        MainWindow window = new MainWindow();
         try {
             UIManager.setLookAndFeel("javax.swing.plaf.nimbus.NimbusLookAndFeel");
             /*for (LookAndFeelInfo info : UIManager.getInstalledLookAndFeels()) {
@@ -43,8 +40,8 @@ public class Main {
         catch (IllegalAccessException e) {
            //UIManager.setLookAndFeel("javax.swing.plaf.metal.MetalLookAndFeel");
         }
-        controller.pack();
-        controller.setLocationRelativeTo(null);
-        controller.setVisible(true);
+        window.pack();
+        window.setLocationRelativeTo(null);
+        window.setVisible(true);
     }
 }

@@ -7,19 +7,28 @@ package iMatPackage;
 
 import java.awt.BorderLayout;
 import java.awt.CardLayout;
+import java.awt.Dimension;
+import java.awt.LayoutManager;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JFrame;
+import javax.swing.JPanel;
 import se.chalmers.ait.dat215.project.IMatDataHandler;
 
 /**
  *
  * @author Alexander
  */
-public class MainWindow extends javax.swing.JFrame implements ActionListener {
+public class MainWindow extends javax.swing.JFrame {
     
     private static CartWizardView cartWizardView;
-    
+    private static PaymentWizardView paymentWizardView;
+    private static StoreView storeView;
+    private static InformationChooseView informationChooseView;
+    private static InformationGuestView informationGuestView;
+    private static InformationUserView informationUserView;
+    private static InformationRegisterView informationRegisterView;
+    private static CardLayout cardManager;
     
 
     /**
@@ -27,9 +36,31 @@ public class MainWindow extends javax.swing.JFrame implements ActionListener {
      */
     public MainWindow() {
         cartWizardView = new CartWizardView();
+        paymentWizardView = new PaymentWizardView();
+        storeView = new StoreView();
+        informationChooseView = new InformationChooseView();
+        informationGuestView = new InformationGuestView();
+        informationUserView = new InformationUserView();
+        informationRegisterView = new InformationRegisterView();
+        
         initComponents();
+        cardManager = (CardLayout)cardPanel.getLayout();
+        
+        
+        cardPanel.add(storeView);
+        cardPanel.add(cartWizardView);
+        cardPanel.add(informationChooseView);
+        cardPanel.add(informationUserView);
+        cardPanel.add(informationGuestView);
+        cardPanel.add(informationUserView);
+        cardPanel.add(informationRegisterView);
+        cardPanel.add(paymentWizardView);
+        
+        cardManager.addLayoutComponent("StoreView", storeView);
+        cardManager.show(cardPanel, "StoreView");
+        
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setLayout(new CardLayout());
+        setPreferredSize(new Dimension(1200,700));
         setLocationRelativeTo(null);
         
     }
@@ -63,12 +94,8 @@ public class MainWindow extends javax.swing.JFrame implements ActionListener {
         IMatDataHandler.getInstance().shutDown();
     }//GEN-LAST:event_formWindowClosing
 
-    public void actionPerformed(ActionEvent e){
-        
-    }
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel cardPanel;
     // End of variables declaration//GEN-END:variables
-    private StoreModel model;
+
 }
