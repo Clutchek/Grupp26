@@ -6,6 +6,7 @@
 package iMatPackage;
 
 import java.awt.BorderLayout;
+import java.awt.Cursor;
 import java.awt.event.MouseListener;
 import javax.swing.JLabel;
 
@@ -23,6 +24,7 @@ public class MainCategoryPanel extends javax.swing.JPanel {
         initComponents();
         setLayout(new BorderLayout());
         add(new JLabel(c.getName()), BorderLayout.CENTER);
+        setCursor(new Cursor(Cursor.HAND_CURSOR));
     }
 
     /**

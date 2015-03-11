@@ -336,7 +336,7 @@ public class StoreView extends javax.swing.JPanel implements KeyListener{
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JPanel centrePanel;
+    private static javax.swing.JPanel centrePanel;
     private javax.swing.JButton contactButton;
     private javax.swing.JButton faqButton;
     private javax.swing.JPanel featurePanel;
@@ -344,7 +344,7 @@ public class StoreView extends javax.swing.JPanel implements KeyListener{
     private javax.swing.JPanel framePanel;
     private javax.swing.JButton homeButton;
     private javax.swing.JButton howToButton;
-    private javax.swing.JPanel itemResultPanel;
+    private static javax.swing.JPanel itemResultPanel;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JSeparator jSeparator3;
@@ -364,10 +364,10 @@ public class StoreView extends javax.swing.JPanel implements KeyListener{
 
     @Override
     public void keyTyped(KeyEvent e) {
-        updateView();
+        updateView(IMatDataHandler.getInstance().findProducts(searchTextField.getText()));
     }
     
-    public int nbrOfRows(int columns, int size){
+    public static int nbrOfRows(int columns, int size){
         if(size%columns == 0){
             return size/columns;
         }
@@ -375,7 +375,7 @@ public class StoreView extends javax.swing.JPanel implements KeyListener{
             return (size/columns) + 1;
         }
     }
-    public int getNbrOfEmptyContainers(int rows, int size){
+    public static int getNbrOfEmptyContainers(int rows, int size){
         return (rows * columns) - size;
     }
     
@@ -388,9 +388,9 @@ public class StoreView extends javax.swing.JPanel implements KeyListener{
         }
     }
     
-    public void updateView(){
+    public static void updateView(List<Product> pr){
         itemResultPanel.removeAll();
-        products = IMatDataHandler.getInstance().findProducts(searchTextField.getText());
+        products = pr;
         nbrOfProducts = products.size();
        /* itemResultPanel.setSize(750, (nbrOfRows(columns, nbrOfProducts) * 135));
         itemResultPanel.setLayout(new java.awt.GridLayout(nbrOfAddedRows(nbrOfRows(columns, nbrOfProducts), nbrOfProducts), columns));*/
@@ -417,10 +417,10 @@ public class StoreView extends javax.swing.JPanel implements KeyListener{
     public void keyReleased(KeyEvent e) {
         //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-    private int nbrOfProducts;
-    private final int columns = 5;
-    private List<Product> products;
-    private CategoryController categorycontroller;
+    private static int nbrOfProducts;
+    private static final int columns = 5;
+    private static List<Product> products;
+    private static CategoryController categorycontroller;
     
     
     

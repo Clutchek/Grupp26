@@ -32,7 +32,7 @@ public class CategoryPanel extends javax.swing.JPanel implements MouseListener{
         categorie = c;
         this.main = new MainCategoryPanel(categorie);
         main.addMouseListener(this);
-        this.sub = new SubCategoryPanel(categorie.getSubCategories());
+        this.sub = new SubCategoryPanel(categorie ,categorie.getSubCategories());
         add(sub);
         add(main);
         cardManager.addLayoutComponent("Sub", sub);
@@ -76,7 +76,7 @@ public class CategoryPanel extends javax.swing.JPanel implements MouseListener{
         if(categorie.isChosen()){
             cardManager.show(this, "Sub");
         }else{
-            cardManager.show(this, "Sub");
+            cardManager.show(this, "Main");
         }
         repaint();
         revalidate();
@@ -87,6 +87,7 @@ public class CategoryPanel extends javax.swing.JPanel implements MouseListener{
         CategoryController.resetCategoriePanels();
         categorie.choose();
         updateView();
+        StoreView.updateView(categorie.getProducts());
     }
 
     @Override
