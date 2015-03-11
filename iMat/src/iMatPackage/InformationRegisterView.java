@@ -415,7 +415,7 @@ public class InformationRegisterView extends javax.swing.JPanel {
     private boolean isCustomerComplete() {
         if(customer.getFirstName().equals("") || customer.getLastName().equals("") || customer.getAddress().equals("")){
             return false;
-        }else if(!customer.getMobilePhoneNumber().equals("") && !customer.getPhoneNumber().equals("")){
+        }else if(customer.getMobilePhoneNumber().equals("") && customer.getPhoneNumber().equals("")){
             return false;
         }else{
             return true;

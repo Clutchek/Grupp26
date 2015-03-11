@@ -5,6 +5,8 @@
  */
 package iMatPackage;
 
+import java.awt.BorderLayout;
+import java.awt.CardLayout;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import javax.swing.JPanel;
@@ -17,19 +19,27 @@ public class CategoryPanel extends javax.swing.JPanel implements MouseListener{
     
     private JPanel main;
     private JPanel sub;
-    private JPanel currentlyDisplaying;
     private Category categorie;
+    private CardLayout cardManager;
 
     /**
      * Creates new form CategoriePanel
      */
     public CategoryPanel(Category c) {
+        initComponents();
+        setLayout(new CardLayout());
+        cardManager = (CardLayout)getLayout();
         categorie = c;
         this.main = new MainCategoryPanel(categorie);
+        main.addMouseListener(this);
         this.sub = new SubCategoryPanel(categorie.getSubCategories());
-        currentlyDisplaying = main;
-        add(currentlyDisplaying);
-        initComponents();
+        add(sub);
+        add(main);
+        cardManager.addLayoutComponent("Sub", sub);
+        cardManager.addLayoutComponent("Main", main);
+        cardManager.show(this, "Main");
+        repaint();
+        revalidate();
     }
 
     /**
@@ -45,11 +55,11 @@ public class CategoryPanel extends javax.swing.JPanel implements MouseListener{
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGap(0, 125, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGap(0, 73, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -59,26 +69,24 @@ public class CategoryPanel extends javax.swing.JPanel implements MouseListener{
 
     public void reset(){
         categorie.unChoose();
+        updateView();
     }
     
     public void updateView(){
         if(categorie.isChosen()){
-            currentlyDisplaying = sub;
+            cardManager.show(this, "Sub");
         }else{
-            currentlyDisplaying = main;
+            cardManager.show(this, "Sub");
         }
         repaint();
+        revalidate();
     }
     
     @Override
     public void mouseClicked(MouseEvent e) {
-        if(e.getSource() == main){
-            CategoryController.resetCategoriePanels();
-            categorie.choose();
-            updateView();
-            
-            
-        }
+        CategoryController.resetCategoriePanels();
+        categorie.choose();
+        updateView();
     }
 
     @Override

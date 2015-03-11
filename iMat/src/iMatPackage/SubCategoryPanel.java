@@ -5,6 +5,7 @@
  */
 package iMatPackage;
 
+import java.awt.Cursor;
 import java.awt.GridLayout;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
@@ -24,10 +25,11 @@ public class SubCategoryPanel extends javax.swing.JPanel implements MouseListene
     public SubCategoryPanel(List<SubCategory> subCategories){
         initComponents();
         this.subCategories = subCategories;
-        this.setLayout(new GridLayout(1,subCategories.size()));
+        this.setLayout(new GridLayout(0, 1));
         for(SubCategory subCategorie : subCategories){
             JLabel categorieLabel = new JLabel(subCategorie.getName());
             categorieLabel.addMouseListener(this);
+            categorieLabel.setCursor(new Cursor(Cursor.HAND_CURSOR));
             this.add(categorieLabel);
         }
     }
@@ -35,8 +37,8 @@ public class SubCategoryPanel extends javax.swing.JPanel implements MouseListene
     @Override
     public void mouseClicked(MouseEvent e) {
         for(SubCategory subCategorie : subCategories){
-            if(e.getSource().toString() == subCategorie.getName()){
-                //skicka produkter till result panel :D
+            if(((JLabel)e.getSource()).getText().equals(subCategorie.getName())){
+                System.out.print("Dest2");
             }
         }
     }
@@ -61,17 +63,17 @@ public class SubCategoryPanel extends javax.swing.JPanel implements MouseListene
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        setBorder(javax.swing.BorderFactory.createEtchedBorder(null, java.awt.Color.black));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 396, Short.MAX_VALUE)
+            .addGap(0, 121, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 296, Short.MAX_VALUE)
+            .addGap(0, 69, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
 

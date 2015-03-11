@@ -7,6 +7,7 @@ package iMatPackage;
 
 import java.awt.BorderLayout;
 import java.awt.Component;
+import java.awt.GridLayout;
 import javax.swing.SwingConstants;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -27,12 +28,11 @@ public class StoreView extends javax.swing.JPanel implements KeyListener{
     public StoreView(){
         shoppingCartView = new ShoppingCartView();
         IMatDataHandler backend = IMatDataHandler.getInstance();
-        //itemTile = new ItemTile(backend.getProduct(5));
         initComponents();
         rightPanel.setLayout(new BorderLayout());
         rightPanel.add(shoppingCartView);
-        leftPanel.setLayout(new BorderLayout());
-       // leftPanel.add(itemTile);
+        leftPanel.setLayout(new GridLayout(0,1));
+        categorycontroller = new CategoryController(leftPanel);
         searchTextField.addKeyListener(this);
     }
 
@@ -259,7 +259,7 @@ public class StoreView extends javax.swing.JPanel implements KeyListener{
         );
 
         leftPanel.setPreferredSize(new java.awt.Dimension(125, 510));
-        leftPanel.setLayout(new javax.swing.BoxLayout(leftPanel, javax.swing.BoxLayout.LINE_AXIS));
+        leftPanel.setLayout(new java.awt.GridLayout(0, 1));
 
         javax.swing.GroupLayout framePanelLayout = new javax.swing.GroupLayout(framePanel);
         framePanel.setLayout(framePanelLayout);
@@ -282,14 +282,17 @@ public class StoreView extends javax.swing.JPanel implements KeyListener{
             .addGroup(framePanelLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(topPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(framePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(framePanelLayout.createSequentialGroup()
-                        .addGap(0, 136, Short.MAX_VALUE)
-                        .addComponent(rightPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(centrePanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(framePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(framePanelLayout.createSequentialGroup()
+                                .addGap(0, 136, Short.MAX_VALUE)
+                                .addComponent(rightPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(centrePanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                     .addGroup(framePanelLayout.createSequentialGroup()
-                        .addComponent(leftPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 509, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(76, 76, 76)
+                        .addComponent(leftPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 440, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, Short.MAX_VALUE))))
         );
 
@@ -307,7 +310,7 @@ public class StoreView extends javax.swing.JPanel implements KeyListener{
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(framePanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(18, Short.MAX_VALUE))
+                .addContainerGap(45, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -416,7 +419,8 @@ public class StoreView extends javax.swing.JPanel implements KeyListener{
     }
     private int nbrOfProducts;
     private final int columns = 5;
-    List<Product> products;
+    private List<Product> products;
+    private CategoryController categorycontroller;
     
     
     
