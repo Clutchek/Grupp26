@@ -54,7 +54,7 @@ public class ShoppingCartView extends javax.swing.JPanel implements ShoppingCart
         scrollPane = new javax.swing.JScrollPane();
         itemList = new javax.swing.JPanel();
 
-        setPreferredSize(new java.awt.Dimension(235, 367));
+        setPreferredSize(new java.awt.Dimension(272, 367));
 
         favoriteButton.setText("Spara");
 
@@ -65,19 +65,8 @@ public class ShoppingCartView extends javax.swing.JPanel implements ShoppingCart
 
         scrollPane.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
 
-        javax.swing.GroupLayout itemListLayout = new javax.swing.GroupLayout(itemList);
-        itemList.setLayout(itemListLayout);
-        itemListLayout.setHorizontalGroup(
-            itemListLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 127, Short.MAX_VALUE)
-        );
-        itemListLayout.setVerticalGroup(
-            itemListLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 269, Short.MAX_VALUE)
-        );
-
-        itemList.setPreferredSize(new java.awt.Dimension(230, 363));
-        itemList.setLayout(new javax.swing.BoxLayout(itemList, javax.swing.BoxLayout.LINE_AXIS));
+        itemList.setMinimumSize(new java.awt.Dimension(270, 0));
+        itemList.setLayout(new java.awt.GridLayout(0, 1));
         scrollPane.setViewportView(itemList);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -94,7 +83,7 @@ public class ShoppingCartView extends javax.swing.JPanel implements ShoppingCart
                         .addContainerGap()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(buyButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(scrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))))
+                            .addComponent(scrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 288, Short.MAX_VALUE))))
                 .addContainerGap())
         );
         layout.setVerticalGroup(

@@ -77,8 +77,8 @@ public class StoreView extends javax.swing.JPanel implements KeyListener{
         rightPanel = new javax.swing.JPanel();
         leftPanel = new javax.swing.JPanel();
 
-        setMaximumSize(new java.awt.Dimension(1200, 800));
-        setPreferredSize(new java.awt.Dimension(1200, 650));
+        setMaximumSize(new java.awt.Dimension(1200, 1000));
+        setPreferredSize(new java.awt.Dimension(1200, 700));
 
         topMenuPanel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 204)));
 
@@ -312,14 +312,15 @@ public class StoreView extends javax.swing.JPanel implements KeyListener{
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        rightPanel.setMaximumSize(new java.awt.Dimension(225, 389));
-        rightPanel.setPreferredSize(new java.awt.Dimension(225, 389));
+        rightPanel.setMaximumSize(new java.awt.Dimension(270, 389));
+        rightPanel.setMinimumSize(new java.awt.Dimension(270, 389));
+        rightPanel.setPreferredSize(new java.awt.Dimension(270, 389));
 
         javax.swing.GroupLayout rightPanelLayout = new javax.swing.GroupLayout(rightPanel);
         rightPanel.setLayout(rightPanelLayout);
         rightPanelLayout.setHorizontalGroup(
             rightPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 261, Short.MAX_VALUE)
+            .addGap(0, 0, Short.MAX_VALUE)
         );
         rightPanelLayout.setVerticalGroup(
             rightPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

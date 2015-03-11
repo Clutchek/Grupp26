@@ -42,56 +42,60 @@ public class CartItem extends javax.swing.JPanel implements ChangeListener,Actio
         nameLabel = new javax.swing.JLabel();
         priceSpinner = new javax.swing.JSpinner();
         unitLabel = new javax.swing.JLabel();
-        priceLabel = new javax.swing.JLabel();
         removeButton = new javax.swing.JButton();
 
-        setPreferredSize(new java.awt.Dimension(225, 41));
+        setMaximumSize(new java.awt.Dimension(261, 41));
+        setMinimumSize(new java.awt.Dimension(261, 41));
+        setPreferredSize(new java.awt.Dimension(261, 41));
 
         nameLabel.setFont(new java.awt.Font("Lucida Grande", 0, 10)); // NOI18N
         nameLabel.setText(product.getName());
+        nameLabel.setMaximumSize(new java.awt.Dimension(78, 13));
+        nameLabel.setMinimumSize(new java.awt.Dimension(78, 13));
+        nameLabel.setPreferredSize(new java.awt.Dimension(78, 13));
 
         priceSpinner.setFont(new java.awt.Font("Lucida Grande", 0, 10)); // NOI18N
         priceSpinner.setModel(new javax.swing.SpinnerNumberModel(Integer.valueOf(0), Integer.valueOf(0), null, Integer.valueOf(1)));
         priceSpinner.setToolTipText("Ändra Antalet av varan");
+        priceSpinner.setMaximumSize(new java.awt.Dimension(38, 26));
         priceSpinner.setValue(item.getAmount());
 
         unitLabel.setFont(new java.awt.Font("Lucida Grande", 0, 10)); // NOI18N
-        unitLabel.setText("kr ");
-
-        priceLabel.setFont(new java.awt.Font("Lucida Grande", 0, 10)); // NOI18N
-        priceLabel.setText(new Double(item.getTotal()).toString());
+        unitLabel.setText(new Double(item.getTotal()).toString() + " kr");
+        unitLabel.setMaximumSize(new java.awt.Dimension(48, 13));
+        unitLabel.setMinimumSize(new java.awt.Dimension(48, 13));
+        unitLabel.setPreferredSize(new java.awt.Dimension(48, 13));
 
         removeButton.setFont(new java.awt.Font("Lucida Grande", 0, 8)); // NOI18N
         removeButton.setText("X");
+        removeButton.setMaximumSize(new java.awt.Dimension(42, 29));
+        removeButton.setMinimumSize(new java.awt.Dimension(42, 29));
+        removeButton.setPreferredSize(new java.awt.Dimension(42, 29));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(nameLabel)
+                .addComponent(nameLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(priceSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(unitLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(priceSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(priceLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(unitLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(removeButton, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addComponent(removeButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(19, 19, 19))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(removeButton, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(nameLabel)
-                        .addComponent(priceSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(unitLabel)
-                        .addComponent(priceLabel)))
-                .addContainerGap(8, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(nameLabel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(priceSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(unitLabel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(removeButton, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(3, 3, 3))
         );
     }// </editor-fold>//GEN-END:initComponents
     @Override
@@ -114,7 +118,6 @@ public class CartItem extends javax.swing.JPanel implements ChangeListener,Actio
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel nameLabel;
-    private javax.swing.JLabel priceLabel;
     private javax.swing.JSpinner priceSpinner;
     private javax.swing.JButton removeButton;
     private javax.swing.JLabel unitLabel;
