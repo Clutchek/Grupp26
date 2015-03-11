@@ -29,11 +29,13 @@ public class ItemTile extends javax.swing.JPanel implements ChangeListener, Acti
         addProductButton.addActionListener(this);
         foodPicLabel.setIcon(backend.getImageIcon(p, 80, 60));
         foodNameLabel.setText(p.getName());
-        itemPriceLabel.setText("Pris: " + String.valueOf(shoppingItem.getTotal()));
+        itemPriceLabel.setText("Pris: " + String.valueOf(shoppingItem.getProduct().getPrice()));
     }
     
     public void actionPerformed(ActionEvent e){
         spinnerValue = ((Integer)(amountSpinner.getValue())).doubleValue();
+        itemPriceLabel.setText("Pris: " + shoppingItem.getProduct().getPrice() * spinnerValue);
+        itemPriceLabel.repaint();
         System.out.println(itemIsInCart(shoppingItem.getProduct()));
         
         if(itemIsInCart(shoppingItem.getProduct())){
@@ -41,16 +43,19 @@ public class ItemTile extends javax.swing.JPanel implements ChangeListener, Acti
             backend.getShoppingCart().fireShoppingCartChanged(shoppingItem, true);
         }
         else{
-            //shoppingItem.setAmount(amount);
+            shoppingItem.setAmount(spinnerValue);
             backend.getShoppingCart().addItem(shoppingItem);
+            
         }
         System.out.println(shoppingItem.getAmount());
+        itemPriceLabel.repaint();
     }
     
     
     public void stateChanged(ChangeEvent e){
         
-            itemPriceLabel.setText("Pris: " + String.valueOf(shoppingItem.getTotal()));
+        itemPriceLabel.setText("Pris: " + shoppingItem.getProduct().getPrice() * ((Integer)(amountSpinner.getValue())).doubleValue());
+        itemPriceLabel.repaint();
     }
     
     public boolean itemIsInCart(Product p){

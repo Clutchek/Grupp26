@@ -108,7 +108,6 @@ public class CartItem extends javax.swing.JPanel implements ChangeListener,Actio
     @Override
     public void stateChanged(ChangeEvent e) {
         item.setAmount(((Integer)(priceSpinner.getValue())).doubleValue());
-        priceLabel.setText(priceSpinner.getValue().toString());
         IMatDataHandler.getInstance().getShoppingCart().fireShoppingCartChanged(item, true);
     }
     

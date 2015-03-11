@@ -36,6 +36,7 @@ public class ShoppingCartView extends javax.swing.JPanel implements ShoppingCart
                 itemList.setLayout(new BoxLayout(itemList, BoxLayout.Y_AXIS));
                 this.cart = IMatDataHandler.getInstance().getShoppingCart();
                 cart.addShoppingCartListener(this);
+                updateView();
                 
 	}
 
