@@ -39,7 +39,7 @@ public class DeliveryWizardView extends javax.swing.JPanel {
         cardPanel = new javax.swing.JPanel();
         deliveryAddressPanel = new javax.swing.JPanel();
         deliveryAddressLabel = new javax.swing.JLabel();
-        jRadioButton1 = new javax.swing.JRadioButton();
+        billingRadioButton = new javax.swing.JRadioButton();
         jRadioButton2 = new javax.swing.JRadioButton();
         cardAddressPanel = new javax.swing.JPanel();
         otherAddressPanel = new javax.swing.JPanel();
@@ -74,7 +74,7 @@ public class DeliveryWizardView extends javax.swing.JPanel {
 
         deliveryAddressLabel.setText("3. Leveransaddress");
 
-        jRadioButton1.setText("jRadioButton1");
+        billingRadioButton.setText("RadioButton");
 
         jRadioButton2.setText("jRadioButton2");
 
@@ -118,7 +118,7 @@ public class DeliveryWizardView extends javax.swing.JPanel {
                 .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(deliveryAddressPanelLayout.createSequentialGroup()
                 .addGroup(deliveryAddressPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jRadioButton1)
+                    .addComponent(billingRadioButton)
                     .addComponent(jRadioButton2)
                     .addComponent(cardAddressPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(40, Short.MAX_VALUE))
@@ -129,7 +129,7 @@ public class DeliveryWizardView extends javax.swing.JPanel {
                 .addContainerGap()
                 .addComponent(deliveryAddressLabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jRadioButton1)
+                .addComponent(billingRadioButton)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jRadioButton2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -223,6 +223,7 @@ public class DeliveryWizardView extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton backButton;
     private javax.swing.JLabel billingAddress;
+    private javax.swing.JRadioButton billingRadioButton;
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.ButtonGroup buttonGroup2;
     private javax.swing.JPanel cardAddressPanel;
@@ -234,7 +235,6 @@ public class DeliveryWizardView extends javax.swing.JPanel {
     private javax.swing.JPanel emptyAdressPanel;
     private javax.swing.JPanel emptyPanel;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JRadioButton jRadioButton1;
     private javax.swing.JRadioButton jRadioButton2;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JButton nextButton;

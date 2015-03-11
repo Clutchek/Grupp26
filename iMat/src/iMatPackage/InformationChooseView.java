@@ -35,11 +35,26 @@ public class InformationChooseView extends javax.swing.JPanel {
 
         userButton.setText("Logga in");
         userButton.setToolTipText("");
+        userButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                userButtonActionPerformed(evt);
+            }
+        });
 
         guestButton.setText("Handla som Gäst");
         guestButton.setToolTipText("");
+        guestButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                guestButtonActionPerformed(evt);
+            }
+        });
 
         createButton.setText("Registrera ny användare");
+        createButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                createButtonActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout progressPanelLayout = new javax.swing.GroupLayout(progressPanel);
         progressPanel.setLayout(progressPanelLayout);
@@ -86,6 +101,18 @@ public class InformationChooseView extends javax.swing.JPanel {
                 .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
+
+    private void createButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_createButtonActionPerformed
+
+    private void guestButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guestButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_guestButtonActionPerformed
+
+    private void userButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_userButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_userButtonActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
