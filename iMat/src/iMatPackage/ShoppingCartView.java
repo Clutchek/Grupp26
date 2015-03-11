@@ -63,6 +63,11 @@ public class ShoppingCartView extends javax.swing.JPanel implements ShoppingCart
         clearButton.addActionListener(this);
 
         buyButton.setText("Köp");
+        buyButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buyButtonActionPerformed(evt);
+            }
+        });
 
         scrollPane.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
 
@@ -101,6 +106,11 @@ public class ShoppingCartView extends javax.swing.JPanel implements ShoppingCart
                 .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
+
+    private void buyButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buyButtonActionPerformed
+        MainWindow.showCartWizardView();
+        CartWizardView.updateView();
+    }//GEN-LAST:event_buyButtonActionPerformed
 	
 
     public void updateView(){
