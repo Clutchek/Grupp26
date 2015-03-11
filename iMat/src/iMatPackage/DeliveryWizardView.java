@@ -16,6 +16,7 @@ public class DeliveryWizardView extends javax.swing.JPanel {
      */
     public DeliveryWizardView() {
         initComponents();
+        origin = "";
     }
 
     /**
@@ -30,6 +31,7 @@ public class DeliveryWizardView extends javax.swing.JPanel {
         buttonGroup1 = new javax.swing.ButtonGroup();
         buttonGroup2 = new javax.swing.ButtonGroup();
         progressPanel = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         jTextField1 = new javax.swing.JTextField();
         billingAddress = new javax.swing.JLabel();
@@ -49,15 +51,18 @@ public class DeliveryWizardView extends javax.swing.JPanel {
         backButton = new javax.swing.JButton();
         nextButton = new javax.swing.JButton();
 
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/4.png"))); // NOI18N
+
         javax.swing.GroupLayout progressPanelLayout = new javax.swing.GroupLayout(progressPanel);
         progressPanel.setLayout(progressPanelLayout);
         progressPanelLayout.setHorizontalGroup(
             progressPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1200, Short.MAX_VALUE)
+            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         progressPanelLayout.setVerticalGroup(
             progressPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 88, Short.MAX_VALUE)
+            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         jPanel1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
@@ -230,13 +235,27 @@ public class DeliveryWizardView extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void backButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backButtonActionPerformed
-        MainWindow.showPrevious();
+        if(origin.equals("Guest")){
+            MainWindow.showInformationGuestView();
+        }else if(origin.equals("Register")){
+            MainWindow.showInformationRegisterView();
+        }else if(origin.equals("User")){
+            MainWindow.showInformationUserView();
+        }
     }//GEN-LAST:event_backButtonActionPerformed
 
     private void nextButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nextButtonActionPerformed
         MainWindow.showPaymentWizardView();
     }//GEN-LAST:event_nextButtonActionPerformed
-
+    protected static void setOriginToGuest(){
+        origin = "Guest";
+    }
+    protected static void setOriginToRegister(){
+        origin = "Register";
+    }
+    protected static void setOriginToUser(){
+        origin = "User";
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton backButton;
@@ -253,6 +272,7 @@ public class DeliveryWizardView extends javax.swing.JPanel {
     private javax.swing.JRadioButton differentAdressRadioButton;
     private javax.swing.JPanel emptyAdressPanel;
     private javax.swing.JPanel emptyPanel;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JButton nextButton;
@@ -261,4 +281,5 @@ public class DeliveryWizardView extends javax.swing.JPanel {
     private javax.swing.JRadioButton pickupRadioButton;
     private javax.swing.JPanel progressPanel;
     // End of variables declaration//GEN-END:variables
+    private static String origin;
 }

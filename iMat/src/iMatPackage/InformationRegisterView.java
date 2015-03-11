@@ -361,6 +361,7 @@ public class InformationRegisterView extends javax.swing.JPanel {
         }
         
         if(passWordFieldsMatched){
+            customer.setAddress(adressField.getText());
             customer.setPostAddress(postAddressField.getText());
             customer.setEmail(emailField.getText());
             customer.setFirstName(firstNameField.getText());
@@ -371,6 +372,7 @@ public class InformationRegisterView extends javax.swing.JPanel {
 
            if(isCustomerComplete() && isUserComplete()){
                 MainWindow.showDeliveryWizardView();
+                DeliveryWizardView.setOriginToRegister();
             }else{
                 passWordFieldsMatched = false;
                 errorPanel.removeAll();

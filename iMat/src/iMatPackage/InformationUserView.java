@@ -37,11 +37,11 @@ public class InformationUserView extends javax.swing.JPanel {
         iconLabel = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         titleLabel = new javax.swing.JLabel();
-        passwordField = new javax.swing.JTextField();
         userNameField = new javax.swing.JTextField();
         passwordLabel = new javax.swing.JLabel();
         userNameLabel = new javax.swing.JLabel();
         errorPanel = new javax.swing.JPanel();
+        passwordField = new javax.swing.JPasswordField();
         backButton = new javax.swing.JButton();
         nextButton = new javax.swing.JButton();
 
@@ -65,18 +65,18 @@ public class InformationUserView extends javax.swing.JPanel {
         titleLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         titleLabel.setText("Logga in");
 
-        passwordField.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                passwordFieldActionPerformed(evt);
-            }
-        });
-
         passwordLabel.setText("Lösenord");
         passwordLabel.setToolTipText("");
 
         userNameLabel.setText("Användarnamn");
 
         errorPanel.setLayout(new java.awt.BorderLayout());
+
+        passwordField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                passwordFieldActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -91,9 +91,9 @@ public class InformationUserView extends javax.swing.JPanel {
                             .addComponent(passwordLabel))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(passwordField, javax.swing.GroupLayout.DEFAULT_SIZE, 486, Short.MAX_VALUE)
                             .addComponent(userNameField, javax.swing.GroupLayout.DEFAULT_SIZE, 486, Short.MAX_VALUE)
-                            .addComponent(errorPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                            .addComponent(errorPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(passwordField)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(287, 287, 287)
                         .addComponent(titleLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -110,8 +110,8 @@ public class InformationUserView extends javax.swing.JPanel {
                     .addComponent(userNameField, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(21, 21, 21)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(passwordField, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(passwordLabel))
+                    .addComponent(passwordLabel)
+                    .addComponent(passwordField, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(errorPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(28, 28, 28))
@@ -161,10 +161,6 @@ public class InformationUserView extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void passwordFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_passwordFieldActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_passwordFieldActionPerformed
-
     private void nextButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nextButtonActionPerformed
         errorPanel.removeAll();
         User user = IMatDataHandler.getInstance().getUser();
@@ -186,6 +182,7 @@ public class InformationUserView extends javax.swing.JPanel {
             passwordField.setText("");
             errorPanel.removeAll();
             MainWindow.showDeliveryWizardView();
+            DeliveryWizardView.setOriginToUser();
         }
         /*
             errorPanel.removeAll();
@@ -199,6 +196,31 @@ public class InformationUserView extends javax.swing.JPanel {
         MainWindow.showInformationChooseView();
     }//GEN-LAST:event_backButtonActionPerformed
 
+    private void passwordFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_passwordFieldActionPerformed
+        errorPanel.removeAll();
+        User user = IMatDataHandler.getInstance().getUser();
+        String username;
+        String password;
+        username = userNameField.getText();
+        password = passwordField.getText();
+
+        if((!(username.equals(user.getUserName()))) || (!(password.equals(user.getPassword()))) || user.getUserName().equals("") || user.getPassword().equals("")){
+            errorPanel.removeAll();
+            JLabel errorLabel = new JLabel("Fel Inloggningsuppgifter");
+            errorLabel.setForeground(Color.red);
+            errorPanel.add(errorLabel, BorderLayout.CENTER);
+            errorPanel.repaint();
+            errorLabel.repaint();
+            errorPanel.revalidate();
+        }else{
+            userNameField.setText("");
+            passwordField.setText("");
+            errorPanel.removeAll();
+            MainWindow.showDeliveryWizardView();
+            DeliveryWizardView.setOriginToUser();
+        }
+    }//GEN-LAST:event_passwordFieldActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton backButton;
@@ -206,7 +228,7 @@ public class InformationUserView extends javax.swing.JPanel {
     private javax.swing.JLabel iconLabel;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JButton nextButton;
-    private javax.swing.JTextField passwordField;
+    private javax.swing.JPasswordField passwordField;
     private javax.swing.JLabel passwordLabel;
     private javax.swing.JPanel progressPanel;
     private javax.swing.JLabel titleLabel;

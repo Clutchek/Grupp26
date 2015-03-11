@@ -298,6 +298,7 @@ public class InformationGuestView extends javax.swing.JPanel {
         customer.setPhoneNumber(phoneNumberField.getText());
         if(isCustomerComplete()){
             MainWindow.showDeliveryWizardView();
+            DeliveryWizardView.setOriginToGuest();
         }else{
             errorPanel.removeAll();
             JLabel errorLabel = new JLabel("Information saknas");
