@@ -277,7 +277,7 @@ public class StoreView extends javax.swing.JPanel implements KeyListener{
         featureScrollPane.setPreferredSize(new java.awt.Dimension(750, 335));
 
         itemResultPanel.setDoubleBuffered(false);
-        itemResultPanel.setLayout(new java.awt.GridLayout(6, 5));
+        itemResultPanel.setLayout(new java.awt.GridLayout(0, 5, 2, 2));
         featureScrollPane.setViewportView(itemResultPanel);
 
         featurePanel.add(featureScrollPane, "card2");
@@ -477,8 +477,8 @@ public class StoreView extends javax.swing.JPanel implements KeyListener{
         itemResultPanel.removeAll();
         products = IMatDataHandler.getInstance().findProducts(searchTextField.getText());
         nbrOfProducts = products.size();
-        itemResultPanel.setSize(750, (nbrOfRows(columns, nbrOfProducts) * 135));
-        itemResultPanel.setLayout(new java.awt.GridLayout(nbrOfAddedRows(nbrOfRows(columns, nbrOfProducts), nbrOfProducts), columns));
+       /* itemResultPanel.setSize(750, (nbrOfRows(columns, nbrOfProducts) * 135));
+        itemResultPanel.setLayout(new java.awt.GridLayout(nbrOfAddedRows(nbrOfRows(columns, nbrOfProducts), nbrOfProducts), columns));*/
         
         for(Product p : products){
             ItemTile tile = new ItemTile(p);

@@ -466,8 +466,14 @@
                         <Property name="columns" type="int" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
                           <Connection code="5" type="code"/>
                         </Property>
+                        <Property name="horizontalGap" type="int" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                          <Connection code="2" type="code"/>
+                        </Property>
                         <Property name="rows" type="int" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-                          <Connection code="6" type="code"/>
+                          <Connection code="0" type="code"/>
+                        </Property>
+                        <Property name="verticalGap" type="int" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                          <Connection code="2" type="code"/>
                         </Property>
                       </Layout>
                     </Container>

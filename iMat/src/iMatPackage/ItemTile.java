@@ -33,11 +33,11 @@ public class ItemTile extends javax.swing.JPanel implements ChangeListener, Acti
     }
     
     public void actionPerformed(ActionEvent e){
-        temp = ((Integer)(amountSpinner.getValue())).doubleValue();
+        spinnerValue = ((Integer)(amountSpinner.getValue())).doubleValue();
         System.out.println(itemIsInCart(shoppingItem.getProduct()));
         
         if(itemIsInCart(shoppingItem.getProduct())){
-            shoppingItem.setAmount(shoppingItem.getAmount() + temp);
+            shoppingItem.setAmount(shoppingItem.getAmount() + spinnerValue);
             backend.getShoppingCart().fireShoppingCartChanged(shoppingItem, true);
         }
         else{
@@ -82,10 +82,9 @@ public class ItemTile extends javax.swing.JPanel implements ChangeListener, Acti
         foodNameLabel = new javax.swing.JLabel();
 
         setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        setMaximumSize(new java.awt.Dimension(130, 130));
-        setMinimumSize(new java.awt.Dimension(130, 130));
-        setPreferredSize(new java.awt.Dimension(130, 130));
-        setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        setMaximumSize(new java.awt.Dimension(130, 150));
+        setMinimumSize(new java.awt.Dimension(130, 150));
+        setPreferredSize(new java.awt.Dimension(130, 150));
 
         amountSpinner.addChangeListener(this);
         amountSpinner.setModel(new javax.swing.SpinnerNumberModel(Integer.valueOf(1), Integer.valueOf(1), null, Integer.valueOf(1)));
@@ -97,7 +96,7 @@ public class ItemTile extends javax.swing.JPanel implements ChangeListener, Acti
         itemButtonsPanelLayout.setHorizontalGroup(
             itemButtonsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, itemButtonsPanelLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(8, Short.MAX_VALUE)
                 .addGroup(itemButtonsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(itemPriceLabel)
                     .addGroup(itemButtonsPanelLayout.createSequentialGroup()
@@ -119,8 +118,6 @@ public class ItemTile extends javax.swing.JPanel implements ChangeListener, Acti
                 .addContainerGap())
         );
 
-        add(itemButtonsPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(1, 105, 122, -1));
-
         itemPicPanel.setPreferredSize(new java.awt.Dimension(80, 70));
 
         javax.swing.GroupLayout itemPicPanelLayout = new javax.swing.GroupLayout(itemPicPanel);
@@ -129,7 +126,7 @@ public class ItemTile extends javax.swing.JPanel implements ChangeListener, Acti
             itemPicPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, itemPicPanelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(foodPicLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(foodPicLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 104, Short.MAX_VALUE)
                 .addContainerGap())
         );
         itemPicPanelLayout.setVerticalGroup(
@@ -139,14 +136,32 @@ public class ItemTile extends javax.swing.JPanel implements ChangeListener, Acti
                 .addGap(0, 9, Short.MAX_VALUE))
         );
 
-        add(itemPicPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(7, 1, 116, 76));
-
         foodNameLabel.setText("jLabel1");
-        add(foodNameLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(7, 83, 106, -1));
+
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
+        this.setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(itemButtonsPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(6, 6, 6)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(itemPicPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(foodNameLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)))
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(itemPicPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(6, 6, 6)
+                .addComponent(foodNameLabel)
+                .addGap(6, 6, 6)
+                .addComponent(itemButtonsPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
     }// </editor-fold>//GEN-END:initComponents
 
 
-    double temp;
+    double spinnerValue;
     double amount;
     Product p;
     ShoppingItem shoppingItem;
