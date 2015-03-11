@@ -93,6 +93,11 @@ public class StoreView extends javax.swing.JPanel implements KeyListener{
         prevOrdersButton.setText("Orderhistorik");
         prevOrdersButton.setBorder(null);
         prevOrdersButton.setContentAreaFilled(false);
+        prevOrdersButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                prevOrdersButtonActionPerformed(evt);
+            }
+        });
 
         jSeparator2.setOrientation(javax.swing.SwingConstants.VERTICAL);
         jSeparator2.setPreferredSize(new java.awt.Dimension(50, 10));
@@ -321,6 +326,10 @@ public class StoreView extends javax.swing.JPanel implements KeyListener{
     private void searchTextFieldFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_searchTextFieldFocusLost
         searchTextField.setText("Sök här");
     }//GEN-LAST:event_searchTextFieldFocusLost
+
+    private void prevOrdersButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_prevOrdersButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_prevOrdersButtonActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
