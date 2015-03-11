@@ -5,6 +5,13 @@
  */
 package iMatPackage;
 
+import java.awt.BorderLayout;
+import java.awt.Color;
+import javax.swing.JLabel;
+import se.chalmers.ait.dat215.project.Customer;
+import se.chalmers.ait.dat215.project.IMatDataHandler;
+import se.chalmers.ait.dat215.project.User;
+
 /**
  *
  * @author Alexander Kloutschek
@@ -16,6 +23,7 @@ public class InformationRegisterView extends javax.swing.JPanel {
      */
     public InformationRegisterView() {
         initComponents();
+        resetView();
     }
 
     /**
@@ -31,7 +39,7 @@ public class InformationRegisterView extends javax.swing.JPanel {
         countryLabel = new javax.swing.JLabel();
         emailLabel = new javax.swing.JLabel();
         lastNameField = new javax.swing.JTextField();
-        jComboBox1 = new javax.swing.JComboBox();
+        countryComboBox = new javax.swing.JComboBox();
         postCodeField = new javax.swing.JTextField();
         firstNameLabel = new javax.swing.JLabel();
         postCodeLabel = new javax.swing.JLabel();
@@ -51,8 +59,10 @@ public class InformationRegisterView extends javax.swing.JPanel {
         userNameField = new javax.swing.JTextField();
         passwordLabel = new javax.swing.JLabel();
         titleLabel = new javax.swing.JLabel();
+        requirementLabel = new javax.swing.JLabel();
         nextButton = new javax.swing.JButton();
         backButton = new javax.swing.JButton();
+        errorPanel = new javax.swing.JPanel();
 
         infoPanel.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
@@ -61,14 +71,14 @@ public class InformationRegisterView extends javax.swing.JPanel {
         emailLabel.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         emailLabel.setText("Email");
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Danmark", "Finland", "Norge", "Sverige" }));
-        jComboBox1.setSelectedIndex(3);
+        countryComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Danmark", "Finland", "Norge", "Sverige" }));
+        countryComboBox.setSelectedIndex(3);
 
-        firstNameLabel.setText("Förnamn");
+        firstNameLabel.setText("Förnamn*");
 
         postCodeLabel.setText("Postkod");
 
-        lastNameLabel.setText("Efternamn");
+        lastNameLabel.setText("Efternamn*");
 
         postAddressField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -82,7 +92,7 @@ public class InformationRegisterView extends javax.swing.JPanel {
             }
         });
 
-        postAddressLabel.setText("Postaddress");
+        postAddressLabel.setText("Postadress *");
 
         mobileNumberLabel.setText("Mobilnummer");
 
@@ -107,16 +117,18 @@ public class InformationRegisterView extends javax.swing.JPanel {
             }
         });
 
-        userNameLabel.setText("Användarnamn");
+        userNameLabel.setText("Användarnamn*");
 
-        confirmPasswordLabel.setText("Bekräfta lösenord");
+        confirmPasswordLabel.setText("Bekräfta lösenord*");
 
-        passwordLabel.setText("Lösenord");
+        passwordLabel.setText("Lösenord*");
 
         titleLabel.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         titleLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         titleLabel.setText("Registrera Användare");
         titleLabel.setToolTipText("");
+
+        requirementLabel.setText("* Användarnamn, Lösenord, Namn, Adress och minst ett telefonnummer måste fyllas i.");
 
         javax.swing.GroupLayout infoPanelLayout = new javax.swing.GroupLayout(infoPanel);
         infoPanel.setLayout(infoPanelLayout);
@@ -142,24 +154,27 @@ public class InformationRegisterView extends javax.swing.JPanel {
                                 .addGap(26, 26, 26)
                                 .addComponent(lastNameLabel)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(lastNameField, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 0, Short.MAX_VALUE))
+                                .addComponent(lastNameField))
                             .addComponent(phoneNumberField)
                             .addComponent(mobileNumberField)
                             .addComponent(emailField, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jComboBox1, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(countryComboBox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(passwordField)
                             .addComponent(confirmPasswordField)
                             .addComponent(userNameField)))
-                    .addGroup(infoPanelLayout.createSequentialGroup()
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, infoPanelLayout.createSequentialGroup()
                         .addGap(26, 26, 26)
                         .addGroup(infoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(postAddressLabel)
                             .addComponent(postCodeLabel))
                         .addGap(39, 39, 39)
                         .addGroup(infoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(postCodeField)
-                            .addComponent(postAddressField))))
+                            .addComponent(requirementLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addGroup(infoPanelLayout.createSequentialGroup()
+                                .addGap(12, 12, 12)
+                                .addGroup(infoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(postCodeField, javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(postAddressField))))))
                 .addGap(54, 54, 54))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, infoPanelLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -204,7 +219,7 @@ public class InformationRegisterView extends javax.swing.JPanel {
                 .addGap(18, 18, 18)
                 .addGroup(infoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(countryLabel)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(countryComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(infoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(postAddressLabel)
@@ -213,10 +228,17 @@ public class InformationRegisterView extends javax.swing.JPanel {
                 .addGroup(infoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(postCodeField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(postCodeLabel))
-                .addGap(45, 45, 45))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(requirementLabel)
+                .addGap(16, 16, 16))
         );
 
         nextButton.setText("Nästa >");
+        nextButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                nextButtonActionPerformed(evt);
+            }
+        });
 
         backButton.setText("< Tillbaka");
         backButton.addActionListener(new java.awt.event.ActionListener() {
@@ -225,6 +247,8 @@ public class InformationRegisterView extends javax.swing.JPanel {
             }
         });
 
+        errorPanel.setLayout(new java.awt.BorderLayout());
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -232,7 +256,9 @@ public class InformationRegisterView extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addGap(275, 275, 275)
                 .addComponent(infoPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(275, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(errorPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(75, 75, 75)
                 .addComponent(backButton)
@@ -243,8 +269,13 @@ public class InformationRegisterView extends javax.swing.JPanel {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(88, 88, 88)
-                .addComponent(infoPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(88, 88, 88)
+                        .addComponent(infoPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(258, 258, 258)
+                        .addComponent(errorPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 207, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 43, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(nextButton)
@@ -277,18 +308,64 @@ public class InformationRegisterView extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_backButtonActionPerformed
 
+    private void nextButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nextButtonActionPerformed
+        boolean userFinished = false;
+        User user = IMatDataHandler.getInstance().getUser();
+        
+        if(!passwordField.getText().equals(confirmPasswordField.getText())){
+            errorPanel.removeAll();
+            JLabel errorLabel = new JLabel("Lösenorden överrenstämmer inte");
+            errorLabel.setForeground(Color.red);
+            errorPanel.add(errorLabel, BorderLayout.CENTER);
+        }else{
+            user.setUserName(userNameField.getText());
+            user.setPassword(passwordField.getText());
+        }
+        
+        Customer customer = IMatDataHandler.getInstance().getCustomer();
+        customer.setPostAddress(postAddressField.getText());
+        customer.setEmail(emailField.getText());
+        customer.setFirstName(firstNameField.getText());
+        customer.setLastName(lastNameField.getText());
+        customer.setPostCode(postCodeField.getText());
+        customer.setMobilePhoneNumber(mobileNumberField.getText());
+        customer.setPhoneNumber(phoneNumberField.getText());
+        
+       if(IMatDataHandler.getInstance().isCustomerComplete()){
+            //byta skärm
+        }else{
+            errorPanel.removeAll();
+            JLabel errorLabel = new JLabel("Information saknas");
+            errorLabel.setForeground(Color.red);
+            errorPanel.add(errorLabel, BorderLayout.CENTER);
+        }
+    }//GEN-LAST:event_nextButtonActionPerformed
+
+    public void resetView(){
+        userNameField.setText("");
+        passwordField.setText("");
+        confirmPasswordField.setText("");
+        postAddressField.setText("");
+        emailField.setText("");
+        firstNameField.setText("");
+        lastNameField.setText("");
+        postCodeField.setText("");
+        mobileNumberField.setText("");
+        phoneNumberField.setText("");
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton backButton;
     private javax.swing.JPasswordField confirmPasswordField;
     private javax.swing.JLabel confirmPasswordLabel;
+    private javax.swing.JComboBox countryComboBox;
     private javax.swing.JLabel countryLabel;
     private javax.swing.JTextField emailField;
     private javax.swing.JLabel emailLabel;
+    private javax.swing.JPanel errorPanel;
     private javax.swing.JTextField firstNameField;
     private javax.swing.JLabel firstNameLabel;
     private javax.swing.JPanel infoPanel;
-    private javax.swing.JComboBox jComboBox1;
     private javax.swing.JTextField lastNameField;
     private javax.swing.JLabel lastNameLabel;
     private javax.swing.JTextField mobileNumberField;
@@ -302,6 +379,7 @@ public class InformationRegisterView extends javax.swing.JPanel {
     private javax.swing.JLabel postAddressLabel;
     private javax.swing.JTextField postCodeField;
     private javax.swing.JLabel postCodeLabel;
+    private javax.swing.JLabel requirementLabel;
     private javax.swing.JLabel titleLabel;
     private javax.swing.JTextField userNameField;
     private javax.swing.JLabel userNameLabel;
