@@ -5,6 +5,7 @@
  */
 package iMatPackage;
 
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import se.chalmers.ait.dat215.project.Order;
@@ -43,14 +44,14 @@ public class ItemInfoPanel extends javax.swing.JPanel {
     
     public void listOrderInfo(){
         for(int i = 0; i < order.getItems().size(); i++){
-            itemInfoPanel.add(new JTextField(order.getItems().get(i).getProduct().getName()));
-            itemInfoPanel.add(new JTextField("" + order.getItems().get(i).getAmount()));
-            itemInfoPanel.add(new JTextField("" + order.getItems().get(i).getTotal()));
+            itemInfoPanel.add(new JLabel(order.getItems().get(i).getProduct().getName()));
+            itemInfoPanel.add(new JLabel("" + order.getItems().get(i).getAmount()));
+            itemInfoPanel.add(new JLabel("" + order.getItems().get(i).getTotal()));
         }
         
-        itemInfoPanel.add(new JTextField(""));
-        itemInfoPanel.add(new JTextField("" + getOrderAmount()));
-        itemInfoPanel.add(new JTextField("" + getOrderTotal()));
+        itemInfoPanel.add(new JLabel(""));
+        itemInfoPanel.add(new JLabel("" + getOrderAmount()));
+        itemInfoPanel.add(new JLabel("" + getOrderTotal()));
     }
 
     /**

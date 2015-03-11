@@ -30,6 +30,45 @@ public class PaymentWizardView extends javax.swing.JPanel {
         backButton = new javax.swing.JButton();
         progressPanel = new javax.swing.JPanel();
         iconLabel = new javax.swing.JLabel();
+        cardInfoPanel = new javax.swing.JPanel();
+        jSeparator1 = new javax.swing.JSeparator();
+        billingPicLabel = new javax.swing.JLabel();
+        bankPicLabel = new javax.swing.JLabel();
+        cartPicLabel = new javax.swing.JLabel();
+        payPalLabel = new javax.swing.JLabel();
+        cardNbrLabel = new javax.swing.JLabel();
+        cardNbrField = new javax.swing.JTextField();
+        expreTextLabel = new javax.swing.JLabel();
+        dayTextField = new javax.swing.JTextField();
+        slashTextLabel = new javax.swing.JLabel();
+        monthTextField = new javax.swing.JTextField();
+        cvcTextLabel = new javax.swing.JLabel();
+        cvcTextField = new javax.swing.JTextField();
+        visaTextLabel = new javax.swing.JLabel();
+        masterCardTextLabel = new javax.swing.JLabel();
+        amExTextLabel = new javax.swing.JLabel();
+        jPanel1 = new javax.swing.JPanel();
+        backButton1 = new javax.swing.JButton();
+        progressPanel1 = new javax.swing.JPanel();
+        iconLabel1 = new javax.swing.JLabel();
+        cardInfoPanel1 = new javax.swing.JPanel();
+        jSeparator2 = new javax.swing.JSeparator();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        billingAddressPanel1 = new javax.swing.JPanel();
+        changeBillingAdressButton1 = new javax.swing.JButton();
+        deliveryAddressPanel1 = new javax.swing.JPanel();
+        changeDeliveryAddressButton1 = new javax.swing.JButton();
+        buyPanel1 = new javax.swing.JPanel();
+        priceLabel1 = new javax.swing.JLabel();
+        amountLabel1 = new javax.swing.JLabel();
+        buyButton1 = new javax.swing.JButton();
+        deliveryMethodPanel1 = new javax.swing.JPanel();
+        changeDeliveryMethodButton1 = new javax.swing.JButton();
+
+        setPreferredSize(new java.awt.Dimension(1200, 699));
 
         backButton.setText("< Tillbaka");
         backButton.addActionListener(new java.awt.event.ActionListener() {
@@ -52,23 +91,362 @@ public class PaymentWizardView extends javax.swing.JPanel {
             .addComponent(iconLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
+        cardInfoPanel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
+        jSeparator1.setForeground(new java.awt.Color(0, 0, 0));
+        jSeparator1.setOrientation(javax.swing.SwingConstants.VERTICAL);
+
+        billingPicLabel.setText("BILD - Faktura");
+
+        bankPicLabel.setText("BILD - Banköverföring");
+
+        cartPicLabel.setText("BILD - Kortköp");
+
+        payPalLabel.setText("BILD - PayPal");
+
+        cardNbrLabel.setText("Kortnummer: ");
+
+        cardNbrField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cardNbrFieldActionPerformed(evt);
+            }
+        });
+
+        expreTextLabel.setText("Utgångsdatum");
+
+        slashTextLabel.setText("/");
+
+        monthTextField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                monthTextFieldActionPerformed(evt);
+            }
+        });
+
+        cvcTextLabel.setText("CVC:");
+
+        cvcTextField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cvcTextFieldActionPerformed(evt);
+            }
+        });
+
+        visaTextLabel.setText("VISA");
+
+        masterCardTextLabel.setText("MasterCard");
+
+        amExTextLabel.setText("American Express");
+
+        javax.swing.GroupLayout cardInfoPanelLayout = new javax.swing.GroupLayout(cardInfoPanel);
+        cardInfoPanel.setLayout(cardInfoPanelLayout);
+        cardInfoPanelLayout.setHorizontalGroup(
+            cardInfoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(cardInfoPanelLayout.createSequentialGroup()
+                .addGap(33, 33, 33)
+                .addGroup(cardInfoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(billingPicLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(bankPicLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 255, Short.MAX_VALUE)
+                    .addComponent(cartPicLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(payPalLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(72, 72, 72)
+                .addGroup(cardInfoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(cardInfoPanelLayout.createSequentialGroup()
+                        .addComponent(expreTextLabel)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(dayTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(slashTextLabel)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(monthTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(cvcTextLabel)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(cvcTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(cardInfoPanelLayout.createSequentialGroup()
+                        .addGap(6, 6, 6)
+                        .addComponent(cardNbrLabel)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(cardNbrField, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(cardInfoPanelLayout.createSequentialGroup()
+                        .addComponent(visaTextLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(masterCardTextLabel)
+                        .addGap(18, 18, 18)
+                        .addComponent(amExTextLabel)))
+                .addGap(235, 235, 235))
+        );
+        cardInfoPanelLayout.setVerticalGroup(
+            cardInfoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jSeparator1)
+            .addGroup(cardInfoPanelLayout.createSequentialGroup()
+                .addGroup(cardInfoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(cardInfoPanelLayout.createSequentialGroup()
+                        .addGap(16, 16, 16)
+                        .addComponent(billingPicLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(bankPicLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(cartPicLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(payPalLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(cardInfoPanelLayout.createSequentialGroup()
+                        .addGap(107, 107, 107)
+                        .addGroup(cardInfoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(cardNbrLabel)
+                            .addComponent(cardNbrField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(30, 30, 30)
+                        .addGroup(cardInfoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(visaTextLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(masterCardTextLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(amExTextLabel))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(cardInfoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(expreTextLabel)
+                            .addComponent(dayTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(slashTextLabel)
+                            .addComponent(monthTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(cvcTextLabel)
+                            .addComponent(cvcTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(74, Short.MAX_VALUE))
+        );
+
+        jPanel1.setPreferredSize(new java.awt.Dimension(1200, 699));
+
+        backButton1.setText("< Tillbaka");
+        backButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                backButton1ActionPerformed(evt);
+            }
+        });
+
+        iconLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        iconLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/5.png"))); // NOI18N
+
+        javax.swing.GroupLayout progressPanel1Layout = new javax.swing.GroupLayout(progressPanel1);
+        progressPanel1.setLayout(progressPanel1Layout);
+        progressPanel1Layout.setHorizontalGroup(
+            progressPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(iconLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        progressPanel1Layout.setVerticalGroup(
+            progressPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(iconLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+
+        cardInfoPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
+        jSeparator2.setForeground(new java.awt.Color(0, 0, 0));
+        jSeparator2.setOrientation(javax.swing.SwingConstants.VERTICAL);
+
+        jLabel5.setText("jLabel1");
+
+        jLabel6.setText("jLabel2");
+
+        jLabel7.setText("jLabel3");
+
+        jLabel8.setText("jLabel4");
+
+        javax.swing.GroupLayout cardInfoPanel1Layout = new javax.swing.GroupLayout(cardInfoPanel1);
+        cardInfoPanel1.setLayout(cardInfoPanel1Layout);
+        cardInfoPanel1Layout.setHorizontalGroup(
+            cardInfoPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(cardInfoPanel1Layout.createSequentialGroup()
+                .addGap(33, 33, 33)
+                .addGroup(cardInfoPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, 173, Short.MAX_VALUE)
+                    .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(702, 702, 702))
+        );
+        cardInfoPanel1Layout.setVerticalGroup(
+            cardInfoPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jSeparator2)
+            .addGroup(cardInfoPanel1Layout.createSequentialGroup()
+                .addGap(16, 16, 16)
+                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(74, Short.MAX_VALUE))
+        );
+
+        billingAddressPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
+        changeBillingAdressButton1.setFont(new java.awt.Font("Lucida Grande", 1, 8)); // NOI18N
+        changeBillingAdressButton1.setText("Ändra");
+        changeBillingAdressButton1.setBorderPainted(false);
+
+        javax.swing.GroupLayout billingAddressPanel1Layout = new javax.swing.GroupLayout(billingAddressPanel1);
+        billingAddressPanel1.setLayout(billingAddressPanel1Layout);
+        billingAddressPanel1Layout.setHorizontalGroup(
+            billingAddressPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(billingAddressPanel1Layout.createSequentialGroup()
+                .addComponent(changeBillingAdressButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+        );
+        billingAddressPanel1Layout.setVerticalGroup(
+            billingAddressPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, billingAddressPanel1Layout.createSequentialGroup()
+                .addGap(0, 100, Short.MAX_VALUE)
+                .addComponent(changeBillingAdressButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+
+        deliveryAddressPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
+        changeDeliveryAddressButton1.setFont(new java.awt.Font("Lucida Grande", 1, 8)); // NOI18N
+        changeDeliveryAddressButton1.setText("Ändra");
+        changeDeliveryAddressButton1.setBorderPainted(false);
+
+        javax.swing.GroupLayout deliveryAddressPanel1Layout = new javax.swing.GroupLayout(deliveryAddressPanel1);
+        deliveryAddressPanel1.setLayout(deliveryAddressPanel1Layout);
+        deliveryAddressPanel1Layout.setHorizontalGroup(
+            deliveryAddressPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(deliveryAddressPanel1Layout.createSequentialGroup()
+                .addComponent(changeDeliveryAddressButton1)
+                .addGap(0, 0, Short.MAX_VALUE))
+        );
+        deliveryAddressPanel1Layout.setVerticalGroup(
+            deliveryAddressPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, deliveryAddressPanel1Layout.createSequentialGroup()
+                .addGap(0, 94, Short.MAX_VALUE)
+                .addComponent(changeDeliveryAddressButton1))
+        );
+
+        priceLabel1.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
+        priceLabel1.setText("Pris: ");
+
+        amountLabel1.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
+        amountLabel1.setText("Antal varor: ");
+
+        buyButton1.setBackground(new java.awt.Color(0, 204, 51));
+        buyButton1.setFont(new java.awt.Font("Lucida Grande", 0, 36)); // NOI18N
+        buyButton1.setText("Slutför köp");
+
+        javax.swing.GroupLayout buyPanel1Layout = new javax.swing.GroupLayout(buyPanel1);
+        buyPanel1.setLayout(buyPanel1Layout);
+        buyPanel1Layout.setHorizontalGroup(
+            buyPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, buyPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(buyPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(buyButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                    .addGroup(buyPanel1Layout.createSequentialGroup()
+                        .addComponent(priceLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(52, 52, 52)
+                        .addComponent(amountLabel1)
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
+        );
+        buyPanel1Layout.setVerticalGroup(
+            buyPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(buyPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(buyPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(priceLabel1)
+                    .addComponent(amountLabel1))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(buyButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        deliveryMethodPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
+        changeDeliveryMethodButton1.setFont(new java.awt.Font("Lucida Grande", 1, 8)); // NOI18N
+        changeDeliveryMethodButton1.setText("Ändra");
+        changeDeliveryMethodButton1.setBorderPainted(false);
+
+        javax.swing.GroupLayout deliveryMethodPanel1Layout = new javax.swing.GroupLayout(deliveryMethodPanel1);
+        deliveryMethodPanel1.setLayout(deliveryMethodPanel1Layout);
+        deliveryMethodPanel1Layout.setHorizontalGroup(
+            deliveryMethodPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(deliveryMethodPanel1Layout.createSequentialGroup()
+                .addComponent(changeDeliveryMethodButton1)
+                .addGap(0, 0, Short.MAX_VALUE))
+        );
+        deliveryMethodPanel1Layout.setVerticalGroup(
+            deliveryMethodPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, deliveryMethodPanel1Layout.createSequentialGroup()
+                .addGap(0, 94, Short.MAX_VALUE)
+                .addComponent(changeDeliveryMethodButton1))
+        );
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(progressPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(16, 16, 16)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(cardInfoPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(backButton1))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(deliveryMethodPanel1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(billingAddressPanel1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(deliveryAddressPanel1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(buyPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addComponent(progressPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(cardInfoPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(backButton1))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(billingAddressPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(deliveryAddressPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(deliveryMethodPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(buyPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(68, 68, 68))
+        );
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(75, 75, 75)
-                .addComponent(backButton)
-                .addContainerGap(1036, Short.MAX_VALUE))
             .addComponent(progressPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(16, 16, 16)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(backButton)
+                    .addComponent(cardInfoPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addComponent(progressPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 512, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
+                .addComponent(cardInfoPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(backButton)
-                .addContainerGap())
+                .addGap(110, 110, 110))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -76,10 +454,63 @@ public class PaymentWizardView extends javax.swing.JPanel {
         MainWindow.showDeliveryWizardView();
     }//GEN-LAST:event_backButtonActionPerformed
 
+    private void backButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backButton1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_backButton1ActionPerformed
+
+    private void cardNbrFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cardNbrFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cardNbrFieldActionPerformed
+
+    private void monthTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_monthTextFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_monthTextFieldActionPerformed
+
+    private void cvcTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cvcTextFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cvcTextFieldActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel amExTextLabel;
+    private javax.swing.JLabel amountLabel1;
     private javax.swing.JButton backButton;
+    private javax.swing.JButton backButton1;
+    private javax.swing.JLabel bankPicLabel;
+    private javax.swing.JPanel billingAddressPanel1;
+    private javax.swing.JLabel billingPicLabel;
+    private javax.swing.JButton buyButton1;
+    private javax.swing.JPanel buyPanel1;
+    private javax.swing.JPanel cardInfoPanel;
+    private javax.swing.JPanel cardInfoPanel1;
+    private javax.swing.JTextField cardNbrField;
+    private javax.swing.JLabel cardNbrLabel;
+    private javax.swing.JLabel cartPicLabel;
+    private javax.swing.JButton changeBillingAdressButton1;
+    private javax.swing.JButton changeDeliveryAddressButton1;
+    private javax.swing.JButton changeDeliveryMethodButton1;
+    private javax.swing.JTextField cvcTextField;
+    private javax.swing.JLabel cvcTextLabel;
+    private javax.swing.JTextField dayTextField;
+    private javax.swing.JPanel deliveryAddressPanel1;
+    private javax.swing.JPanel deliveryMethodPanel1;
+    private javax.swing.JLabel expreTextLabel;
     private javax.swing.JLabel iconLabel;
+    private javax.swing.JLabel iconLabel1;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JSeparator jSeparator2;
+    private javax.swing.JLabel masterCardTextLabel;
+    private javax.swing.JTextField monthTextField;
+    private javax.swing.JLabel payPalLabel;
+    private javax.swing.JLabel priceLabel1;
     private javax.swing.JPanel progressPanel;
+    private javax.swing.JPanel progressPanel1;
+    private javax.swing.JLabel slashTextLabel;
+    private javax.swing.JLabel visaTextLabel;
     // End of variables declaration//GEN-END:variables
 }
