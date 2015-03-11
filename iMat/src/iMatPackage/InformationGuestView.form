@@ -232,6 +232,9 @@
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="firstNameFieldActionPerformed"/>
           </Events>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="10"/>
+          </AuxValues>
         </Component>
         <Component class="javax.swing.JLabel" name="lastNameLabel">
           <Properties>
@@ -239,6 +242,9 @@
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="lastNameField">
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="10"/>
+          </AuxValues>
         </Component>
         <Component class="javax.swing.JLabel" name="emailLabel">
           <Properties>
@@ -247,6 +253,9 @@
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="emailField">
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="10"/>
+          </AuxValues>
         </Component>
         <Component class="javax.swing.JLabel" name="mobileNumberLabel">
           <Properties>
@@ -254,6 +263,9 @@
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="mobileNumberField">
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="10"/>
+          </AuxValues>
         </Component>
         <Component class="javax.swing.JLabel" name="phoneNumberLabel">
           <Properties>
@@ -265,6 +277,9 @@
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="phoneNumberFieldActionPerformed"/>
           </Events>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="10"/>
+          </AuxValues>
         </Component>
         <Component class="javax.swing.JLabel" name="postAddressLabel">
           <Properties>
@@ -275,6 +290,9 @@
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="postAddressFieldActionPerformed"/>
           </Events>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="10"/>
+          </AuxValues>
         </Component>
         <Component class="javax.swing.JLabel" name="postCodeLabel">
           <Properties>
@@ -282,6 +300,9 @@
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="postCodeField">
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="10"/>
+          </AuxValues>
         </Component>
         <Component class="javax.swing.JLabel" name="countryLabel">
           <Properties>
@@ -300,6 +321,9 @@
             </Property>
             <Property name="selectedIndex" type="int" value="3"/>
           </Properties>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="10"/>
+          </AuxValues>
         </Component>
         <Component class="javax.swing.JLabel" name="titleLabel">
           <Properties>
@@ -317,9 +341,9 @@
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="adressField">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="jTextField1"/>
-          </Properties>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="10"/>
+          </AuxValues>
         </Component>
         <Component class="javax.swing.JLabel" name="adressLabel">
           <Properties>

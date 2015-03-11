@@ -390,7 +390,7 @@ public class InformationRegisterView extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_countryComboBoxActionPerformed
 
-    public void resetView(){
+    public static void resetView(){
         adressField.setText("");
         userNameField.setText("");
         passwordField.setText("");
@@ -402,6 +402,7 @@ public class InformationRegisterView extends javax.swing.JPanel {
         postCodeField.setText("");
         mobileNumberField.setText("");
         phoneNumberField.setText("");
+        countryComboBox.setSelectedIndex(3);
     }
     private boolean isUserComplete(){
         if(user.getUserName().equals("") || user.getPassword().equals("")){
@@ -423,37 +424,37 @@ public class InformationRegisterView extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextField adressField;
+    private static javax.swing.JTextField adressField;
     private javax.swing.JLabel adressLabel;
     private javax.swing.JButton backButton;
-    private javax.swing.JPasswordField confirmPasswordField;
+    private static javax.swing.JPasswordField confirmPasswordField;
     private javax.swing.JLabel confirmPasswordLabel;
-    private javax.swing.JComboBox countryComboBox;
+    private static javax.swing.JComboBox countryComboBox;
     private javax.swing.JLabel countryLabel;
-    private javax.swing.JTextField emailField;
+    private static javax.swing.JTextField emailField;
     private javax.swing.JLabel emailLabel;
     private javax.swing.JPanel errorPanel;
-    private javax.swing.JTextField firstNameField;
+    private static javax.swing.JTextField firstNameField;
     private javax.swing.JLabel firstNameLabel;
     private javax.swing.JLabel iconLabel;
     private javax.swing.JPanel infoPanel;
-    private javax.swing.JTextField lastNameField;
+    private static javax.swing.JTextField lastNameField;
     private javax.swing.JLabel lastNameLabel;
-    private javax.swing.JTextField mobileNumberField;
+    private static javax.swing.JTextField mobileNumberField;
     private javax.swing.JLabel mobileNumberLabel;
     private javax.swing.JButton nextButton;
-    private javax.swing.JPasswordField passwordField;
+    private static javax.swing.JPasswordField passwordField;
     private javax.swing.JLabel passwordLabel;
-    private javax.swing.JTextField phoneNumberField;
+    private static javax.swing.JTextField phoneNumberField;
     private javax.swing.JLabel phoneNumberLabel;
-    private javax.swing.JTextField postAddressField;
+    private static javax.swing.JTextField postAddressField;
     private javax.swing.JLabel postAddressLabel;
-    private javax.swing.JTextField postCodeField;
+    private static javax.swing.JTextField postCodeField;
     private javax.swing.JLabel postCodeLabel;
     private javax.swing.JPanel progressPanel;
     private javax.swing.JLabel requirementLabel;
     private javax.swing.JLabel titleLabel;
-    private javax.swing.JTextField userNameField;
+    private static javax.swing.JTextField userNameField;
     private javax.swing.JLabel userNameLabel;
     // End of variables declaration//GEN-END:variables
     private static Customer customer;

@@ -214,6 +214,9 @@
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="lastNameField">
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="10"/>
+          </AuxValues>
         </Component>
         <Component class="javax.swing.JComboBox" name="countryComboBox">
           <Properties>
@@ -230,8 +233,14 @@
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="countryComboBoxActionPerformed"/>
           </Events>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="10"/>
+          </AuxValues>
         </Component>
         <Component class="javax.swing.JTextField" name="postCodeField">
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="10"/>
+          </AuxValues>
         </Component>
         <Component class="javax.swing.JLabel" name="firstNameLabel">
           <Properties>
@@ -252,11 +261,17 @@
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="postAddressFieldActionPerformed"/>
           </Events>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="10"/>
+          </AuxValues>
         </Component>
         <Component class="javax.swing.JTextField" name="firstNameField">
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="firstNameFieldActionPerformed"/>
           </Events>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="10"/>
+          </AuxValues>
         </Component>
         <Component class="javax.swing.JLabel" name="postAddressLabel">
           <Properties>
@@ -269,6 +284,9 @@
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="mobileNumberField">
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="10"/>
+          </AuxValues>
         </Component>
         <Component class="javax.swing.JLabel" name="phoneNumberLabel">
           <Properties>
@@ -280,18 +298,30 @@
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="phoneNumberFieldActionPerformed"/>
           </Events>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="10"/>
+          </AuxValues>
         </Component>
         <Component class="javax.swing.JTextField" name="emailField">
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="emailFieldActionPerformed"/>
           </Events>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="10"/>
+          </AuxValues>
         </Component>
         <Component class="javax.swing.JPasswordField" name="passwordField">
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="10"/>
+          </AuxValues>
         </Component>
         <Component class="javax.swing.JPasswordField" name="confirmPasswordField">
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="confirmPasswordFieldActionPerformed"/>
           </Events>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="10"/>
+          </AuxValues>
         </Component>
         <Component class="javax.swing.JLabel" name="userNameLabel">
           <Properties>
@@ -304,6 +334,9 @@
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="userNameField">
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="10"/>
+          </AuxValues>
         </Component>
         <Component class="javax.swing.JLabel" name="passwordLabel">
           <Properties>
@@ -326,6 +359,9 @@
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="adressField">
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="10"/>
+          </AuxValues>
         </Component>
         <Component class="javax.swing.JLabel" name="adressLabel">
           <Properties>
