@@ -34,6 +34,7 @@ public class InformationUserView extends javax.swing.JPanel {
     private void initComponents() {
 
         progressPanel = new javax.swing.JPanel();
+        iconLabel = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         titleLabel = new javax.swing.JLabel();
         passwordField = new javax.swing.JTextField();
@@ -44,15 +45,18 @@ public class InformationUserView extends javax.swing.JPanel {
         backButton = new javax.swing.JButton();
         nextButton = new javax.swing.JButton();
 
+        iconLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        iconLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/3.png"))); // NOI18N
+
         javax.swing.GroupLayout progressPanelLayout = new javax.swing.GroupLayout(progressPanel);
         progressPanel.setLayout(progressPanelLayout);
         progressPanelLayout.setHorizontalGroup(
             progressPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addComponent(iconLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         progressPanelLayout.setVerticalGroup(
             progressPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 88, Short.MAX_VALUE)
+            .addComponent(iconLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         jPanel1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
@@ -114,6 +118,11 @@ public class InformationUserView extends javax.swing.JPanel {
         );
 
         backButton.setText("< Tillbaka");
+        backButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                backButtonActionPerformed(evt);
+            }
+        });
 
         nextButton.setText("Nästa >");
         nextButton.addActionListener(new java.awt.event.ActionListener() {
@@ -128,7 +137,7 @@ public class InformationUserView extends javax.swing.JPanel {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(progressPanel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(146, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(146, 146, 146))
             .addGroup(layout.createSequentialGroup()
@@ -144,7 +153,7 @@ public class InformationUserView extends javax.swing.JPanel {
                 .addComponent(progressPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(45, 45, 45)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 137, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 135, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(backButton)
                     .addComponent(nextButton))
@@ -161,32 +170,40 @@ public class InformationUserView extends javax.swing.JPanel {
         User user = IMatDataHandler.getInstance().getUser();
         String username;
         String password;
-        try{
-            username = userNameField.getText();
-            password = passwordField.getText();
-            
-            if((!(username.equals(user.getUserName()))) || (!(password.equals(user.getPassword())))){
-                errorPanel.removeAll();
-                JLabel errorLabel = new JLabel("Fel Inloggningsuppgifter");
-                errorLabel.setForeground(Color.red);
-                errorPanel.add(errorLabel, BorderLayout.CENTER);
-            }else{
-                userNameField.setText("");
-                passwordField.setText("");
-                //byta skärm
-            }
-        }catch(NullPointerException e){
+        username = userNameField.getText();
+        password = passwordField.getText();
+
+        if((!(username.equals(user.getUserName()))) || (!(password.equals(user.getPassword()))) || user.getUserName().equals("") || user.getPassword().equals("")){
+            errorPanel.removeAll();
+            JLabel errorLabel = new JLabel("Fel Inloggningsuppgifter");
+            errorLabel.setForeground(Color.red);
+            errorPanel.add(errorLabel, BorderLayout.CENTER);
+            errorPanel.repaint();
+            errorLabel.repaint();
+            errorPanel.revalidate();
+        }else{
+            userNameField.setText("");
+            passwordField.setText("");
+            errorPanel.removeAll();
+            MainWindow.showDeliveryWizardView();
+        }
+        /*
             errorPanel.removeAll();
             JLabel errorLabel = new JLabel("Fyll i alla fält");
             errorLabel.setForeground(Color.red);
             errorPanel.add(errorLabel, BorderLayout.CENTER);
-        }
+        }*/
     }//GEN-LAST:event_nextButtonActionPerformed
+
+    private void backButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backButtonActionPerformed
+        MainWindow.showInformationChooseView();
+    }//GEN-LAST:event_backButtonActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton backButton;
     private javax.swing.JPanel errorPanel;
+    private javax.swing.JLabel iconLabel;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JButton nextButton;
     private javax.swing.JTextField passwordField;

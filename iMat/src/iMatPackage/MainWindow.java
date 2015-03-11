@@ -24,6 +24,7 @@ public class MainWindow extends javax.swing.JFrame {
     private static CartWizardView cartWizardView;
     private static PaymentWizardView paymentWizardView;
     private static StoreView storeView;
+    private static DeliveryWizardView deliveryWizardView;
     private static InformationChooseView informationChooseView;
     private static InformationGuestView informationGuestView;
     private static InformationUserView informationUserView;
@@ -42,6 +43,7 @@ public class MainWindow extends javax.swing.JFrame {
         informationGuestView = new InformationGuestView();
         informationUserView = new InformationUserView();
         informationRegisterView = new InformationRegisterView();
+        deliveryWizardView = new DeliveryWizardView();
         
         initComponents();
         cardManager = (CardLayout)cardPanel.getLayout();
@@ -56,6 +58,7 @@ public class MainWindow extends javax.swing.JFrame {
         cardPanel.add(informationUserView);
         cardPanel.add(informationRegisterView);
         cardPanel.add(paymentWizardView);
+        cardPanel.add(deliveryWizardView);
         
         cardManager.addLayoutComponent("StoreView", storeView);
         cardManager.addLayoutComponent("CartWizardView", cartWizardView);
@@ -64,6 +67,7 @@ public class MainWindow extends javax.swing.JFrame {
         cardManager.addLayoutComponent("InformationGuestView", informationGuestView);
         cardManager.addLayoutComponent("InformationRegisterView", informationRegisterView);
         cardManager.addLayoutComponent("PaymentWizardView", paymentWizardView);
+        cardManager.addLayoutComponent("DeliveryWizardView", deliveryWizardView);
         cardManager.show(cardPanel, "StoreView");
         
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -90,8 +94,14 @@ public class MainWindow extends javax.swing.JFrame {
     public static void showInformationRegisterView(){
         cardManager.show(cardPanel, "InformationRegisterView");
     }
-    public static void paymentWizardView(){
+    public static void showPaymentWizardView(){
         cardManager.show(cardPanel, "PaymentWizardView");
+    }
+    public static void showDeliveryWizardView(){
+        cardManager.show(cardPanel, "DeliveryWizardView");
+    }
+    public static void showPrevious(){
+        cardManager.previous(cardPanel);
     }
     /**
      * This method is called from within the constructor to initialize the form.

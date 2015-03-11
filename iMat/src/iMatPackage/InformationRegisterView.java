@@ -24,6 +24,8 @@ public class InformationRegisterView extends javax.swing.JPanel {
     public InformationRegisterView() {
         initComponents();
         resetView();
+        customer = IMatDataHandler.getInstance().getCustomer();
+        user = IMatDataHandler.getInstance().getUser();
     }
 
     /**
@@ -60,9 +62,13 @@ public class InformationRegisterView extends javax.swing.JPanel {
         passwordLabel = new javax.swing.JLabel();
         titleLabel = new javax.swing.JLabel();
         requirementLabel = new javax.swing.JLabel();
+        adressField = new javax.swing.JTextField();
+        adressLabel = new javax.swing.JLabel();
         nextButton = new javax.swing.JButton();
         backButton = new javax.swing.JButton();
         errorPanel = new javax.swing.JPanel();
+        progressPanel = new javax.swing.JPanel();
+        iconLabel = new javax.swing.JLabel();
 
         infoPanel.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
@@ -73,6 +79,11 @@ public class InformationRegisterView extends javax.swing.JPanel {
 
         countryComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Danmark", "Finland", "Norge", "Sverige" }));
         countryComboBox.setSelectedIndex(3);
+        countryComboBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                countryComboBoxActionPerformed(evt);
+            }
+        });
 
         firstNameLabel.setText("Förnamn*");
 
@@ -92,7 +103,7 @@ public class InformationRegisterView extends javax.swing.JPanel {
             }
         });
 
-        postAddressLabel.setText("Postadress *");
+        postAddressLabel.setText("Postadress ");
 
         mobileNumberLabel.setText("Mobilnummer");
 
@@ -130,6 +141,8 @@ public class InformationRegisterView extends javax.swing.JPanel {
 
         requirementLabel.setText("* Användarnamn, Lösenord, Namn, Adress och minst ett telefonnummer måste fyllas i.");
 
+        adressLabel.setText("Adress*");
+
         javax.swing.GroupLayout infoPanelLayout = new javax.swing.GroupLayout(infoPanel);
         infoPanel.setLayout(infoPanelLayout);
         infoPanelLayout.setHorizontalGroup(
@@ -163,18 +176,20 @@ public class InformationRegisterView extends javax.swing.JPanel {
                             .addComponent(confirmPasswordField)
                             .addComponent(userNameField)))
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, infoPanelLayout.createSequentialGroup()
-                        .addGap(26, 26, 26)
+                        .addGap(34, 34, 34)
                         .addGroup(infoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(postAddressLabel)
+                            .addComponent(adressLabel)
                             .addComponent(postCodeLabel))
-                        .addGap(39, 39, 39)
+                        .addGap(31, 31, 31)
                         .addGroup(infoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(requirementLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(requirementLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 506, Short.MAX_VALUE)
                             .addGroup(infoPanelLayout.createSequentialGroup()
                                 .addGap(12, 12, 12)
                                 .addGroup(infoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(postCodeField, javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(postAddressField))))))
+                                    .addComponent(postAddressField)
+                                    .addComponent(adressField))))))
                 .addGap(54, 54, 54))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, infoPanelLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -186,7 +201,7 @@ public class InformationRegisterView extends javax.swing.JPanel {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, infoPanelLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(titleLabel)
-                .addGap(34, 34, 34)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(infoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(userNameField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(userNameLabel))
@@ -222,6 +237,10 @@ public class InformationRegisterView extends javax.swing.JPanel {
                     .addComponent(countryComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(infoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(adressField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(adressLabel))
+                .addGap(18, 18, 18)
+                .addGroup(infoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(postAddressLabel)
                     .addComponent(postAddressField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
@@ -249,6 +268,20 @@ public class InformationRegisterView extends javax.swing.JPanel {
 
         errorPanel.setLayout(new java.awt.BorderLayout());
 
+        iconLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        iconLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/3.png"))); // NOI18N
+
+        javax.swing.GroupLayout progressPanelLayout = new javax.swing.GroupLayout(progressPanel);
+        progressPanel.setLayout(progressPanelLayout);
+        progressPanelLayout.setHorizontalGroup(
+            progressPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(iconLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        progressPanelLayout.setVerticalGroup(
+            progressPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(iconLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -265,18 +298,20 @@ public class InformationRegisterView extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(nextButton)
                 .addGap(75, 75, 75))
+            .addComponent(progressPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addComponent(progressPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(88, 88, 88)
+                        .addGap(0, 3, Short.MAX_VALUE)
                         .addComponent(infoPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(258, 258, 258)
+                        .addGap(168, 168, 168)
                         .addComponent(errorPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 207, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 43, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 12, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(nextButton)
                     .addComponent(backButton))
@@ -305,43 +340,56 @@ public class InformationRegisterView extends javax.swing.JPanel {
     }//GEN-LAST:event_confirmPasswordFieldActionPerformed
 
     private void backButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backButtonActionPerformed
-        // TODO add your handling code here:
+        MainWindow.showInformationChooseView();
     }//GEN-LAST:event_backButtonActionPerformed
 
     private void nextButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nextButtonActionPerformed
-        boolean userFinished = false;
-        User user = IMatDataHandler.getInstance().getUser();
+        boolean passWordFieldsMatched = false;
         
         if(!passwordField.getText().equals(confirmPasswordField.getText())){
             errorPanel.removeAll();
             JLabel errorLabel = new JLabel("Lösenorden överrenstämmer inte");
             errorLabel.setForeground(Color.red);
             errorPanel.add(errorLabel, BorderLayout.CENTER);
+            errorPanel.repaint();
+            errorLabel.repaint();
+            errorPanel.revalidate();
         }else{
+            passWordFieldsMatched = true;
             user.setUserName(userNameField.getText());
             user.setPassword(passwordField.getText());
         }
         
-        Customer customer = IMatDataHandler.getInstance().getCustomer();
-        customer.setPostAddress(postAddressField.getText());
-        customer.setEmail(emailField.getText());
-        customer.setFirstName(firstNameField.getText());
-        customer.setLastName(lastNameField.getText());
-        customer.setPostCode(postCodeField.getText());
-        customer.setMobilePhoneNumber(mobileNumberField.getText());
-        customer.setPhoneNumber(phoneNumberField.getText());
-        
-       if(IMatDataHandler.getInstance().isCustomerComplete()){
-            //byta skärm
-        }else{
-            errorPanel.removeAll();
-            JLabel errorLabel = new JLabel("Information saknas");
-            errorLabel.setForeground(Color.red);
-            errorPanel.add(errorLabel, BorderLayout.CENTER);
+        if(passWordFieldsMatched){
+            customer.setPostAddress(postAddressField.getText());
+            customer.setEmail(emailField.getText());
+            customer.setFirstName(firstNameField.getText());
+            customer.setLastName(lastNameField.getText());
+            customer.setPostCode(postCodeField.getText());
+            customer.setMobilePhoneNumber(mobileNumberField.getText());
+            customer.setPhoneNumber(phoneNumberField.getText());
+
+           if(isCustomerComplete() && isUserComplete()){
+                MainWindow.showDeliveryWizardView();
+            }else{
+                passWordFieldsMatched = false;
+                errorPanel.removeAll();
+                JLabel errorLabel = new JLabel("Information saknas");
+                errorLabel.setForeground(Color.red);
+                errorPanel.add(errorLabel, BorderLayout.CENTER);
+                errorPanel.repaint();
+                errorLabel.repaint();
+                errorPanel.revalidate();
+            }
         }
     }//GEN-LAST:event_nextButtonActionPerformed
 
+    private void countryComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_countryComboBoxActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_countryComboBoxActionPerformed
+
     public void resetView(){
+        adressField.setText("");
         userNameField.setText("");
         passwordField.setText("");
         confirmPasswordField.setText("");
@@ -353,8 +401,28 @@ public class InformationRegisterView extends javax.swing.JPanel {
         mobileNumberField.setText("");
         phoneNumberField.setText("");
     }
+    private boolean isUserComplete(){
+        if(user.getUserName().equals("") || user.getPassword().equals("")){
+            return false;
+        }else{
+            return true;
+        }
+    }
+    
+    private boolean isCustomerComplete() {
+        if(customer.getFirstName().equals("") || customer.getLastName().equals("") || customer.getAddress().equals("")){
+            return false;
+        }else if(!customer.getMobilePhoneNumber().equals("") && !customer.getPhoneNumber().equals("")){
+            return false;
+        }else{
+            return true;
+        }
+    }
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField adressField;
+    private javax.swing.JLabel adressLabel;
     private javax.swing.JButton backButton;
     private javax.swing.JPasswordField confirmPasswordField;
     private javax.swing.JLabel confirmPasswordLabel;
@@ -365,6 +433,7 @@ public class InformationRegisterView extends javax.swing.JPanel {
     private javax.swing.JPanel errorPanel;
     private javax.swing.JTextField firstNameField;
     private javax.swing.JLabel firstNameLabel;
+    private javax.swing.JLabel iconLabel;
     private javax.swing.JPanel infoPanel;
     private javax.swing.JTextField lastNameField;
     private javax.swing.JLabel lastNameLabel;
@@ -379,9 +448,12 @@ public class InformationRegisterView extends javax.swing.JPanel {
     private javax.swing.JLabel postAddressLabel;
     private javax.swing.JTextField postCodeField;
     private javax.swing.JLabel postCodeLabel;
+    private javax.swing.JPanel progressPanel;
     private javax.swing.JLabel requirementLabel;
     private javax.swing.JLabel titleLabel;
     private javax.swing.JTextField userNameField;
     private javax.swing.JLabel userNameLabel;
     // End of variables declaration//GEN-END:variables
+    private static Customer customer;
+    private static User user;
 }

@@ -159,7 +159,7 @@
                       <Group type="102" attributes="0">
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Component id="billingRadioButton" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="jRadioButton2" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="differentAdressRadioButton" alignment="0" min="-2" max="-2" attributes="0"/>
                               <Component id="cardAddressPanel" alignment="0" min="-2" pref="230" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace pref="40" max="32767" attributes="0"/>
@@ -174,7 +174,7 @@
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           <Component id="billingRadioButton" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="jRadioButton2" min="-2" max="-2" attributes="0"/>
+                          <Component id="differentAdressRadioButton" min="-2" max="-2" attributes="0"/>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           <Component id="cardAddressPanel" min="-2" pref="37" max="-2" attributes="0"/>
                           <EmptySpace pref="25" max="32767" attributes="0"/>
@@ -190,12 +190,12 @@
                 </Component>
                 <Component class="javax.swing.JRadioButton" name="billingRadioButton">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="RadioButton"/>
+                    <Property name="text" type="java.lang.String" value="Leverera till faktureringsadress"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JRadioButton" name="jRadioButton2">
+                <Component class="javax.swing.JRadioButton" name="differentAdressRadioButton">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="jRadioButton2"/>
+                    <Property name="text" type="java.lang.String" value="Leverera till annan adress"/>
                   </Properties>
                 </Component>
                 <Container class="javax.swing.JPanel" name="cardAddressPanel">
@@ -282,11 +282,17 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="&lt; Tillbaka"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="backButtonActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="nextButton">
       <Properties>
         <Property name="text" type="java.lang.String" value="N&#xe4;sta &gt;"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="nextButtonActionPerformed"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>

@@ -40,7 +40,7 @@ public class DeliveryWizardView extends javax.swing.JPanel {
         deliveryAddressPanel = new javax.swing.JPanel();
         deliveryAddressLabel = new javax.swing.JLabel();
         billingRadioButton = new javax.swing.JRadioButton();
-        jRadioButton2 = new javax.swing.JRadioButton();
+        differentAdressRadioButton = new javax.swing.JRadioButton();
         cardAddressPanel = new javax.swing.JPanel();
         otherAddressPanel = new javax.swing.JPanel();
         otherAdressField = new javax.swing.JTextField();
@@ -74,9 +74,9 @@ public class DeliveryWizardView extends javax.swing.JPanel {
 
         deliveryAddressLabel.setText("3. Leveransaddress");
 
-        billingRadioButton.setText("RadioButton");
+        billingRadioButton.setText("Leverera till faktureringsadress");
 
-        jRadioButton2.setText("jRadioButton2");
+        differentAdressRadioButton.setText("Leverera till annan adress");
 
         cardAddressPanel.setLayout(new java.awt.CardLayout());
 
@@ -119,7 +119,7 @@ public class DeliveryWizardView extends javax.swing.JPanel {
             .addGroup(deliveryAddressPanelLayout.createSequentialGroup()
                 .addGroup(deliveryAddressPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(billingRadioButton)
-                    .addComponent(jRadioButton2)
+                    .addComponent(differentAdressRadioButton)
                     .addComponent(cardAddressPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(40, Short.MAX_VALUE))
         );
@@ -131,7 +131,7 @@ public class DeliveryWizardView extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(billingRadioButton)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jRadioButton2)
+                .addComponent(differentAdressRadioButton)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(cardAddressPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(25, Short.MAX_VALUE))
@@ -186,8 +186,18 @@ public class DeliveryWizardView extends javax.swing.JPanel {
         );
 
         backButton.setText("< Tillbaka");
+        backButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                backButtonActionPerformed(evt);
+            }
+        });
 
         nextButton.setText("Nästa >");
+        nextButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                nextButtonActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -219,6 +229,14 @@ public class DeliveryWizardView extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void backButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backButtonActionPerformed
+        MainWindow.showPrevious();
+    }//GEN-LAST:event_backButtonActionPerformed
+
+    private void nextButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nextButtonActionPerformed
+        MainWindow.showPaymentWizardView();
+    }//GEN-LAST:event_nextButtonActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton backButton;
@@ -232,10 +250,10 @@ public class DeliveryWizardView extends javax.swing.JPanel {
     private javax.swing.JPanel deliveryAddressPanel;
     private javax.swing.JLabel deliveryAlternativeLabel;
     private javax.swing.JRadioButton deliveryRadioButton;
+    private javax.swing.JRadioButton differentAdressRadioButton;
     private javax.swing.JPanel emptyAdressPanel;
     private javax.swing.JPanel emptyPanel;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JRadioButton jRadioButton2;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JButton nextButton;
     private javax.swing.JPanel otherAddressPanel;

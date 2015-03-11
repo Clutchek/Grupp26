@@ -38,6 +38,7 @@ public class CartWizardView extends javax.swing.JPanel {
         backButton = new javax.swing.JButton();
         nextButton = new javax.swing.JButton();
         progressPanel = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
         cartPanel = new javax.swing.JPanel();
         numberOfItemsLabel = new javax.swing.JLabel();
         itemLabel = new javax.swing.JLabel();
@@ -70,15 +71,18 @@ public class CartWizardView extends javax.swing.JPanel {
             }
         });
 
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/2.png"))); // NOI18N
+
         javax.swing.GroupLayout progressPanelLayout = new javax.swing.GroupLayout(progressPanel);
         progressPanel.setLayout(progressPanelLayout);
         progressPanelLayout.setHorizontalGroup(
             progressPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1200, Short.MAX_VALUE)
+            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         progressPanelLayout.setVerticalGroup(
             progressPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 90, Short.MAX_VALUE)
+            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         cartPanel.setBorder(javax.swing.BorderFactory.createEtchedBorder());
@@ -238,6 +242,7 @@ public class CartWizardView extends javax.swing.JPanel {
     private static javax.swing.JList cartList;
     private javax.swing.JPanel cartPanel;
     private static javax.swing.JLabel itemLabel;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel listPanel;
     private javax.swing.JLabel nameLabel;
     private javax.swing.JButton nextButton;

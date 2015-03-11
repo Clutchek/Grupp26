@@ -10,6 +10,7 @@ import java.awt.Color;
 import javax.swing.JLabel;
 import se.chalmers.ait.dat215.project.Customer;
 import se.chalmers.ait.dat215.project.IMatDataHandler;
+import se.chalmers.ait.dat215.project.User;
 
 /**
  *
@@ -23,6 +24,7 @@ public class InformationGuestView extends javax.swing.JPanel {
     public InformationGuestView () {
         initComponents();
         resetView();
+        customer = IMatDataHandler.getInstance().getCustomer();
     }
 
     /**
@@ -37,6 +39,7 @@ public class InformationGuestView extends javax.swing.JPanel {
         nextButton = new javax.swing.JButton();
         backButton = new javax.swing.JButton();
         progressPanel = new javax.swing.JPanel();
+        iconLabel = new javax.swing.JLabel();
         infoPanel = new javax.swing.JPanel();
         firstNameLabel = new javax.swing.JLabel();
         firstNameField = new javax.swing.JTextField();
@@ -56,6 +59,8 @@ public class InformationGuestView extends javax.swing.JPanel {
         countryComboBox = new javax.swing.JComboBox();
         titleLabel = new javax.swing.JLabel();
         requirementLabel = new javax.swing.JLabel();
+        adressField = new javax.swing.JTextField();
+        adressLabel = new javax.swing.JLabel();
         errorPanel = new javax.swing.JPanel();
 
         nextButton.setText("Nästa >");
@@ -66,16 +71,24 @@ public class InformationGuestView extends javax.swing.JPanel {
         });
 
         backButton.setText("< Tillbaka");
+        backButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                backButtonActionPerformed(evt);
+            }
+        });
+
+        iconLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        iconLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/3.png"))); // NOI18N
 
         javax.swing.GroupLayout progressPanelLayout = new javax.swing.GroupLayout(progressPanel);
         progressPanel.setLayout(progressPanelLayout);
         progressPanelLayout.setHorizontalGroup(
             progressPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addComponent(iconLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         progressPanelLayout.setVerticalGroup(
             progressPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 88, Short.MAX_VALUE)
+            .addComponent(iconLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         infoPanel.setBorder(javax.swing.BorderFactory.createEtchedBorder());
@@ -104,7 +117,7 @@ public class InformationGuestView extends javax.swing.JPanel {
             }
         });
 
-        postAddressLabel.setText("Postadress*");
+        postAddressLabel.setText("Postadress");
 
         postAddressField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -124,7 +137,11 @@ public class InformationGuestView extends javax.swing.JPanel {
         titleLabel.setText("Användaruppgifter - Gäst");
         titleLabel.setToolTipText("");
 
-        requirementLabel.setText("* Name, Adress and at least one number must be entered.");
+        requirementLabel.setText("* Namn, Adress och minst ett nummer måste vara i fyllt.");
+
+        adressField.setText("jTextField1");
+
+        adressLabel.setText("Adress*");
 
         javax.swing.GroupLayout infoPanelLayout = new javax.swing.GroupLayout(infoPanel);
         infoPanel.setLayout(infoPanelLayout);
@@ -133,13 +150,27 @@ public class InformationGuestView extends javax.swing.JPanel {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, infoPanelLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(infoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(infoPanelLayout.createSequentialGroup()
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, infoPanelLayout.createSequentialGroup()
+                        .addGap(29, 29, 29)
+                        .addGroup(infoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(postAddressLabel)
+                            .addComponent(postCodeLabel))
+                        .addGap(32, 32, 32)
+                        .addGroup(infoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(requirementLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addGroup(infoPanelLayout.createSequentialGroup()
+                                .addGap(15, 15, 15)
+                                .addGroup(infoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(postCodeField, javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(postAddressField)))))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, infoPanelLayout.createSequentialGroup()
                         .addGroup(infoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(phoneNumberLabel)
                             .addComponent(emailLabel)
                             .addComponent(mobileNumberLabel)
                             .addComponent(firstNameLabel)
-                            .addComponent(countryLabel))
+                            .addComponent(countryLabel)
+                            .addComponent(adressLabel))
                         .addGap(39, 39, 39)
                         .addGroup(infoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(infoPanelLayout.createSequentialGroup()
@@ -151,20 +182,8 @@ public class InformationGuestView extends javax.swing.JPanel {
                             .addComponent(phoneNumberField)
                             .addComponent(mobileNumberField)
                             .addComponent(emailField, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(countryComboBox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, infoPanelLayout.createSequentialGroup()
-                        .addGap(29, 29, 29)
-                        .addGroup(infoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(postAddressLabel)
-                            .addComponent(postCodeLabel))
-                        .addGap(32, 32, 32)
-                        .addGroup(infoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(requirementLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addGroup(infoPanelLayout.createSequentialGroup()
-                                .addGap(7, 7, 7)
-                                .addGroup(infoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(postCodeField, javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(postAddressField))))))
+                            .addComponent(countryComboBox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(adressField))))
                 .addGap(43, 43, 43))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, infoPanelLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -200,13 +219,17 @@ public class InformationGuestView extends javax.swing.JPanel {
                     .addComponent(countryComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(infoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(adressField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(adressLabel))
+                .addGap(18, 18, 18)
+                .addGroup(infoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(postAddressLabel)
                     .addComponent(postAddressField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(infoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(postCodeField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(postCodeLabel))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 31, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
                 .addComponent(requirementLabel)
                 .addGap(26, 26, 26))
         );
@@ -225,7 +248,7 @@ public class InformationGuestView extends javax.swing.JPanel {
                 .addComponent(nextButton)
                 .addGap(75, 75, 75))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(251, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(infoPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(errorPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 236, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -238,12 +261,12 @@ public class InformationGuestView extends javax.swing.JPanel {
                 .addComponent(progressPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 20, Short.MAX_VALUE)
-                        .addComponent(infoPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 44, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
                         .addGap(182, 182, 182)
                         .addComponent(errorPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 183, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(infoPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(nextButton)
@@ -265,29 +288,36 @@ public class InformationGuestView extends javax.swing.JPanel {
     }//GEN-LAST:event_phoneNumberFieldActionPerformed
 
     private void nextButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nextButtonActionPerformed
-        try{
-            Customer customer = IMatDataHandler.getInstance().getCustomer();
-            customer.setPostAddress(postAddressField.getText());
-            customer.setEmail(emailField.getText());
-            customer.setFirstName(firstNameField.getText());
-            customer.setLastName(lastNameField.getText());
-            customer.setPostCode(postCodeField.getText());
-            customer.setMobilePhoneNumber(mobileNumberField.getText());
-            customer.setPhoneNumber(phoneNumberField.getText());
-        }catch(NullPointerException e){
-            //Smart kod
-        }
-        if(IMatDataHandler.getInstance().isCustomerComplete()){
-            //byta skärm
+        customer.setAddress(adressField.getText());
+        customer.setPostAddress(postAddressField.getText());
+        customer.setEmail(emailField.getText());
+        customer.setFirstName(firstNameField.getText());
+        customer.setLastName(lastNameField.getText());
+        customer.setPostCode(postCodeField.getText());
+        customer.setMobilePhoneNumber(mobileNumberField.getText());
+        customer.setPhoneNumber(phoneNumberField.getText());
+        if(isCustomerComplete()){
+            MainWindow.showDeliveryWizardView();
         }else{
             errorPanel.removeAll();
             JLabel errorLabel = new JLabel("Information saknas");
             errorLabel.setForeground(Color.red);
             errorPanel.add(errorLabel, BorderLayout.CENTER);
+            errorPanel.repaint();
+            errorLabel.repaint();
+            errorPanel.revalidate();
         }
     }//GEN-LAST:event_nextButtonActionPerformed
 
+    private void backButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backButtonActionPerformed
+        MainWindow.showInformationChooseView();
+        User user = IMatDataHandler.getInstance().getUser();
+        user.setUserName("");
+        user.setPassword("");
+    }//GEN-LAST:event_backButtonActionPerformed
+
     public void resetView(){
+        adressField.setText("");
         postAddressField.setText("");
         emailField.setText("");
         firstNameField.setText("");
@@ -296,8 +326,19 @@ public class InformationGuestView extends javax.swing.JPanel {
         mobileNumberField.setText("");
         phoneNumberField.setText("");
     }
+    private boolean isCustomerComplete() {
+        if(customer.getFirstName().equals("") || customer.getLastName().equals("") || customer.getAddress().equals("")){
+            return false;
+        }else if(!customer.getMobilePhoneNumber().equals("") && !customer.getPhoneNumber().equals("")){
+            return false;
+        }else{
+            return true;
+        }
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField adressField;
+    private javax.swing.JLabel adressLabel;
     private javax.swing.JButton backButton;
     private javax.swing.JComboBox countryComboBox;
     private javax.swing.JLabel countryLabel;
@@ -306,6 +347,7 @@ public class InformationGuestView extends javax.swing.JPanel {
     private javax.swing.JPanel errorPanel;
     private javax.swing.JTextField firstNameField;
     private javax.swing.JLabel firstNameLabel;
+    private javax.swing.JLabel iconLabel;
     private javax.swing.JPanel infoPanel;
     private javax.swing.JTextField lastNameField;
     private javax.swing.JLabel lastNameLabel;
@@ -322,4 +364,5 @@ public class InformationGuestView extends javax.swing.JPanel {
     private javax.swing.JLabel requirementLabel;
     private javax.swing.JLabel titleLabel;
     // End of variables declaration//GEN-END:variables
+    private static Customer customer;
 }
