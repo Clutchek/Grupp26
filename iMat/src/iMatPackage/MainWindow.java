@@ -10,18 +10,23 @@ import java.awt.CardLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JFrame;
+import se.chalmers.ait.dat215.project.IMatDataHandler;
 
 /**
  *
  * @author Alexander
  */
-public class MainController extends javax.swing.JFrame implements ActionListener {
+public class MainWindow extends javax.swing.JFrame implements ActionListener {
+    
+    private static CartWizardView cartWizardView;
+    
+    
 
     /**
      * Creates new form MainController
      */
-    public MainController(StoreModel m) {
-        model = m;
+    public MainWindow() {
+        cartWizardView = new CartWizardView();
         initComponents();
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLayout(new CardLayout());
@@ -38,18 +43,32 @@ public class MainController extends javax.swing.JFrame implements ActionListener
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        cardPanel = new javax.swing.JPanel();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
-        getContentPane().setLayout(new java.awt.CardLayout());
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosing(java.awt.event.WindowEvent evt) {
+                formWindowClosing(evt);
+            }
+        });
+
+        cardPanel.setLayout(new java.awt.CardLayout());
+        getContentPane().add(cardPanel, java.awt.BorderLayout.CENTER);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
+        IMatDataHandler.getInstance().shutDown();
+    }//GEN-LAST:event_formWindowClosing
 
     public void actionPerformed(ActionEvent e){
         
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel cardPanel;
     // End of variables declaration//GEN-END:variables
     private StoreModel model;
 }
