@@ -5,6 +5,8 @@
  */
 package iMatPackage;
 
+import se.chalmers.ait.dat215.project.IMatDataHandler;
+
 /**
  *
  * @author Alexander Kloutschek
@@ -63,6 +65,7 @@ public class PaymentWizardView extends javax.swing.JPanel {
         visaTextLabel = new javax.swing.JLabel();
         masterCardTextLabel = new javax.swing.JLabel();
         amExTextLabel = new javax.swing.JLabel();
+        errorLabel = new javax.swing.JLabel();
 
         setPreferredSize(new java.awt.Dimension(1200, 699));
 
@@ -276,7 +279,8 @@ public class PaymentWizardView extends javax.swing.JPanel {
                         .addGap(18, 18, 18)
                         .addComponent(masterCardTextLabel)
                         .addGap(18, 18, 18)
-                        .addComponent(amExTextLabel)))
+                        .addComponent(amExTextLabel))
+                    .addComponent(errorLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 244, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(235, 235, 235))
         );
         cardInfoPanelLayout.setVerticalGroup(
@@ -310,7 +314,9 @@ public class PaymentWizardView extends javax.swing.JPanel {
                             .addComponent(slashTextLabel)
                             .addComponent(monthTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(cvcTextLabel)
-                            .addComponent(cvcTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(cvcTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(50, 50, 50)
+                        .addComponent(errorLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(74, Short.MAX_VALUE))
         );
 
@@ -392,13 +398,25 @@ public class PaymentWizardView extends javax.swing.JPanel {
     }//GEN-LAST:event_cvcTextFieldActionPerformed
 
     private void buyButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buyButtonActionPerformed
-        MainWindow.showStoreView();
+        if(cardNbrField.getText().equals("") || monthTextField.getText().equals("") || dayTextField.getText().equals("") || cvcTextField.getText().equals("")){
+            errorLabel.setText("Information saknas i någon utav fälten");
+            
+        }
+        else{
+           
+        IMatDataHandler.getInstance().placeOrder(true);
+        InformationGuestView.resetView();
+        InformationRegisterView.resetView();
+        StoreView.showConfirmationView();
+        errorLabel.setText("");
         cardNbrField.setText("");
         cvcTextField.setText("");
         dayTextField.setText("");
         monthTextField.setText("");
         mainPanel.repaint();
+        MainWindow.showStoreView();
         
+        }
     }//GEN-LAST:event_buyButtonActionPerformed
 
 
@@ -423,6 +441,7 @@ public class PaymentWizardView extends javax.swing.JPanel {
     private javax.swing.JTextField dayTextField;
     private javax.swing.JPanel deliveryAddressPanel1;
     private javax.swing.JPanel deliveryMethodPanel1;
+    private javax.swing.JLabel errorLabel;
     private javax.swing.JLabel expireTextLabel;
     private javax.swing.JLabel iconLabel;
     private javax.swing.JSeparator jSeparator1;

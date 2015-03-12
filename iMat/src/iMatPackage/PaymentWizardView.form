@@ -368,6 +368,7 @@
                               <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Component id="amExTextLabel" min="-2" max="-2" attributes="0"/>
                           </Group>
+                          <Component id="errorLabel" min="-2" pref="244" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="235" max="-2" attributes="0"/>
                   </Group>
@@ -409,6 +410,8 @@
                                   <Component id="cvcTextLabel" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="cvcTextField" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
+                              <EmptySpace min="-2" pref="50" max="-2" attributes="0"/>
+                              <Component id="errorLabel" min="-2" pref="46" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                       <EmptySpace pref="74" max="32767" attributes="0"/>
@@ -496,6 +499,8 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="American Express"/>
               </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="errorLabel">
             </Component>
           </SubComponents>
         </Container>
