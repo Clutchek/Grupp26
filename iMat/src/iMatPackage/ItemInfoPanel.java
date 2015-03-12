@@ -56,7 +56,7 @@ public class ItemInfoPanel extends javax.swing.JPanel {
         }
         
         
-        listModel.addElement("                         " + getOrderAmount() + " st    " + getOrderTotal() + " kr");
+        listModel.addElement("Total:                     " + getOrderAmount() + " st    " + getOrderTotal() + " kr");
         itemInfoPanel.repaint();
            itemInfoPanel.revalidate();
            orderList.repaint();

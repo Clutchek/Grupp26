@@ -77,6 +77,7 @@ public class StoreView extends javax.swing.JPanel implements KeyListener{
         userNameLabel = new javax.swing.JLabel();
         passwordLabel = new javax.swing.JLabel();
         logInButton = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
         loggedInPanel = new javax.swing.JPanel();
         myPageButton = new javax.swing.JButton();
         logOutButton = new javax.swing.JButton();
@@ -97,7 +98,6 @@ public class StoreView extends javax.swing.JPanel implements KeyListener{
         howToButton = new javax.swing.JButton();
         faqButton = new javax.swing.JButton();
         contactButton = new javax.swing.JButton();
-        prevOrdersButton = new javax.swing.JButton();
         jSeparator1 = new javax.swing.JSeparator();
         jSeparator2 = new javax.swing.JSeparator(SwingConstants.VERTICAL);
         jSeparator3 = new javax.swing.JSeparator();
@@ -130,14 +130,21 @@ public class StoreView extends javax.swing.JPanel implements KeyListener{
             }
         });
 
+        jButton1.setText("Skapa konto");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout logInPanelLayout = new javax.swing.GroupLayout(logInPanel);
         logInPanel.setLayout(logInPanelLayout);
         logInPanelLayout.setHorizontalGroup(
             logInPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(logInPanelLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(logInPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, logInPanelLayout.createSequentialGroup()
+                    .addGroup(logInPanelLayout.createSequentialGroup()
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(logInPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(userNameLabel, javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(passwordLabel, javax.swing.GroupLayout.Alignment.TRAILING))
@@ -145,7 +152,10 @@ public class StoreView extends javax.swing.JPanel implements KeyListener{
                         .addGroup(logInPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(userNameField)
                             .addComponent(passwordField, javax.swing.GroupLayout.DEFAULT_SIZE, 151, Short.MAX_VALUE)))
-                    .addComponent(logInButton, javax.swing.GroupLayout.Alignment.TRAILING))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, logInPanelLayout.createSequentialGroup()
+                        .addComponent(jButton1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 49, Short.MAX_VALUE)
+                        .addComponent(logInButton)))
                 .addContainerGap())
         );
         logInPanelLayout.setVerticalGroup(
@@ -160,7 +170,9 @@ public class StoreView extends javax.swing.JPanel implements KeyListener{
                     .addComponent(passwordField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(passwordLabel))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(logInButton)
+                .addGroup(logInPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(logInButton)
+                    .addComponent(jButton1))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -307,15 +319,6 @@ public class StoreView extends javax.swing.JPanel implements KeyListener{
         contactButton.setBorder(null);
         contactButton.setContentAreaFilled(false);
 
-        prevOrdersButton.setText("Orderhistorik");
-        prevOrdersButton.setBorder(null);
-        prevOrdersButton.setContentAreaFilled(false);
-        prevOrdersButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                prevOrdersButtonActionPerformed(evt);
-            }
-        });
-
         jSeparator2.setOrientation(javax.swing.SwingConstants.VERTICAL);
         jSeparator2.setPreferredSize(new java.awt.Dimension(50, 10));
 
@@ -346,11 +349,9 @@ public class StoreView extends javax.swing.JPanel implements KeyListener{
                 .addComponent(contactButton)
                 .addGap(18, 18, 18)
                 .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 13, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(13, 13, 13)
-                .addComponent(prevOrdersButton)
-                .addGap(18, 18, 18)
+                .addGap(115, 115, 115)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(121, Short.MAX_VALUE))
+                .addContainerGap(33, Short.MAX_VALUE))
         );
         topMenuPanelLayout.setVerticalGroup(
             topMenuPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -363,8 +364,7 @@ public class StoreView extends javax.swing.JPanel implements KeyListener{
                         .addComponent(homeButton)
                         .addComponent(howToButton)
                         .addComponent(faqButton)
-                        .addComponent(contactButton)
-                        .addComponent(prevOrdersButton))
+                        .addComponent(contactButton))
                     .addComponent(jSeparator1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jSeparator5, javax.swing.GroupLayout.Alignment.LEADING))
                 .addGap(0, 0, Short.MAX_VALUE))
@@ -374,17 +374,17 @@ public class StoreView extends javax.swing.JPanel implements KeyListener{
         topPanel.setLayout(topPanelLayout);
         topPanelLayout.setHorizontalGroup(
             topPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(topPanelLayout.createSequentialGroup()
-                .addGap(134, 134, 134)
-                .addComponent(topMenuPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(104, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, topPanelLayout.createSequentialGroup()
+                .addContainerGap(230, Short.MAX_VALUE)
+                .addComponent(topMenuPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(96, 96, 96))
         );
         topPanelLayout.setVerticalGroup(
             topPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, topPanelLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(topPanelLayout.createSequentialGroup()
+                .addContainerGap()
                 .addComponent(topMenuPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         searchTextField.setText("Sök här");
@@ -527,7 +527,7 @@ public class StoreView extends javax.swing.JPanel implements KeyListener{
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(framePanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(61, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -554,10 +554,6 @@ public class StoreView extends javax.swing.JPanel implements KeyListener{
         searchTextField.setText("Sök här");
     }//GEN-LAST:event_searchTextFieldFocusLost
 
-    private void prevOrdersButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_prevOrdersButtonActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_prevOrdersButtonActionPerformed
-
     private void userNameFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_userNameFieldActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_userNameFieldActionPerformed
@@ -580,6 +576,10 @@ public class StoreView extends javax.swing.JPanel implements KeyListener{
         //featurePanel.repaint();
     }//GEN-LAST:event_myPageButtonActionPerformed
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton1ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private static javax.swing.JPanel centrePanel;
@@ -596,6 +596,7 @@ public class StoreView extends javax.swing.JPanel implements KeyListener{
     private javax.swing.JButton howToButton;
     private javax.swing.JButton infoButton;
     private static javax.swing.JPanel itemResultPanel;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
@@ -604,7 +605,7 @@ public class StoreView extends javax.swing.JPanel implements KeyListener{
     private javax.swing.JSeparator jSeparator5;
     private javax.swing.JPanel leftPanel;
     private javax.swing.JButton logInButton;
-    private javax.swing.JPanel logInCardPanel;
+    private static javax.swing.JPanel logInCardPanel;
     private javax.swing.JPanel logInPanel;
     private javax.swing.JButton logOutButton;
     private javax.swing.JPanel loggedInPanel;
@@ -613,7 +614,6 @@ public class StoreView extends javax.swing.JPanel implements KeyListener{
     private javax.swing.JButton orderHistoryButton;
     private javax.swing.JPasswordField passwordField;
     private javax.swing.JLabel passwordLabel;
-    private javax.swing.JButton prevOrdersButton;
     private javax.swing.JPanel rightPanel;
     private javax.swing.JTextField searchTextField;
     private javax.swing.JLabel titleLabel;
@@ -691,8 +691,9 @@ public class StoreView extends javax.swing.JPanel implements KeyListener{
             cardManager.show(logInCardPanel, "LoggedInPanel");
         }
     }
-    private void logout(){
+    private static void logout(){
         cardManager.show(logInCardPanel, "LogInPanel");
+        MainWindow.logOut();
     }
     private void loginError(){
         errorPanel.removeAll();
