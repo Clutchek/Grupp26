@@ -572,6 +572,7 @@ public class StoreView extends javax.swing.JPanel implements KeyListener{
 
     private void orderHistoryButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_orderHistoryButtonActionPerformed
         MainWindow.showOrderHistoryView();
+        OrderHistoryView.importOrders();
     }//GEN-LAST:event_orderHistoryButtonActionPerformed
 
     private void myPageButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_myPageButtonActionPerformed
