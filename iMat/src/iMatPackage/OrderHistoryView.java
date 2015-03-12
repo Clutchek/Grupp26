@@ -19,21 +19,20 @@ import se.chalmers.ait.dat215.project.Order;
  */
 public class OrderHistoryView extends javax.swing.JPanel{
 
-    private static IMatDataHandler backend;
     private  static List<Order> orders;
     
     
     
     public OrderHistoryView() {
         initComponents();
-        backend = IMatDataHandler.getInstance();
+        
         //orders = backend.getOrders();
     }
     
     public static void importOrders(){
         //orders = backend.getOrders();
         orderIDPanel.removeAll();
-        for(Order e: backend.getOrders()){
+        for(Order e: IMatDataHandler.getInstance().getOrders()){
             orderIDPanel.add(new OrderItemButton(e));
         }
         orderIDPanel.repaint();
