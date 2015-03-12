@@ -36,9 +36,11 @@ public class OrderHistoryView extends javax.swing.JPanel{
         for(Order e: backend.getOrders()){
             orderIDPanel.add(new OrderItemButton(e));
         }
+        orderIDPanel.repaint();
     }
     public static void clearOrderList(){
         orderResultPanel.removeAll();
+        orderResultPanel.repaint();
         
     }
     
