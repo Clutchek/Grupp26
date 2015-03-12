@@ -382,7 +382,7 @@ public class PaymentWizardView extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void backButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backButton1ActionPerformed
-        // TODO add your handling code here:
+        MainWindow.showDeliveryWizardView();
     }//GEN-LAST:event_backButton1ActionPerformed
 
     private void cardNbrFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cardNbrFieldActionPerformed
