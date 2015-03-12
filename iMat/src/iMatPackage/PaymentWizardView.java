@@ -5,6 +5,7 @@
  */
 package iMatPackage;
 
+import java.awt.Color;
 import se.chalmers.ait.dat215.project.IMatDataHandler;
 
 /**
@@ -399,7 +400,9 @@ public class PaymentWizardView extends javax.swing.JPanel {
 
     private void buyButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buyButtonActionPerformed
         if(cardNbrField.getText().equals("") || monthTextField.getText().equals("") || dayTextField.getText().equals("") || cvcTextField.getText().equals("")){
+            errorLabel.setForeground(Color.red);
             errorLabel.setText("Information saknas i någon utav fälten");
+            
             
         }
         else{
@@ -408,6 +411,7 @@ public class PaymentWizardView extends javax.swing.JPanel {
         InformationGuestView.resetView();
         InformationRegisterView.resetView();
         StoreView.showConfirmationView();
+        CategoryController.resetCategoriePanels();
         errorLabel.setText("");
         cardNbrField.setText("");
         cvcTextField.setText("");
