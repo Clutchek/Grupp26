@@ -105,9 +105,9 @@ public class InformationRegisterView extends javax.swing.JPanel {
 
         postAddressLabel.setText("Postadress ");
 
-        mobileNumberLabel.setText("Mobilnummer");
+        mobileNumberLabel.setText("Mobilnummer*");
 
-        phoneNumberLabel.setText("Telefonnummer");
+        phoneNumberLabel.setText("Telefonnummer*");
         phoneNumberLabel.setToolTipText("");
 
         phoneNumberField.addActionListener(new java.awt.event.ActionListener() {
