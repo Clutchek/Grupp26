@@ -613,14 +613,14 @@ public class StoreView extends javax.swing.JPanel implements KeyListener{
     private javax.swing.JButton myPageButton;
     private static javax.swing.JPanel myPagePanel;
     private javax.swing.JButton orderHistoryButton;
-    private javax.swing.JPasswordField passwordField;
+    private static javax.swing.JPasswordField passwordField;
     private javax.swing.JLabel passwordLabel;
     private javax.swing.JPanel rightPanel;
     private javax.swing.JTextField searchTextField;
     private javax.swing.JLabel titleLabel;
     private javax.swing.JPanel topMenuPanel;
     private javax.swing.JPanel topPanel;
-    private javax.swing.JTextField userNameField;
+    private static javax.swing.JTextField userNameField;
     private javax.swing.JLabel userNameLabel;
     // End of variables declaration//GEN-END:variables
     private ShoppingCartView shoppingCartView;
@@ -681,7 +681,7 @@ public class StoreView extends javax.swing.JPanel implements KeyListener{
         errorPanel.removeAll();
     }
     
-    private void login(){
+    protected static void login(){
         if(passwordField.getText().equals("") || userNameField.getText().equals("")){
             loginError();
         }else if(!passwordField.getText().equals(backend.getUser().getPassword()) || !userNameField.getText().equals(backend.getUser().getUserName())){
@@ -697,15 +697,15 @@ public class StoreView extends javax.swing.JPanel implements KeyListener{
         cardManager.show(logInCardPanel, "LogInPanel");
         MainWindow.logOut();
     }
-    private void loginError(){
+    private static void loginError(){
         errorPanel.removeAll();
         JLabel errorLabel = new JLabel("Fel Inloggningsuppgifter");
         errorLabel.setForeground(Color.red);
         errorPanel.add(errorLabel);
         errorPanel.repaint();
         errorLabel.repaint();
-        //errorPanel.revalidate();
-        revalidate();
+        errorPanel.revalidate();
+        //revalidate();
     }
 
     @Override

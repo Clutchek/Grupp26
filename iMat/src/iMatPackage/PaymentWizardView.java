@@ -21,7 +21,7 @@ public class PaymentWizardView extends javax.swing.JPanel {
     public PaymentWizardView() {
         initComponents();
         CreditCard card = IMatDataHandler.getInstance().getCreditCard();
-        cardNbrField.setText(card.getCardNumber());
+        cardNbrField.setText(""+card.getCardNumber());
         cvcTextField.setText(""+card.getVerificationCode());
         dayTextField.setText(""+card.getValidYear());
         monthTextField.setText(""+card.getValidMonth());
@@ -138,10 +138,9 @@ public class PaymentWizardView extends javax.swing.JPanel {
         );
 
         priceLabel.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
-        priceLabel.setText("Pris: ");
+        priceLabel.setText("Pris: " + IMatDataHandler.getInstance().getShoppingCart().getTotal());
 
         amountLabel.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
-        amountLabel.setText("Antal varor: ");
 
         buyButton.setBackground(new java.awt.Color(0, 204, 51));
         buyButton.setFont(new java.awt.Font("Lucida Grande", 0, 36)); // NOI18N
@@ -159,12 +158,11 @@ public class PaymentWizardView extends javax.swing.JPanel {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, buyPanelLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(buyPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(buyButton, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                    .addComponent(buyButton, javax.swing.GroupLayout.PREFERRED_SIZE, 203, Short.MAX_VALUE)
                     .addGroup(buyPanelLayout.createSequentialGroup()
-                        .addComponent(priceLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(52, 52, 52)
-                        .addComponent(amountLabel)
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                        .addComponent(priceLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(amountLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         buyPanelLayout.setVerticalGroup(
