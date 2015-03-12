@@ -6,6 +6,8 @@
 package iMatPackage;
 
 import java.awt.BorderLayout;
+import java.awt.CardLayout;
+import java.awt.Color;
 import java.awt.Component;
 import java.awt.GridLayout;
 import javax.swing.SwingConstants;
@@ -17,6 +19,7 @@ import java.util.List;
 import se.chalmers.ait.dat215.project.IMatDataHandler;
 import se.chalmers.ait.dat215.project.Product;
 import javax.swing.JComponent;
+import javax.swing.JLabel;
 
 /**
  *
@@ -27,13 +30,24 @@ public class StoreView extends javax.swing.JPanel implements KeyListener{
     
     public StoreView(){
         shoppingCartView = new ShoppingCartView();
-        IMatDataHandler backend = IMatDataHandler.getInstance();
+        backend = IMatDataHandler.getInstance();
         initComponents();
+        errorPanel.setLayout(new GridLayout(1,0));
+        logInCardPanel.setLayout(new CardLayout());
+        logInCardPanel.add(logInPanel);
+        logInCardPanel.add(loggedInPanel);
+        cardManager = (CardLayout)logInCardPanel.getLayout();
+        cardManager.addLayoutComponent("LogInPanel", logInPanel);
+        cardManager.addLayoutComponent("LoggedInPanel", loggedInPanel);
+        
+        cardManager.show(logInCardPanel, "LogInPanel");
+        
         rightPanel.setLayout(new BorderLayout());
         rightPanel.add(shoppingCartView);
         leftPanel.setLayout(new GridLayout(0,1));
         categorycontroller = new CategoryController(leftPanel);
         searchTextField.addKeyListener(this);
+        revalidate();
     }
 
     /**
@@ -45,6 +59,16 @@ public class StoreView extends javax.swing.JPanel implements KeyListener{
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        logInPanel = new javax.swing.JPanel();
+        userNameField = new javax.swing.JTextField("");
+        passwordField = new javax.swing.JPasswordField("");
+        userNameLabel = new javax.swing.JLabel();
+        passwordLabel = new javax.swing.JLabel();
+        logInButton = new javax.swing.JButton();
+        loggedInPanel = new javax.swing.JPanel();
+        myPageButton = new javax.swing.JButton();
+        logOutButton = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
         framePanel = new javax.swing.JPanel();
         topPanel = new javax.swing.JPanel();
         topMenuPanel = new javax.swing.JPanel();
@@ -58,7 +82,6 @@ public class StoreView extends javax.swing.JPanel implements KeyListener{
         jSeparator3 = new javax.swing.JSeparator();
         jSeparator4 = new javax.swing.JSeparator();
         jSeparator5 = new javax.swing.JSeparator();
-        topMainPanel = new javax.swing.JPanel();
         centrePanel = new javax.swing.JPanel();
         searchTextField = new javax.swing.JTextField();
         featurePanel = new javax.swing.JPanel();
@@ -66,6 +89,102 @@ public class StoreView extends javax.swing.JPanel implements KeyListener{
         itemResultPanel = new javax.swing.JPanel();
         rightPanel = new javax.swing.JPanel();
         leftPanel = new javax.swing.JPanel();
+        logInCardPanel = new javax.swing.JPanel();
+        errorPanel = new javax.swing.JPanel();
+
+        logInPanel.setBorder(javax.swing.BorderFactory.createEtchedBorder(null, java.awt.Color.black));
+
+        userNameField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                userNameFieldActionPerformed(evt);
+            }
+        });
+
+        userNameLabel.setText("Användarnamn");
+
+        passwordLabel.setText("Lösenord");
+
+        logInButton.setText("Logga in");
+        logInButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                logInButtonActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout logInPanelLayout = new javax.swing.GroupLayout(logInPanel);
+        logInPanel.setLayout(logInPanelLayout);
+        logInPanelLayout.setHorizontalGroup(
+            logInPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(logInPanelLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(logInPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, logInPanelLayout.createSequentialGroup()
+                        .addGroup(logInPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(userNameLabel, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(passwordLabel, javax.swing.GroupLayout.Alignment.TRAILING))
+                        .addGap(18, 18, 18)
+                        .addGroup(logInPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(userNameField)
+                            .addComponent(passwordField, javax.swing.GroupLayout.DEFAULT_SIZE, 151, Short.MAX_VALUE)))
+                    .addComponent(logInButton, javax.swing.GroupLayout.Alignment.TRAILING))
+                .addContainerGap())
+        );
+        logInPanelLayout.setVerticalGroup(
+            logInPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(logInPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(logInPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(userNameField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(userNameLabel))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(logInPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(passwordField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(passwordLabel))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(logInButton)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        loggedInPanel.setBorder(javax.swing.BorderFactory.createEtchedBorder(null, java.awt.Color.black));
+
+        myPageButton.setText("Min sida");
+
+        logOutButton.setText("Logga ut");
+        logOutButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                logOutButtonActionPerformed(evt);
+            }
+        });
+
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setText("Välkommen " + backend.getUser().getUserName()+"!");
+
+        javax.swing.GroupLayout loggedInPanelLayout = new javax.swing.GroupLayout(loggedInPanel);
+        loggedInPanel.setLayout(loggedInPanelLayout);
+        loggedInPanelLayout.setHorizontalGroup(
+            loggedInPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(loggedInPanelLayout.createSequentialGroup()
+                .addGap(28, 28, 28)
+                .addComponent(myPageButton)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 61, Short.MAX_VALUE)
+                .addComponent(logOutButton)
+                .addGap(30, 30, 30))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, loggedInPanelLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        loggedInPanelLayout.setVerticalGroup(
+            loggedInPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, loggedInPanelLayout.createSequentialGroup()
+                .addGap(22, 22, 22)
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 33, Short.MAX_VALUE)
+                .addGroup(loggedInPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(myPageButton)
+                    .addComponent(logOutButton))
+                .addContainerGap())
+        );
 
         setMaximumSize(new java.awt.Dimension(1200, 1000));
         setPreferredSize(new java.awt.Dimension(1200, 700));
@@ -133,7 +252,7 @@ public class StoreView extends javax.swing.JPanel implements KeyListener{
                 .addComponent(prevOrdersButton)
                 .addGap(18, 18, 18)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(128, Short.MAX_VALUE))
+                .addContainerGap(121, Short.MAX_VALUE))
         );
         topMenuPanelLayout.setVerticalGroup(
             topMenuPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -153,17 +272,6 @@ public class StoreView extends javax.swing.JPanel implements KeyListener{
                 .addGap(0, 0, Short.MAX_VALUE))
         );
 
-        javax.swing.GroupLayout topMainPanelLayout = new javax.swing.GroupLayout(topMainPanel);
-        topMainPanel.setLayout(topMainPanelLayout);
-        topMainPanelLayout.setHorizontalGroup(
-            topMainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 128, Short.MAX_VALUE)
-        );
-        topMainPanelLayout.setVerticalGroup(
-            topMainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 68, Short.MAX_VALUE)
-        );
-
         javax.swing.GroupLayout topPanelLayout = new javax.swing.GroupLayout(topPanel);
         topPanel.setLayout(topPanelLayout);
         topPanelLayout.setHorizontalGroup(
@@ -171,9 +279,7 @@ public class StoreView extends javax.swing.JPanel implements KeyListener{
             .addGroup(topPanelLayout.createSequentialGroup()
                 .addGap(134, 134, 134)
                 .addComponent(topMenuPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(topMainPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+                .addContainerGap(104, Short.MAX_VALUE))
         );
         topPanelLayout.setVerticalGroup(
             topPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -181,10 +287,6 @@ public class StoreView extends javax.swing.JPanel implements KeyListener{
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(topMenuPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
-            .addGroup(topPanelLayout.createSequentialGroup()
-                .addGap(15, 15, 15)
-                .addComponent(topMainPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         searchTextField.setText("Sök här");
@@ -261,6 +363,31 @@ public class StoreView extends javax.swing.JPanel implements KeyListener{
         leftPanel.setPreferredSize(new java.awt.Dimension(125, 510));
         leftPanel.setLayout(new java.awt.GridLayout(0, 1));
 
+        logInCardPanel.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        logInCardPanel.setPreferredSize(new java.awt.Dimension(283, 113));
+
+        javax.swing.GroupLayout logInCardPanelLayout = new javax.swing.GroupLayout(logInCardPanel);
+        logInCardPanel.setLayout(logInCardPanelLayout);
+        logInCardPanelLayout.setHorizontalGroup(
+            logInCardPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 282, Short.MAX_VALUE)
+        );
+        logInCardPanelLayout.setVerticalGroup(
+            logInCardPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 109, Short.MAX_VALUE)
+        );
+
+        javax.swing.GroupLayout errorPanelLayout = new javax.swing.GroupLayout(errorPanel);
+        errorPanel.setLayout(errorPanelLayout);
+        errorPanelLayout.setHorizontalGroup(
+            errorPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 286, Short.MAX_VALUE)
+        );
+        errorPanelLayout.setVerticalGroup(
+            errorPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 23, Short.MAX_VALUE)
+        );
+
         javax.swing.GroupLayout framePanelLayout = new javax.swing.GroupLayout(framePanel);
         framePanel.setLayout(framePanelLayout);
         framePanelLayout.setHorizontalGroup(
@@ -268,32 +395,39 @@ public class StoreView extends javax.swing.JPanel implements KeyListener{
             .addGroup(framePanelLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(framePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(topPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(framePanelLayout.createSequentialGroup()
                         .addComponent(leftPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(centrePanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(rightPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 261, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(centrePanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(topPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(framePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(errorPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(rightPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 261, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(logInCardPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 286, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(22, Short.MAX_VALUE))
         );
         framePanelLayout.setVerticalGroup(
             framePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(framePanelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(topPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGroup(framePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(framePanelLayout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(logInCardPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, Short.MAX_VALUE)
+                        .addComponent(errorPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(rightPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(framePanelLayout.createSequentialGroup()
+                        .addComponent(topPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGroup(framePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(framePanelLayout.createSequentialGroup()
-                                .addGap(0, 136, Short.MAX_VALUE)
-                                .addComponent(rightPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(centrePanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                    .addGroup(framePanelLayout.createSequentialGroup()
-                        .addGap(76, 76, 76)
-                        .addComponent(leftPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 440, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(centrePanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addGroup(framePanelLayout.createSequentialGroup()
+                                .addGap(76, 76, 76)
+                                .addComponent(leftPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 440, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 0, Short.MAX_VALUE))))))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -310,7 +444,7 @@ public class StoreView extends javax.swing.JPanel implements KeyListener{
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(framePanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(45, Short.MAX_VALUE))
+                .addContainerGap(96, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -334,10 +468,23 @@ public class StoreView extends javax.swing.JPanel implements KeyListener{
         // TODO add your handling code here:
     }//GEN-LAST:event_prevOrdersButtonActionPerformed
 
+    private void userNameFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_userNameFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_userNameFieldActionPerformed
+
+    private void logInButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logInButtonActionPerformed
+        login();
+    }//GEN-LAST:event_logInButtonActionPerformed
+
+    private void logOutButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logOutButtonActionPerformed
+      logout();
+    }//GEN-LAST:event_logOutButtonActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private static javax.swing.JPanel centrePanel;
     private javax.swing.JButton contactButton;
+    private javax.swing.JPanel errorPanel;
     private javax.swing.JButton faqButton;
     private javax.swing.JPanel featurePanel;
     private javax.swing.JScrollPane featureScrollPane;
@@ -345,18 +492,28 @@ public class StoreView extends javax.swing.JPanel implements KeyListener{
     private javax.swing.JButton homeButton;
     private javax.swing.JButton howToButton;
     private static javax.swing.JPanel itemResultPanel;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JSeparator jSeparator3;
     private javax.swing.JSeparator jSeparator4;
     private javax.swing.JSeparator jSeparator5;
     private javax.swing.JPanel leftPanel;
+    private javax.swing.JButton logInButton;
+    private javax.swing.JPanel logInCardPanel;
+    private javax.swing.JPanel logInPanel;
+    private javax.swing.JButton logOutButton;
+    private javax.swing.JPanel loggedInPanel;
+    private javax.swing.JButton myPageButton;
+    private javax.swing.JPasswordField passwordField;
+    private javax.swing.JLabel passwordLabel;
     private javax.swing.JButton prevOrdersButton;
     private javax.swing.JPanel rightPanel;
     private javax.swing.JTextField searchTextField;
-    private javax.swing.JPanel topMainPanel;
     private javax.swing.JPanel topMenuPanel;
     private javax.swing.JPanel topPanel;
+    private javax.swing.JTextField userNameField;
+    private javax.swing.JLabel userNameLabel;
     // End of variables declaration//GEN-END:variables
     private ShoppingCartView shoppingCartView;
     private ItemTile itemTile;
@@ -407,6 +564,31 @@ public class StoreView extends javax.swing.JPanel implements KeyListener{
         itemResultPanel.revalidate();
     
     }
+    
+    private void login(){
+        if(passwordField.getText().equals("") || userNameField.getText().equals("")){
+            loginError();
+        }else if(!passwordField.getText().equals(backend.getUser().getPassword()) || !userNameField.getText().equals(backend.getUser().getUserName())){
+            loginError();
+        }else{
+            passwordField.setText("");
+            userNameField.setText("");
+            cardManager.show(logInCardPanel, "LoggedInPanel");
+        }
+    }
+    private void logout(){
+        cardManager.show(logInCardPanel, "LogInPanel");
+    }
+    private void loginError(){
+        errorPanel.removeAll();
+        JLabel errorLabel = new JLabel("Fel Inloggningsuppgifter");
+        errorLabel.setForeground(Color.red);
+        errorPanel.add(errorLabel);
+        errorPanel.repaint();
+        errorLabel.repaint();
+        //errorPanel.revalidate();
+        revalidate();
+    }
 
     @Override
     public void keyPressed(KeyEvent e) {
@@ -421,6 +603,8 @@ public class StoreView extends javax.swing.JPanel implements KeyListener{
     private static final int columns = 5;
     private static List<Product> products;
     private static CategoryController categorycontroller;
+    private static IMatDataHandler backend;
+    private static CardLayout cardManager;
     
     
     

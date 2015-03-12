@@ -45,7 +45,7 @@ public class SubCategoryPanel extends javax.swing.JPanel implements MouseListene
         
         buttonPanel.setLayout(new GridLayout(0, 1));
         for(SubCategory subCategorie : subCategories){
-            JButton subButton = new JButton(subCategorie.getName());
+            JButton subButton = new JButton("-"+subCategorie.getName());
             subButton.addActionListener(this);
             subButton.setCursor(new Cursor(Cursor.HAND_CURSOR));
             buttonPanel.add(subButton);
@@ -77,7 +77,7 @@ public class SubCategoryPanel extends javax.swing.JPanel implements MouseListene
     @Override
     public void actionPerformed(ActionEvent e) {
         for(SubCategory subCategorie : subCategories){
-            if(((JButton)e.getSource()).getText().equals(subCategorie.getName())){
+            if(((JButton)e.getSource()).getText().equals("-"+subCategorie.getName())){
                 StoreView.updateView(subCategorie.getProducts());
             }
         }
