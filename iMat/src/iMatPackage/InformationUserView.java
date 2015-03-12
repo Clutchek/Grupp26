@@ -211,7 +211,7 @@ public class InformationUserView extends javax.swing.JPanel {
             errorPanel.add(errorLabel, BorderLayout.CENTER);
             errorPanel.repaint();
             errorLabel.repaint();
-            errorPanel.revalidate();
+            errorLabel.setVisible(true);
         }else{
             userNameField.setText("");
             passwordField.setText("");

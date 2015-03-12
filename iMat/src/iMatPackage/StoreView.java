@@ -36,9 +36,21 @@ public class StoreView extends javax.swing.JPanel implements KeyListener{
         logInCardPanel.setLayout(new CardLayout());
         logInCardPanel.add(logInPanel);
         logInCardPanel.add(loggedInPanel);
+        
+        featurePanel.setLayout(new CardLayout());
+        featurePanel.add(featureScrollPane);
+        featurePanel.add(myPagePanel);
+        featurePanel.add(confirmationPanel);
+        
         cardManager = (CardLayout)logInCardPanel.getLayout();
+        featureCardManager = (CardLayout)featurePanel.getLayout();
         cardManager.addLayoutComponent("LogInPanel", logInPanel);
         cardManager.addLayoutComponent("LoggedInPanel", loggedInPanel);
+        
+        
+        featureCardManager.addLayoutComponent("FeatureScrollPane", featureScrollPane);
+        featureCardManager.addLayoutComponent("MyPagePanel", myPagePanel);
+        featureCardManager.addLayoutComponent("ConfirmationPanel", confirmationPanel);
         
         cardManager.show(logInCardPanel, "LogInPanel");
         
@@ -69,6 +81,15 @@ public class StoreView extends javax.swing.JPanel implements KeyListener{
         myPageButton = new javax.swing.JButton();
         logOutButton = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
+        myPagePanel = new javax.swing.JPanel();
+        favouriteButton = new javax.swing.JButton();
+        orderHistoryButton = new javax.swing.JButton();
+        contactsButton = new javax.swing.JButton();
+        infoButton = new javax.swing.JButton();
+        confirmationPanel = new javax.swing.JPanel();
+        titleLabel = new javax.swing.JLabel();
+        featureScrollPane = new javax.swing.JScrollPane();
+        itemResultPanel = new javax.swing.JPanel();
         framePanel = new javax.swing.JPanel();
         topPanel = new javax.swing.JPanel();
         topMenuPanel = new javax.swing.JPanel();
@@ -85,8 +106,6 @@ public class StoreView extends javax.swing.JPanel implements KeyListener{
         centrePanel = new javax.swing.JPanel();
         searchTextField = new javax.swing.JTextField();
         featurePanel = new javax.swing.JPanel();
-        featureScrollPane = new javax.swing.JScrollPane();
-        itemResultPanel = new javax.swing.JPanel();
         rightPanel = new javax.swing.JPanel();
         leftPanel = new javax.swing.JPanel();
         logInCardPanel = new javax.swing.JPanel();
@@ -148,6 +167,11 @@ public class StoreView extends javax.swing.JPanel implements KeyListener{
         loggedInPanel.setBorder(javax.swing.BorderFactory.createEtchedBorder(null, java.awt.Color.black));
 
         myPageButton.setText("Min sida");
+        myPageButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                myPageButtonActionPerformed(evt);
+            }
+        });
 
         logOutButton.setText("Logga ut");
         logOutButton.addActionListener(new java.awt.event.ActionListener() {
@@ -185,6 +209,80 @@ public class StoreView extends javax.swing.JPanel implements KeyListener{
                     .addComponent(logOutButton))
                 .addContainerGap())
         );
+
+        favouriteButton.setText("Sparade listor och favoriter");
+
+        orderHistoryButton.setText("Orderhistorik");
+        orderHistoryButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                orderHistoryButtonActionPerformed(evt);
+            }
+        });
+
+        contactsButton.setText("Kontakter");
+
+        infoButton.setText("Mina Uppgifter");
+
+        javax.swing.GroupLayout myPagePanelLayout = new javax.swing.GroupLayout(myPagePanel);
+        myPagePanel.setLayout(myPagePanelLayout);
+        myPagePanelLayout.setHorizontalGroup(
+            myPagePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, myPagePanelLayout.createSequentialGroup()
+                .addGap(139, 139, 139)
+                .addGroup(myPagePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(myPagePanelLayout.createSequentialGroup()
+                        .addComponent(orderHistoryButton, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 224, Short.MAX_VALUE)
+                        .addComponent(contactsButton, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(myPagePanelLayout.createSequentialGroup()
+                        .addComponent(infoButton, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(favouriteButton, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(123, 123, 123))
+        );
+        myPagePanelLayout.setVerticalGroup(
+            myPagePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(myPagePanelLayout.createSequentialGroup()
+                .addGap(83, 83, 83)
+                .addGroup(myPagePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(favouriteButton, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(infoButton, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 48, Short.MAX_VALUE)
+                .addGroup(myPagePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(contactsButton, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(orderHistoryButton, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(43, 43, 43))
+        );
+
+        confirmationPanel.setBorder(javax.swing.BorderFactory.createEtchedBorder(null, java.awt.Color.black));
+
+        titleLabel.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        titleLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        titleLabel.setText("Grattis, Köpet är genomfört!");
+
+        javax.swing.GroupLayout confirmationPanelLayout = new javax.swing.GroupLayout(confirmationPanel);
+        confirmationPanel.setLayout(confirmationPanelLayout);
+        confirmationPanelLayout.setHorizontalGroup(
+            confirmationPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, confirmationPanelLayout.createSequentialGroup()
+                .addContainerGap(234, Short.MAX_VALUE)
+                .addComponent(titleLabel)
+                .addGap(212, 212, 212))
+        );
+        confirmationPanelLayout.setVerticalGroup(
+            confirmationPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(confirmationPanelLayout.createSequentialGroup()
+                .addGap(155, 155, 155)
+                .addComponent(titleLabel)
+                .addContainerGap(190, Short.MAX_VALUE))
+        );
+
+        featureScrollPane.setToolTipText("");
+        featureScrollPane.setPreferredSize(new java.awt.Dimension(750, 335));
+
+        itemResultPanel.setDoubleBuffered(false);
+        itemResultPanel.setLayout(new java.awt.GridLayout(0, 5, 2, 2));
+        featureScrollPane.setViewportView(itemResultPanel);
 
         setMaximumSize(new java.awt.Dimension(1200, 1000));
         setPreferredSize(new java.awt.Dimension(1200, 700));
@@ -309,17 +407,9 @@ public class StoreView extends javax.swing.JPanel implements KeyListener{
             }
         });
 
+        featurePanel.setBorder(javax.swing.BorderFactory.createEtchedBorder(null, java.awt.Color.black));
         featurePanel.setPreferredSize(new java.awt.Dimension(750, 335));
         featurePanel.setLayout(new java.awt.CardLayout());
-
-        featureScrollPane.setToolTipText("");
-        featureScrollPane.setPreferredSize(new java.awt.Dimension(750, 335));
-
-        itemResultPanel.setDoubleBuffered(false);
-        itemResultPanel.setLayout(new java.awt.GridLayout(0, 5, 2, 2));
-        featureScrollPane.setViewportView(itemResultPanel);
-
-        featurePanel.add(featureScrollPane, "card2");
 
         javax.swing.GroupLayout centrePanelLayout = new javax.swing.GroupLayout(centrePanel);
         centrePanel.setLayout(centrePanelLayout);
@@ -480,17 +570,30 @@ public class StoreView extends javax.swing.JPanel implements KeyListener{
       logout();
     }//GEN-LAST:event_logOutButtonActionPerformed
 
+    private void orderHistoryButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_orderHistoryButtonActionPerformed
+        MainWindow.showOrderHistoryView();
+    }//GEN-LAST:event_orderHistoryButtonActionPerformed
+
+    private void myPageButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_myPageButtonActionPerformed
+        featureCardManager.show(featurePanel, "MyPagePanel");
+        //featurePanel.repaint();
+    }//GEN-LAST:event_myPageButtonActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private static javax.swing.JPanel centrePanel;
+    private static javax.swing.JPanel confirmationPanel;
     private javax.swing.JButton contactButton;
-    private javax.swing.JPanel errorPanel;
+    private javax.swing.JButton contactsButton;
+    private static javax.swing.JPanel errorPanel;
     private javax.swing.JButton faqButton;
-    private javax.swing.JPanel featurePanel;
+    private javax.swing.JButton favouriteButton;
+    private static javax.swing.JPanel featurePanel;
     private javax.swing.JScrollPane featureScrollPane;
     private javax.swing.JPanel framePanel;
     private javax.swing.JButton homeButton;
     private javax.swing.JButton howToButton;
+    private javax.swing.JButton infoButton;
     private static javax.swing.JPanel itemResultPanel;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JSeparator jSeparator1;
@@ -505,11 +608,14 @@ public class StoreView extends javax.swing.JPanel implements KeyListener{
     private javax.swing.JButton logOutButton;
     private javax.swing.JPanel loggedInPanel;
     private javax.swing.JButton myPageButton;
+    private static javax.swing.JPanel myPagePanel;
+    private javax.swing.JButton orderHistoryButton;
     private javax.swing.JPasswordField passwordField;
     private javax.swing.JLabel passwordLabel;
     private javax.swing.JButton prevOrdersButton;
     private javax.swing.JPanel rightPanel;
     private javax.swing.JTextField searchTextField;
+    private javax.swing.JLabel titleLabel;
     private javax.swing.JPanel topMenuPanel;
     private javax.swing.JPanel topPanel;
     private javax.swing.JTextField userNameField;
@@ -546,6 +652,8 @@ public class StoreView extends javax.swing.JPanel implements KeyListener{
     }
     
     public static void updateView(List<Product> pr){
+        errorPanel.removeAll();
+        featureCardManager.show(featurePanel, "FeatureScrollPane");
         itemResultPanel.removeAll();
         products = pr;
         nbrOfProducts = products.size();
@@ -563,6 +671,12 @@ public class StoreView extends javax.swing.JPanel implements KeyListener{
         centrePanel.revalidate();
         itemResultPanel.revalidate();
     
+    }
+    public static void showConfirmationView(){
+        featureCardManager.show(featurePanel, "ConfirmationPanel");
+    }
+    public static void clearErrorPanel(){
+        errorPanel.removeAll();
     }
     
     private void login(){
@@ -605,9 +719,5 @@ public class StoreView extends javax.swing.JPanel implements KeyListener{
     private static CategoryController categorycontroller;
     private static IMatDataHandler backend;
     private static CardLayout cardManager;
-    
-    
-    
-    
-    
+    private static CardLayout featureCardManager;
 }

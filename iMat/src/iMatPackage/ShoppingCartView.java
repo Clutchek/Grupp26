@@ -108,6 +108,7 @@ public class ShoppingCartView extends javax.swing.JPanel implements ShoppingCart
     }// </editor-fold>//GEN-END:initComponents
 
     private void buyButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buyButtonActionPerformed
+        StoreView.clearErrorPanel();
         MainWindow.showCartWizardView();
         CartWizardView.updateView();
     }//GEN-LAST:event_buyButtonActionPerformed
