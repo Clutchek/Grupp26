@@ -8,6 +8,7 @@ package iMatPackage;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import javax.swing.JLabel;
+import se.chalmers.ait.dat215.project.CreditCard;
 import se.chalmers.ait.dat215.project.Customer;
 import se.chalmers.ait.dat215.project.IMatDataHandler;
 import se.chalmers.ait.dat215.project.User;
@@ -371,6 +372,14 @@ public class InformationRegisterView extends javax.swing.JPanel {
             customer.setPhoneNumber(phoneNumberField.getText());
 
            if(isCustomerComplete() && isUserComplete()){
+                CreditCard card = IMatDataHandler.getInstance().getCreditCard();
+                card.setCardNumber("");
+                card.setCardType("");
+                card.setHoldersName("");
+                card.setValidMonth(0);
+                card.setValidYear(0);
+                card.setVerificationCode(0);
+                
                 MainWindow.showDeliveryWizardView();
                 DeliveryWizardView.setOriginToRegister();
             }else{

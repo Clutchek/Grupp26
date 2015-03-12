@@ -31,6 +31,7 @@ public class MainWindow extends javax.swing.JFrame {
     private static InformationRegisterView informationRegisterView;
     private static OrderHistoryView orderHistoryView;
     private static CardLayout cardManager;
+    private static boolean isLoggedIn;
     
 
     /**
@@ -46,6 +47,7 @@ public class MainWindow extends javax.swing.JFrame {
         informationRegisterView = new InformationRegisterView();
         deliveryWizardView = new DeliveryWizardView();
         orderHistoryView = new OrderHistoryView();
+        isLoggedIn = false;
         
         initComponents();
         cardManager = (CardLayout)cardPanel.getLayout();
@@ -106,6 +108,15 @@ public class MainWindow extends javax.swing.JFrame {
     }
     public static void showOrderHistoryView(){
         cardManager.show(cardPanel, "OrderHistoryView");
+    }
+    public static boolean isLoggedIn(){
+        return isLoggedIn;
+    }
+    public static void logOut(){
+        isLoggedIn = false;
+    }
+    public static void logIn(){
+        isLoggedIn = true;
     }
     /**
      * This method is called from within the constructor to initialize the form.

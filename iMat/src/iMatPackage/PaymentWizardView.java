@@ -6,6 +6,7 @@
 package iMatPackage;
 
 import java.awt.Color;
+import se.chalmers.ait.dat215.project.CreditCard;
 import se.chalmers.ait.dat215.project.IMatDataHandler;
 
 /**
@@ -19,10 +20,11 @@ public class PaymentWizardView extends javax.swing.JPanel {
      */
     public PaymentWizardView() {
         initComponents();
-        cardNbrField.setText("");
-        cvcTextField.setText("");
-        dayTextField.setText("");
-        monthTextField.setText("");
+        CreditCard card = IMatDataHandler.getInstance().getCreditCard();
+        cardNbrField.setText(card.getCardNumber());
+        cvcTextField.setText(""+card.getVerificationCode());
+        dayTextField.setText(""+card.getValidYear());
+        monthTextField.setText(""+card.getValidMonth());
         mainPanel.repaint();
     }
 
@@ -406,8 +408,16 @@ public class PaymentWizardView extends javax.swing.JPanel {
             
         }
         else{
+        IMatDataHandler backend = IMatDataHandler.getInstance();
+        CreditCard card = backend.getCreditCard();
+        card.setCardNumber(cardNbrField.getText());
+        card.setCardType("Visa");
+        card.setHoldersName(backend.getCustomer().getFirstName() + " " + backend.getCustomer().getLastName());
+        card.setValidMonth(Integer.valueOf(monthTextField.getText()).intValue());
+        card.setValidYear(Integer.valueOf(dayTextField.getText()).intValue());
+        card.setVerificationCode(Integer.valueOf(cvcTextField.getText()).intValue());
            
-        IMatDataHandler.getInstance().placeOrder(true);
+        backend.placeOrder(true);
         InformationGuestView.resetView();
         InformationRegisterView.resetView();
         StoreView.showConfirmationView();
