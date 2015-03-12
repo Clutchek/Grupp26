@@ -27,9 +27,10 @@ public class OrderItemButton extends javax.swing.JPanel implements ActionListene
     
     @Override
     public void actionPerformed(ActionEvent e) {
-        
+        //clearOrderList metoden rensar info om eventuell tidigare order
         OrderHistoryView.clearOrderList();
         itemInfoPanel.listOrderInfo();
+        OrderHistoryView.showOrderInfo(order);
     }
     
     public ItemInfoPanel getItemInfoPanel(){

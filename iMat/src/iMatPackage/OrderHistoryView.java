@@ -43,6 +43,12 @@ public class OrderHistoryView extends javax.swing.JPanel{
         
     }
     
+    public static void showOrderInfo(Order e){
+        orderResultPanel.removeAll();
+        orderResultPanel.add(new ItemInfoPanel(e));
+        orderResultPanel.repaint();
+    }
+    
     
     /**
      * This method is called from within the constructor to initialize the form.
