@@ -209,7 +209,11 @@ public class CartWizardView extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void nextButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nextButtonActionPerformed
-        MainWindow.showInformationChooseView();
+        if(MainWindow.isLoggedIn()){
+            MainWindow.showDeliveryWizardView();
+        }else{
+            MainWindow.showInformationChooseView();
+        }
     }//GEN-LAST:event_nextButtonActionPerformed
 
     private void formFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_formFocusGained

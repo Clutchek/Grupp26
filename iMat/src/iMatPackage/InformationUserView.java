@@ -181,6 +181,7 @@ public class InformationUserView extends javax.swing.JPanel {
             userNameField.setText("");
             passwordField.setText("");
             errorPanel.removeAll();
+            MainWindow.logIn();
             MainWindow.showDeliveryWizardView();
             DeliveryWizardView.setOriginToUser();
         }

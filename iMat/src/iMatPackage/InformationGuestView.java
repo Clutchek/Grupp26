@@ -299,6 +299,7 @@ public class InformationGuestView extends javax.swing.JPanel {
             User user = IMatDataHandler.getInstance().getUser();
             user.setUserName("");
             user.setPassword("");
+            StoreView.logout();
             
             CreditCard card = IMatDataHandler.getInstance().getCreditCard();
             card.setCardNumber("");

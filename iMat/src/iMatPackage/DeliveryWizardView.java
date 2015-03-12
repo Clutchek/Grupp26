@@ -236,12 +236,16 @@ public class DeliveryWizardView extends javax.swing.JPanel {
 
     
     private void backButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backButtonActionPerformed
-        if(origin.equals("Guest")){
-            MainWindow.showInformationGuestView();
-        }else if(origin.equals("Register")){
-            MainWindow.showInformationRegisterView();
-        }else if(origin.equals("User")){
-            MainWindow.showInformationUserView();
+        if(MainWindow.isLoggedIn()){
+            MainWindow.showCartWizardView();
+        }else{
+            if(origin.equals("Guest")){
+                MainWindow.showInformationGuestView();
+            }else if(origin.equals("Register")){
+                MainWindow.showInformationRegisterView();
+            }else if(origin.equals("User")){
+                MainWindow.showInformationUserView();
+            }
         }
     }//GEN-LAST:event_backButtonActionPerformed
 

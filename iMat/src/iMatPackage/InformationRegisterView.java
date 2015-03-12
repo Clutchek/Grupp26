@@ -382,6 +382,7 @@ public class InformationRegisterView extends javax.swing.JPanel {
                 card.setValidMonth(0);
                 card.setValidYear(0);
                 card.setVerificationCode(0);
+                StoreView.logout();
                 
                 MainWindow.showDeliveryWizardView();
                 DeliveryWizardView.setOriginToRegister();
