@@ -30,7 +30,7 @@ public class CategoryPanel extends javax.swing.JPanel implements MouseListener{
         setLayout(new CardLayout());
         cardManager = (CardLayout)getLayout();
         categorie = c;
-        this.main = new MainCategoryPanel(categorie);
+        this.main = new MainCategoryPanel1(categorie);
         main.addMouseListener(this);
         this.sub = new SubCategoryPanel(categorie ,categorie.getSubCategories());
         add(sub);
