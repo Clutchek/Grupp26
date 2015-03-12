@@ -24,9 +24,11 @@ public class ItemInfoPanel extends javax.swing.JPanel {
     
     
     public ItemInfoPanel(Order o) {
-        initComponents();
-        this.order = o;
+       
+         this.order = o;
         listModel = new DefaultListModel();
+        initComponents();
+       
         
     }
     
@@ -49,14 +51,16 @@ public class ItemInfoPanel extends javax.swing.JPanel {
     public void listOrderInfo(){
         for(int i = 0; i < order.getItems().size(); i++){
            listModel.addElement(order.getItems().get(i).getProduct().getName() + ("       "
-                   + order.getItems().get(i).getAmount()) + ("        " + order.getItems().get(i).getTotal()));
-           itemInfoPanel.repaint();
-           orderList.repaint();
+                   + order.getItems().get(i).getAmount()) + (" st        " + order.getItems().get(i).getTotal() + " kr"));
+           
         }
         
-        /*itemInfoPanel.add(new JLabel(""));
-        itemInfoPanel.add(new JLabel("" + getOrderAmount()));
-        itemInfoPanel.add(new JLabel("" + getOrderTotal()));*/
+        
+        listModel.addElement("                         " + getOrderAmount() + " st    " + getOrderTotal() + " kr");
+        itemInfoPanel.repaint();
+           itemInfoPanel.revalidate();
+           orderList.repaint();
+           orderList.revalidate();
     }
 
     /**

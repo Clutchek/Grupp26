@@ -44,8 +44,13 @@ public class OrderHistoryView extends javax.swing.JPanel{
     }
     
     public static void showOrderInfo(Order e){
+        ItemInfoPanel itemInfo = new ItemInfoPanel(e);
+        
         orderResultPanel.removeAll();
-        orderResultPanel.add(new ItemInfoPanel(e));
+        
+        orderResultPanel.add(itemInfo);
+        itemInfo.listOrderInfo();
+        
         orderResultPanel.repaint();
     }
     
@@ -68,6 +73,7 @@ public class OrderHistoryView extends javax.swing.JPanel{
         orderIDPanel.setLayout(new java.awt.GridLayout(0, 1));
         orderIDPane.setViewportView(orderIDPanel);
 
+        orderResultPanel.setPreferredSize(new java.awt.Dimension(270, 200));
         orderResultPanel.setLayout(new java.awt.GridLayout(0, 1));
         orderResultScrollPane.setViewportView(orderResultPanel);
 

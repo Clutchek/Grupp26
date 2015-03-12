@@ -13,7 +13,7 @@ import se.chalmers.ait.dat215.project.Order;
  *
  * @author Poya
  */
-public class OrderItemButton extends javax.swing.JPanel implements ActionListener {
+public class OrderItemButton extends javax.swing.JPanel {
 
     private Order order;
     private ItemInfoPanel itemInfoPanel;
@@ -25,14 +25,14 @@ public class OrderItemButton extends javax.swing.JPanel implements ActionListene
         orderIDButton.setText("#" + e.getOrderNumber());
     }
     
-    @Override
+   /* @Override
     public void actionPerformed(ActionEvent e) {
         //clearOrderList metoden rensar info om eventuell tidigare order
         OrderHistoryView.clearOrderList();
         itemInfoPanel.listOrderInfo();
         OrderHistoryView.showOrderInfo(order);
     }
-    
+    */
     public ItemInfoPanel getItemInfoPanel(){
         return itemInfoPanel;
     }
@@ -52,6 +52,12 @@ public class OrderItemButton extends javax.swing.JPanel implements ActionListene
 
         orderIDButton = new javax.swing.JButton();
 
+        orderIDButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                orderIDButtonActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -67,6 +73,11 @@ public class OrderItemButton extends javax.swing.JPanel implements ActionListene
                 .addComponent(orderIDButton))
         );
     }// </editor-fold>//GEN-END:initComponents
+
+    private void orderIDButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_orderIDButtonActionPerformed
+        OrderHistoryView.clearOrderList();
+        OrderHistoryView.showOrderInfo(order);
+    }//GEN-LAST:event_orderIDButtonActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
