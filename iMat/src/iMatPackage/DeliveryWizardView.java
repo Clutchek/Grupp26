@@ -250,6 +250,7 @@ public class DeliveryWizardView extends javax.swing.JPanel {
     }//GEN-LAST:event_backButtonActionPerformed
 
     private void nextButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nextButtonActionPerformed
+        PaymentWizardView.refreshView();
         MainWindow.showPaymentWizardView();
     }//GEN-LAST:event_nextButtonActionPerformed
     protected static void setOriginToGuest(){

@@ -55,14 +55,13 @@
                       <Group type="102" attributes="0">
                           <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
                           <Component id="backButton1" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="832" max="-2" attributes="0"/>
                       </Group>
-                      <Group type="102" alignment="1" attributes="0">
+                      <Group type="102" attributes="0">
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="cardInfoPanel" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       </Group>
                   </Group>
+                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="1" max="-2" attributes="0">
                       <Component id="deliveryMethodPanel1" alignment="0" max="32767" attributes="0"/>
                       <Component id="billingAddressPanel1" alignment="0" max="32767" attributes="0"/>
@@ -81,7 +80,7 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" attributes="0">
                           <Component id="cardInfoPanel" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
                           <Component id="backButton1" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" attributes="0">
@@ -219,11 +218,16 @@
                   <Group type="102" alignment="1" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="1" attributes="0">
-                          <Component id="buyButton" alignment="1" pref="203" max="32767" attributes="0"/>
-                          <Group type="102" alignment="1" attributes="0">
-                              <Component id="priceLabel" min="-2" pref="62" max="-2" attributes="0"/>
-                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Component id="amountLabel" max="32767" attributes="0"/>
+                          <Component id="buyButton" pref="0" max="32767" attributes="0"/>
+                          <Group type="102" attributes="0">
+                              <Component id="priceLabel" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="5" max="-2" attributes="0"/>
+                              <Component id="totalPriceLabel" min="-2" pref="26" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="amountLabel" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="totalAmountLabel" min="-2" pref="27" max="-2" attributes="0"/>
+                              <EmptySpace min="0" pref="18" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
@@ -234,13 +238,20 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="priceLabel" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="amountLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="priceLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="amountLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="totalAmountLabel" alignment="0" max="32767" attributes="0"/>
+                          </Group>
+                          <Group type="102" attributes="0">
+                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                              <Component id="totalPriceLabel" min="-2" pref="21" max="-2" attributes="0"/>
+                          </Group>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="buyButton" min="-2" pref="69" max="-2" attributes="0"/>
-                      <EmptySpace max="32767" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -251,9 +262,7 @@
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Lucida Grande" size="18" style="0"/>
                 </Property>
-                <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-                  <Connection code="&quot;Pris: &quot; + IMatDataHandler.getInstance().getShoppingCart().getTotal()" type="code"/>
-                </Property>
+                <Property name="text" type="java.lang.String" value="Pris:"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="amountLabel">
@@ -261,9 +270,7 @@
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Lucida Grande" size="18" style="0"/>
                 </Property>
-                <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.editors.StringEditor">
-                  <SerializedValue value="-84,-19,0,5,115,114,0,78,111,114,103,46,110,101,116,98,101,97,110,115,46,109,111,100,117,108,101,115,46,102,111,114,109,46,82,65,68,67,111,110,110,101,99,116,105,111,110,80,114,111,112,101,114,116,121,69,100,105,116,111,114,36,82,65,68,67,111,110,110,101,99,116,105,111,110,68,101,115,105,103,110,86,97,108,117,101,2,10,-70,90,-35,-97,-57,100,2,0,7,73,0,4,116,121,112,101,76,0,10,109,101,116,104,111,100,78,97,109,101,116,0,18,76,106,97,118,97,47,108,97,110,103,47,83,116,114,105,110,103,59,76,0,12,112,114,111,112,101,114,116,121,78,97,109,101,113,0,126,0,1,76,0,16,114,97,100,67,111,109,112,111,110,101,110,116,78,97,109,101,113,0,126,0,1,76,0,16,114,101,113,117,105,114,101,100,84,121,112,101,78,97,109,101,113,0,126,0,1,76,0,8,117,115,101,114,67,111,100,101,113,0,126,0,1,76,0,5,118,97,108,117,101,113,0,126,0,1,120,112,0,0,0,2,112,112,112,112,116,0,76,34,65,110,116,97,108,32,118,97,114,111,114,58,32,34,32,43,32,73,77,97,116,68,97,116,97,72,97,110,100,108,101,114,46,103,101,116,73,110,115,116,97,110,99,101,40,41,46,103,101,116,83,104,111,112,112,105,110,103,67,97,114,116,40,41,46,103,101,116,73,116,101,109,115,40,41,112"/>
-                </Property>
+                <Property name="text" type="java.lang.String" value="Antal varor: "/>
               </Properties>
             </Component>
             <Component class="javax.swing.JButton" name="buyButton">
@@ -279,6 +286,16 @@
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buyButtonActionPerformed"/>
               </Events>
+            </Component>
+            <Component class="javax.swing.JLabel" name="totalAmountLabel">
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="totalAmountLabel.setText(&quot;&quot; + IMatDataHandler.getInstance().getShoppingCart().getItems().size());"/>
+              </AuxValues>
+            </Component>
+            <Component class="javax.swing.JLabel" name="totalPriceLabel">
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="totalPriceLabel.setText(&quot;&quot; + IMatDataHandler.getInstance().getShoppingCart().getTotal());"/>
+              </AuxValues>
             </Component>
           </SubComponents>
         </Container>
@@ -460,6 +477,9 @@
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cardNbrFieldActionPerformed"/>
               </Events>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="10"/>
+              </AuxValues>
             </Component>
             <Component class="javax.swing.JLabel" name="expireTextLabel">
               <Properties>
@@ -467,6 +487,9 @@
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="dayTextField">
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="10"/>
+              </AuxValues>
             </Component>
             <Component class="javax.swing.JLabel" name="slashTextLabel">
               <Properties>
@@ -477,6 +500,9 @@
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="monthTextFieldActionPerformed"/>
               </Events>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="10"/>
+              </AuxValues>
             </Component>
             <Component class="javax.swing.JLabel" name="cvcTextLabel">
               <Properties>
@@ -487,6 +513,9 @@
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cvcTextFieldActionPerformed"/>
               </Events>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="10"/>
+              </AuxValues>
             </Component>
             <Component class="javax.swing.JLabel" name="visaTextLabel">
               <Properties>
