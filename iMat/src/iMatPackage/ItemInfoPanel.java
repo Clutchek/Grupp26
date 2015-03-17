@@ -50,17 +50,35 @@ public class ItemInfoPanel extends javax.swing.JPanel {
     
     public void listOrderInfo(){
         for(int i = 0; i < order.getItems().size(); i++){
-           listModel.addElement(order.getItems().get(i).getProduct().getName() + ("       "
-                   + order.getItems().get(i).getAmount()) + (" st        " + order.getItems().get(i).getTotal() + " kr"));
-           
+            String stringItem = "";
+            
+            stringItem = stringItem + order.getItems().get(i).getProduct().getName();
+            
+            int times = 20 - order.getItems().get(i).getProduct().getName().length();
+            if(times > 0){
+                for(int j = 0; j < times; j++){
+                    stringItem = stringItem + " ";
+                }
+            }
+            
+            stringItem = stringItem + order.getItems().get(i).getAmount()+" st";
+            
+            times = 10 - String.valueOf(order.getItems().get(i).getAmount()).length();
+            if(times > 0){
+                for(int j = 0; j < times; j++){
+                    stringItem = stringItem + " ";
+                }
+            }
+            stringItem = stringItem + order.getItems().get(i).getTotal()+" kr";
+
+            listModel.addElement(stringItem);
         }
         
-        
-        listModel.addElement("Total:                     " + getOrderAmount() + " st    " + getOrderTotal() + " kr");
+        listModel.addElement("Total: " + getOrderAmount() + " st varor,  " + getOrderTotal() + " kr");
         itemInfoPanel.repaint();
-           itemInfoPanel.revalidate();
-           orderList.repaint();
-           orderList.revalidate();
+        itemInfoPanel.revalidate();
+        orderList.repaint();
+        orderList.revalidate();
     }
 
     /**

@@ -235,7 +235,28 @@ public class CartWizardView extends javax.swing.JPanel {
         List<ShoppingItem> cart = IMatDataHandler.getInstance().getShoppingCart().getItems();
         double totalPrice = 0;
         for(ShoppingItem item : cart){
-            listModel.addElement(item.getProduct().getName() + "                                " + item.getAmount() + "st                                " + item.getTotal() + "kr");
+            String stringItem = "";
+            
+            stringItem = stringItem + item.getProduct().getName();
+            
+            int times = 40 - item.getProduct().getName().length();
+            if(times > 0){
+                for(int j = 0; j < times; j++){
+                    stringItem = stringItem + " ";
+                }
+            }
+            
+            stringItem = stringItem + item.getAmount()+" st";
+            
+            times = 30 - String.valueOf(item.getAmount()).length();
+            if(times > 0){
+                for(int j = 0; j < times; j++){
+                    stringItem = stringItem + " ";
+                }
+            }
+            stringItem = stringItem + item.getTotal()+" kr";
+
+            listModel.addElement(stringItem);
             totalPrice = totalPrice + item.getTotal();
         }
         priceNumberLabel.setText(String.valueOf(totalPrice)+ "kr");
