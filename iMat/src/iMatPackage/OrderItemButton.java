@@ -22,7 +22,7 @@ public class OrderItemButton extends javax.swing.JPanel {
         initComponents();
         this.order = e;
         this.itemInfoPanel = new ItemInfoPanel(e);
-        orderIDButton.setText("#" + e.getOrderNumber());
+        orderIDButton.setText("" + e.getDate());
     }
     
    /* @Override

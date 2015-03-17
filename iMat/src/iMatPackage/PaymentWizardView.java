@@ -20,11 +20,7 @@ public class PaymentWizardView extends javax.swing.JPanel {
      */
     public PaymentWizardView() {
         initComponents();
-        CreditCard card = IMatDataHandler.getInstance().getCreditCard();
-        cardNbrField.setText(""+card.getCardNumber());
-        cvcTextField.setText(""+card.getVerificationCode());
-        dayTextField.setText(""+card.getValidYear());
-        monthTextField.setText(""+card.getValidMonth());
+        refreshView();
         mainPanel.repaint();
     }
 
@@ -49,6 +45,8 @@ public class PaymentWizardView extends javax.swing.JPanel {
         priceLabel = new javax.swing.JLabel();
         amountLabel = new javax.swing.JLabel();
         buyButton = new javax.swing.JButton();
+        totalAmountLabel = new javax.swing.JLabel();
+        totalPriceLabel = new javax.swing.JLabel();
         deliveryMethodPanel1 = new javax.swing.JPanel();
         changeDeliveryMethodButton1 = new javax.swing.JButton();
         cardInfoPanel = new javax.swing.JPanel();
@@ -138,9 +136,10 @@ public class PaymentWizardView extends javax.swing.JPanel {
         );
 
         priceLabel.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
-        priceLabel.setText("Pris: " + IMatDataHandler.getInstance().getShoppingCart().getTotal());
+        priceLabel.setText("Pris:");
 
         amountLabel.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
+        amountLabel.setText("Antal varor: ");
 
         buyButton.setBackground(new java.awt.Color(0, 204, 51));
         buyButton.setFont(new java.awt.Font("Lucida Grande", 0, 36)); // NOI18N
@@ -151,6 +150,10 @@ public class PaymentWizardView extends javax.swing.JPanel {
             }
         });
 
+        totalAmountLabel.setText("" + IMatDataHandler.getInstance().getShoppingCart().getItems().size());
+
+        totalPriceLabel.setText("" + IMatDataHandler.getInstance().getShoppingCart().getTotal());
+
         javax.swing.GroupLayout buyPanelLayout = new javax.swing.GroupLayout(buyPanel);
         buyPanel.setLayout(buyPanelLayout);
         buyPanelLayout.setHorizontalGroup(
@@ -158,23 +161,33 @@ public class PaymentWizardView extends javax.swing.JPanel {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, buyPanelLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(buyPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(buyButton, javax.swing.GroupLayout.PREFERRED_SIZE, 203, Short.MAX_VALUE)
+                    .addComponent(buyButton, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                     .addGroup(buyPanelLayout.createSequentialGroup()
-                        .addComponent(priceLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(amountLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addComponent(priceLabel)
+                        .addGap(5, 5, 5)
+                        .addComponent(totalPriceLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(amountLabel)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(totalAmountLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 18, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         buyPanelLayout.setVerticalGroup(
             buyPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(buyPanelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(buyPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(priceLabel)
-                    .addComponent(amountLabel))
+                .addGroup(buyPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(buyPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(priceLabel)
+                        .addComponent(amountLabel)
+                        .addComponent(totalAmountLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(buyPanelLayout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(totalPriceLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(buyButton, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
 
         deliveryMethodPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
@@ -330,12 +343,11 @@ public class PaymentWizardView extends javax.swing.JPanel {
                 .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(mainPanelLayout.createSequentialGroup()
                         .addGap(16, 16, 16)
-                        .addComponent(backButton1)
-                        .addGap(832, 832, 832))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, mainPanelLayout.createSequentialGroup()
+                        .addComponent(backButton1))
+                    .addGroup(mainPanelLayout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(cardInfoPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)))
+                        .addComponent(cardInfoPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addComponent(deliveryMethodPanel1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(billingAddressPanel1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -351,7 +363,7 @@ public class PaymentWizardView extends javax.swing.JPanel {
                 .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(mainPanelLayout.createSequentialGroup()
                         .addComponent(cardInfoPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(35, 35, 35)
+                        .addGap(19, 19, 19)
                         .addComponent(backButton1))
                     .addGroup(mainPanelLayout.createSequentialGroup()
                         .addComponent(billingAddressPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -411,9 +423,8 @@ public class PaymentWizardView extends javax.swing.JPanel {
         card.setCardNumber(cardNbrField.getText());
         card.setCardType("Visa");
         card.setHoldersName(backend.getCustomer().getFirstName() + " " + backend.getCustomer().getLastName());
-        card.setValidMonth(Integer.valueOf(monthTextField.getText()).intValue());
-        card.setValidYear(Integer.valueOf(dayTextField.getText()).intValue());
-        card.setVerificationCode(Integer.valueOf(cvcTextField.getText()).intValue());
+        
+        
            
         backend.placeOrder(true);
         InformationGuestView.resetView();
@@ -442,15 +453,15 @@ public class PaymentWizardView extends javax.swing.JPanel {
     private javax.swing.JButton buyButton;
     private javax.swing.JPanel buyPanel;
     private javax.swing.JPanel cardInfoPanel;
-    private javax.swing.JTextField cardNbrField;
+    private static javax.swing.JTextField cardNbrField;
     private javax.swing.JLabel cardNbrLabel;
     private javax.swing.JLabel cartPicLabel;
     private javax.swing.JButton changeBillingAdressButton1;
     private javax.swing.JButton changeDeliveryAddressButton1;
     private javax.swing.JButton changeDeliveryMethodButton1;
-    private javax.swing.JTextField cvcTextField;
+    private static javax.swing.JTextField cvcTextField;
     private javax.swing.JLabel cvcTextLabel;
-    private javax.swing.JTextField dayTextField;
+    private static javax.swing.JTextField dayTextField;
     private javax.swing.JPanel deliveryAddressPanel1;
     private javax.swing.JPanel deliveryMethodPanel1;
     private javax.swing.JLabel errorLabel;
@@ -459,11 +470,28 @@ public class PaymentWizardView extends javax.swing.JPanel {
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JPanel mainPanel;
     private javax.swing.JLabel masterCardTextLabel;
-    private javax.swing.JTextField monthTextField;
+    private static javax.swing.JTextField monthTextField;
     private javax.swing.JLabel payPalLabel;
     private javax.swing.JLabel priceLabel;
     private javax.swing.JPanel progressPanel;
     private javax.swing.JLabel slashTextLabel;
+    private javax.swing.JLabel totalAmountLabel;
+    private javax.swing.JLabel totalPriceLabel;
     private javax.swing.JLabel visaTextLabel;
     // End of variables declaration//GEN-END:variables
+
+    protected static void refreshView() {
+        //if(MainWindow.isLoggedIn()){
+            CreditCard card = IMatDataHandler.getInstance().getCreditCard();
+            cardNbrField.setText(""+card.getCardNumber());
+            cvcTextField.setText(""+card.getVerificationCode());
+            dayTextField.setText(""+card.getValidYear());
+            monthTextField.setText(""+card.getValidMonth());
+        /*}else{
+            cardNbrField.setText("1234567891234567");
+            cvcTextField.setText(""+"XXX");
+            dayTextField.setText(""+"YY");
+            monthTextField.setText(""+"MM");
+        }*/
+    }
 }
