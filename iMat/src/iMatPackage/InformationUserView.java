@@ -45,6 +45,8 @@ public class InformationUserView extends javax.swing.JPanel {
         backButton = new javax.swing.JButton();
         nextButton = new javax.swing.JButton();
 
+        progressPanel.setBackground(new java.awt.Color(0, 153, 255));
+
         iconLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         iconLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/3.png"))); // NOI18N
 
