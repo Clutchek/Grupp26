@@ -83,7 +83,7 @@ public class StoreView extends javax.swing.JPanel implements KeyListener{
         loggedInPanel = new javax.swing.JPanel();
         myPageButton = new javax.swing.JButton();
         logOutButton = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
+        loggedInLabel = new javax.swing.JLabel();
         myPagePanel = new javax.swing.JPanel();
         favouriteButton = new javax.swing.JButton();
         orderHistoryButton = new javax.swing.JButton();
@@ -200,8 +200,8 @@ public class StoreView extends javax.swing.JPanel implements KeyListener{
             }
         });
 
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("Välkommen " + backend.getUser().getUserName()+"!");
+        loggedInLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        loggedInLabel.setText("Välkommen " + backend.getUser().getUserName()+"!");
 
         javax.swing.GroupLayout loggedInPanelLayout = new javax.swing.GroupLayout(loggedInPanel);
         loggedInPanel.setLayout(loggedInPanelLayout);
@@ -215,14 +215,14 @@ public class StoreView extends javax.swing.JPanel implements KeyListener{
                 .addGap(30, 30, 30))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, loggedInPanelLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(loggedInLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         loggedInPanelLayout.setVerticalGroup(
             loggedInPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, loggedInPanelLayout.createSequentialGroup()
                 .addGap(22, 22, 22)
-                .addComponent(jLabel1)
+                .addComponent(loggedInLabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 33, Short.MAX_VALUE)
                 .addGroup(loggedInPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(myPageButton)
@@ -630,7 +630,6 @@ public class StoreView extends javax.swing.JPanel implements KeyListener{
     private javax.swing.JButton infoButton;
     private static javax.swing.JPanel itemResultPanel;
     private javax.swing.JButton jButton1;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
@@ -642,6 +641,7 @@ public class StoreView extends javax.swing.JPanel implements KeyListener{
     private static javax.swing.JPanel logInCardPanel;
     private javax.swing.JPanel logInPanel;
     private javax.swing.JButton logOutButton;
+    private static javax.swing.JLabel loggedInLabel;
     private javax.swing.JPanel loggedInPanel;
     private javax.swing.JLabel logoLabel;
     private javax.swing.JButton myPageButton;
@@ -723,13 +723,17 @@ public class StoreView extends javax.swing.JPanel implements KeyListener{
         }else{
             passwordField.setText("");
             userNameField.setText("");
-            cardManager.show(logInCardPanel, "LoggedInPanel");
+            showLoggedIn();
             MainWindow.logIn();
         }
     }
     protected static void logout(){
         cardManager.show(logInCardPanel, "LogInPanel");
         MainWindow.logOut();
+    }
+    protected static void showLoggedIn(){
+        refreshLoggedInPanel();
+        cardManager.show(logInCardPanel, "LoggedInPanel");
     }
     private static void loginError(){
         errorPanel.removeAll();
@@ -740,6 +744,9 @@ public class StoreView extends javax.swing.JPanel implements KeyListener{
         errorLabel.repaint();
         errorPanel.revalidate();
         //revalidate();
+    }
+    private static void refreshLoggedInPanel(){
+        loggedInLabel.setText("Välkommen " + backend.getUser().getUserName()+"!");
     }
 
     @Override

@@ -19,6 +19,7 @@ public class PaymentWizardView extends javax.swing.JPanel {
      * Creates new form PaymentWizadView
      */
     public PaymentWizardView() {
+        backend = IMatDataHandler.getInstance();
         initComponents();
         refreshView();
         mainPanel.repaint();
@@ -56,7 +57,7 @@ public class PaymentWizardView extends javax.swing.JPanel {
         cartPicLabel = new javax.swing.JLabel();
         payPalLabel = new javax.swing.JLabel();
         cardNbrLabel = new javax.swing.JLabel();
-        cardNbrField = new javax.swing.JTextField();
+        cardNbrField1 = new javax.swing.JTextField();
         expireTextLabel = new javax.swing.JLabel();
         dayTextField = new javax.swing.JTextField();
         slashTextLabel = new javax.swing.JLabel();
@@ -67,6 +68,9 @@ public class PaymentWizardView extends javax.swing.JPanel {
         masterCardTextLabel = new javax.swing.JLabel();
         amExTextLabel = new javax.swing.JLabel();
         errorLabel = new javax.swing.JLabel();
+        cardNbrField2 = new javax.swing.JTextField();
+        cardNbrField3 = new javax.swing.JTextField();
+        cardNbrField4 = new javax.swing.JTextField();
 
         setPreferredSize(new java.awt.Dimension(1200, 699));
 
@@ -178,10 +182,10 @@ public class PaymentWizardView extends javax.swing.JPanel {
             .addGroup(buyPanelLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(buyPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(totalAmountLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(buyPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(priceLabel)
-                        .addComponent(amountLabel)
-                        .addComponent(totalAmountLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(amountLabel))
                     .addGroup(buyPanelLayout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(totalPriceLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -226,16 +230,32 @@ public class PaymentWizardView extends javax.swing.JPanel {
 
         cardNbrLabel.setText("Kortnummer: ");
 
-        cardNbrField.addActionListener(new java.awt.event.ActionListener() {
+        cardNbrField1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                cardNbrField1MousePressed(evt);
+            }
+        });
+        cardNbrField1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cardNbrFieldActionPerformed(evt);
+                cardNbrField1ActionPerformed(evt);
             }
         });
 
         expireTextLabel.setText("Utgångsdatum");
 
+        dayTextField.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                dayTextFieldMousePressed(evt);
+            }
+        });
+
         slashTextLabel.setText("/");
 
+        monthTextField.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                monthTextFieldMousePressed(evt);
+            }
+        });
         monthTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 monthTextFieldActionPerformed(evt);
@@ -244,6 +264,11 @@ public class PaymentWizardView extends javax.swing.JPanel {
 
         cvcTextLabel.setText("CVC:");
 
+        cvcTextField.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                cvcTextFieldMousePressed(evt);
+            }
+        });
         cvcTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cvcTextFieldActionPerformed(evt);
@@ -255,6 +280,39 @@ public class PaymentWizardView extends javax.swing.JPanel {
         masterCardTextLabel.setText("MasterCard");
 
         amExTextLabel.setText("American Express");
+
+        cardNbrField2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                cardNbrField2MousePressed(evt);
+            }
+        });
+        cardNbrField2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cardNbrField2ActionPerformed(evt);
+            }
+        });
+
+        cardNbrField3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                cardNbrField3MousePressed(evt);
+            }
+        });
+        cardNbrField3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cardNbrField3ActionPerformed(evt);
+            }
+        });
+
+        cardNbrField4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                cardNbrField4MousePressed(evt);
+            }
+        });
+        cardNbrField4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cardNbrField4ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout cardInfoPanelLayout = new javax.swing.GroupLayout(cardInfoPanel);
         cardInfoPanel.setLayout(cardInfoPanelLayout);
@@ -284,18 +342,24 @@ public class PaymentWizardView extends javax.swing.JPanel {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(cvcTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(cardInfoPanelLayout.createSequentialGroup()
-                        .addGap(6, 6, 6)
-                        .addComponent(cardNbrLabel)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(cardNbrField, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(cardInfoPanelLayout.createSequentialGroup()
                         .addComponent(visaTextLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(masterCardTextLabel)
                         .addGap(18, 18, 18)
                         .addComponent(amExTextLabel))
-                    .addComponent(errorLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 244, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(235, 235, 235))
+                    .addComponent(errorLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 244, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(cardInfoPanelLayout.createSequentialGroup()
+                        .addGap(6, 6, 6)
+                        .addComponent(cardNbrLabel)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(cardNbrField1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(cardNbrField2, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(cardNbrField3, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(cardNbrField4, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(269, 269, 269))
         );
         cardInfoPanelLayout.setVerticalGroup(
             cardInfoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -315,7 +379,10 @@ public class PaymentWizardView extends javax.swing.JPanel {
                         .addGap(107, 107, 107)
                         .addGroup(cardInfoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(cardNbrLabel)
-                            .addComponent(cardNbrField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(cardNbrField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(cardNbrField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(cardNbrField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(cardNbrField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(30, 30, 30)
                         .addGroup(cardInfoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(visaTextLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -398,9 +465,9 @@ public class PaymentWizardView extends javax.swing.JPanel {
         MainWindow.showDeliveryWizardView();
     }//GEN-LAST:event_backButton1ActionPerformed
 
-    private void cardNbrFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cardNbrFieldActionPerformed
+    private void cardNbrField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cardNbrField1ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_cardNbrFieldActionPerformed
+    }//GEN-LAST:event_cardNbrField1ActionPerformed
 
     private void monthTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_monthTextFieldActionPerformed
         // TODO add your handling code here:
@@ -411,36 +478,92 @@ public class PaymentWizardView extends javax.swing.JPanel {
     }//GEN-LAST:event_cvcTextFieldActionPerformed
 
     private void buyButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buyButtonActionPerformed
-        if(cardNbrField.getText().equals("") || monthTextField.getText().equals("") || dayTextField.getText().equals("") || cvcTextField.getText().equals("")){
+        if(cardNbrField1.getText().equals("") || monthTextField.getText().equals("") || dayTextField.getText().equals("") || cvcTextField.getText().equals("")){
             errorLabel.setForeground(Color.red);
             errorLabel.setText("Information saknas i någon utav fälten");
             
             
+        }else if((cardNbrField1.getText()+cardNbrField2.getText()+cardNbrField3.getText()+cardNbrField4.getText()).length() < 16){
+            errorLabel.setForeground(Color.red);
+            errorLabel.setText("Ditt kortnummer måste ha 16 siffror");
         }
         else{
         IMatDataHandler backend = IMatDataHandler.getInstance();
         CreditCard card = backend.getCreditCard();
-        card.setCardNumber(cardNbrField.getText());
-        card.setCardType("Visa");
-        card.setHoldersName(backend.getCustomer().getFirstName() + " " + backend.getCustomer().getLastName());
-        
-        
-           
-        backend.placeOrder(true);
-        InformationGuestView.resetView();
-        InformationRegisterView.resetView();
-        StoreView.showConfirmationView();
-        CategoryController.resetCategoriePanels();
-        errorLabel.setText("");
-        cardNbrField.setText("");
-        cvcTextField.setText("");
-        dayTextField.setText("");
-        monthTextField.setText("");
-        mainPanel.repaint();
-        MainWindow.showStoreView();
+        boolean correctFormat = false;
+        try{
+            card.setValidMonth(Integer.valueOf(monthTextField.getText()).intValue());
+            card.setValidYear(Integer.valueOf(dayTextField.getText()).intValue());
+            correctFormat = true;
+        }catch(NumberFormatException e){
+            errorLabel.setForeground(Color.red);
+            errorLabel.setText("Månad och år måste vara skrivet i siffror");
+        }
+        if(correctFormat){
+            card.setCardNumber(cardNbrField1.getText()+cardNbrField2.getText()+cardNbrField3.getText()+cardNbrField4.getText());
+            //System.out.println(cardNbrField1.getText()+cardNbrField2.getText()+cardNbrField3.getText()+cardNbrField4.getText());
+            card.setCardType("Visa");
+            card.setHoldersName(backend.getCustomer().getFirstName() + " " + backend.getCustomer().getLastName());
+
+            backend.placeOrder(true);
+            InformationGuestView.resetView();
+            InformationRegisterView.resetView();
+            StoreView.showConfirmationView();
+            CategoryController.resetCategoriePanels();
+            errorLabel.setText("");
+            cardNbrField1.setText("");
+            cardNbrField2.setText("");
+            cardNbrField3.setText("");
+            cardNbrField4.setText("");
+            cvcTextField.setText("");
+            dayTextField.setText("");
+            monthTextField.setText("");
+            mainPanel.repaint();
+            MainWindow.showStoreView();
+        }
         
         }
     }//GEN-LAST:event_buyButtonActionPerformed
+
+    private void cardNbrField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cardNbrField2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cardNbrField2ActionPerformed
+
+    private void cardNbrField3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cardNbrField3ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cardNbrField3ActionPerformed
+
+    private void cardNbrField4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cardNbrField4ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cardNbrField4ActionPerformed
+
+    private void cardNbrField1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cardNbrField1MousePressed
+        cardNbrField1.setText("");
+    }//GEN-LAST:event_cardNbrField1MousePressed
+
+    private void cardNbrField2MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cardNbrField2MousePressed
+        cardNbrField2.setText("");
+    }//GEN-LAST:event_cardNbrField2MousePressed
+
+    private void cardNbrField3MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cardNbrField3MousePressed
+        cardNbrField3.setText("");
+    }//GEN-LAST:event_cardNbrField3MousePressed
+
+    private void cardNbrField4MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cardNbrField4MousePressed
+        cardNbrField4.setText("");
+    }//GEN-LAST:event_cardNbrField4MousePressed
+
+    private void dayTextFieldMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_dayTextFieldMousePressed
+        dayTextField.setText("");
+    }//GEN-LAST:event_dayTextFieldMousePressed
+
+    private void monthTextFieldMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_monthTextFieldMousePressed
+       monthTextField.setText("");
+    }//GEN-LAST:event_monthTextFieldMousePressed
+
+    private void cvcTextFieldMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cvcTextFieldMousePressed
+        cvcTextField.setText("");
+    }//GEN-LAST:event_cvcTextFieldMousePressed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -453,7 +576,10 @@ public class PaymentWizardView extends javax.swing.JPanel {
     private javax.swing.JButton buyButton;
     private javax.swing.JPanel buyPanel;
     private javax.swing.JPanel cardInfoPanel;
-    private static javax.swing.JTextField cardNbrField;
+    private static javax.swing.JTextField cardNbrField1;
+    private static javax.swing.JTextField cardNbrField2;
+    private static javax.swing.JTextField cardNbrField3;
+    private static javax.swing.JTextField cardNbrField4;
     private javax.swing.JLabel cardNbrLabel;
     private javax.swing.JLabel cartPicLabel;
     private javax.swing.JButton changeBillingAdressButton1;
@@ -479,19 +605,35 @@ public class PaymentWizardView extends javax.swing.JPanel {
     private javax.swing.JLabel totalPriceLabel;
     private javax.swing.JLabel visaTextLabel;
     // End of variables declaration//GEN-END:variables
-
+    private static IMatDataHandler backend;
     protected static void refreshView() {
-        //if(MainWindow.isLoggedIn()){
-            CreditCard card = IMatDataHandler.getInstance().getCreditCard();
-            cardNbrField.setText(""+card.getCardNumber());
+        if(MainWindow.isLoggedIn()){
+            CreditCard card = backend.getCreditCard();
+            
+            String cardNumber = card.getCardNumber();
+            System.out.println(cardNumber);
+            if(cardNumber.length() >= 16){
+                cardNbrField1.setText(cardNumber.substring(0, 4));
+                cardNbrField2.setText(cardNumber.substring(4,8));
+                cardNbrField3.setText(cardNumber.substring(8,12));
+                cardNbrField3.setText(cardNumber.substring(12,16));
+            }else{
+                cardNbrField1.setText("1234");
+                cardNbrField2.setText("1234");
+                cardNbrField3.setText("1234");
+                cardNbrField4.setText("1234");
+            }
             cvcTextField.setText(""+card.getVerificationCode());
             dayTextField.setText(""+card.getValidYear());
             monthTextField.setText(""+card.getValidMonth());
-        /*}else{
-            cardNbrField.setText("1234567891234567");
+        }else{
+            cardNbrField1.setText("1234");
+            cardNbrField2.setText("1234");
+            cardNbrField3.setText("1234");
+            cardNbrField4.setText("1234");
             cvcTextField.setText(""+"XXX");
             dayTextField.setText(""+"YY");
             monthTextField.setText(""+"MM");
-        }*/
+        }
     }
 }

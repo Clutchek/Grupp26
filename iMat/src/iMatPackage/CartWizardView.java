@@ -57,6 +57,8 @@ public class CartWizardView extends javax.swing.JPanel {
             }
         });
 
+        backButton.setBackground(new java.awt.Color(0, 153, 255));
+        backButton.setForeground(new java.awt.Color(255, 255, 255));
         backButton.setText("< Tillbaka");
         backButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -64,6 +66,8 @@ public class CartWizardView extends javax.swing.JPanel {
             }
         });
 
+        nextButton.setBackground(new java.awt.Color(0, 153, 255));
+        nextButton.setForeground(new java.awt.Color(255, 255, 255));
         nextButton.setText("Nästa >");
         nextButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

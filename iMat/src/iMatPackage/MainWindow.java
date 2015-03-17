@@ -101,6 +101,7 @@ public class MainWindow extends javax.swing.JFrame {
         cardManager.show(cardPanel, "InformationRegisterView");
     }
     public static void showPaymentWizardView(){
+        PaymentWizardView.refreshView();
         cardManager.show(cardPanel, "PaymentWizardView");
     }
     public static void showDeliveryWizardView(){
@@ -117,6 +118,7 @@ public class MainWindow extends javax.swing.JFrame {
     }
     public static void logIn(){
         isLoggedIn = true;
+        StoreView.showLoggedIn();
     }
     /**
      * This method is called from within the constructor to initialize the form.
