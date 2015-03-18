@@ -347,7 +347,6 @@ public class PaymentWizardView extends javax.swing.JPanel {
                         .addComponent(masterCardTextLabel)
                         .addGap(18, 18, 18)
                         .addComponent(amExTextLabel))
-                    .addComponent(errorLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 244, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(cardInfoPanelLayout.createSequentialGroup()
                         .addGap(6, 6, 6)
                         .addComponent(cardNbrLabel)
@@ -358,8 +357,9 @@ public class PaymentWizardView extends javax.swing.JPanel {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(cardNbrField3, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(cardNbrField4, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(269, 269, 269))
+                        .addComponent(cardNbrField4, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(errorLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 308, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(243, 243, 243))
         );
         cardInfoPanelLayout.setVerticalGroup(
             cardInfoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
