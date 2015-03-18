@@ -494,10 +494,11 @@ public class PaymentWizardView extends javax.swing.JPanel {
         try{
             card.setValidMonth(Integer.valueOf(monthTextField.getText()).intValue());
             card.setValidYear(Integer.valueOf(dayTextField.getText()).intValue());
+            card.setVerificationCode(Integer.valueOf(cvcTextField.getText()).intValue());
             correctFormat = true;
         }catch(NumberFormatException e){
             errorLabel.setForeground(Color.red);
-            errorLabel.setText("Månad och år måste vara skrivet i siffror");
+            errorLabel.setText("Månad,cvc och år måste vara skrivet i siffror");
         }
         if(correctFormat){
             card.setCardNumber(cardNbrField1.getText()+cardNbrField2.getText()+cardNbrField3.getText()+cardNbrField4.getText());
@@ -616,7 +617,7 @@ public class PaymentWizardView extends javax.swing.JPanel {
                 cardNbrField1.setText(cardNumber.substring(0, 4));
                 cardNbrField2.setText(cardNumber.substring(4,8));
                 cardNbrField3.setText(cardNumber.substring(8,12));
-                cardNbrField3.setText(cardNumber.substring(12,16));
+                cardNbrField4.setText(cardNumber.substring(12,16));
             }else{
                 cardNbrField1.setText("1234");
                 cardNbrField2.setText("1234");
