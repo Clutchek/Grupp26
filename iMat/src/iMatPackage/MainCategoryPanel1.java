@@ -6,6 +6,7 @@
 package iMatPackage;
 
 import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.Cursor;
 import java.awt.event.MouseListener;
 import javax.swing.JLabel;
@@ -23,7 +24,9 @@ public class MainCategoryPanel1 extends javax.swing.JPanel {
     public MainCategoryPanel1(Category c) {
         initComponents();
         setLayout(new BorderLayout());
-        add(new JLabel(c.getName()), BorderLayout.CENTER);
+        JLabel label = new JLabel(c.getName());
+        label.setForeground(Color.WHITE);
+        add(label, BorderLayout.CENTER);
         setCursor(new Cursor(Cursor.HAND_CURSOR));
     }
 
@@ -36,6 +39,7 @@ public class MainCategoryPanel1 extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        setBackground(new java.awt.Color(51, 153, 255));
         setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);

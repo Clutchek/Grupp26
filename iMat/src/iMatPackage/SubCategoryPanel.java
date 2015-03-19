@@ -5,6 +5,7 @@
  */
 package iMatPackage;
 
+import java.awt.Color;
 import java.awt.Cursor;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
@@ -32,12 +33,18 @@ public class SubCategoryPanel extends javax.swing.JPanel implements MouseListene
     public SubCategoryPanel(Category c,List<SubCategory> subCategories){
         initComponents();
         titlePanel = new JPanel();
+        this.setForeground(new Color(51,153,255));
+        titlePanel.setForeground(new Color(51,153,255));
+        titlePanel.setBackground(new Color(51,153,255));
         buttonPanel = new JPanel();
+        buttonPanel.setForeground(new Color(51,153,255));
         category = c;
         this.subCategories = subCategories;
         this.setLayout(new GridLayout(0, 1));
         this.add(titlePanel);
-        titlePanel.add(new JLabel(category.getName()));
+        JLabel label = new JLabel(category.getName());
+        label.setForeground(Color.WHITE);
+        titlePanel.add(label);
         titlePanel.setCursor(new Cursor(Cursor.HAND_CURSOR));
         titlePanel.addMouseListener(this);
         this.add(buttonPanel);
@@ -48,6 +55,7 @@ public class SubCategoryPanel extends javax.swing.JPanel implements MouseListene
             JButton subButton = new JButton("-"+subCategorie.getName());
             subButton.addActionListener(this);
             subButton.setCursor(new Cursor(Cursor.HAND_CURSOR));
+            subButton.setBackground(Color.WHITE);
             buttonPanel.add(subButton);
         }
     }
@@ -56,6 +64,7 @@ public class SubCategoryPanel extends javax.swing.JPanel implements MouseListene
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        setBackground(new java.awt.Color(51, 153, 255));
         setBorder(javax.swing.BorderFactory.createEtchedBorder(null, java.awt.Color.black));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
