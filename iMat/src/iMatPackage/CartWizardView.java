@@ -51,6 +51,7 @@ public class CartWizardView extends javax.swing.JPanel {
         prisLabel = new javax.swing.JLabel();
         amountLabel = new javax.swing.JLabel();
 
+        setBackground(new java.awt.Color(207, 219, 231));
         addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 formFocusGained(evt);
@@ -91,17 +92,23 @@ public class CartWizardView extends javax.swing.JPanel {
             .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
+        cartPanel.setBackground(new java.awt.Color(51, 153, 255));
         cartPanel.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
+        numberOfItemsLabel.setForeground(new java.awt.Color(255, 255, 255));
         numberOfItemsLabel.setText("jLabel3");
 
+        itemLabel.setForeground(new java.awt.Color(255, 255, 255));
         itemLabel.setText("Antal varor:");
 
+        priceLabel.setForeground(new java.awt.Color(255, 255, 255));
         priceLabel.setText("Totalt pris:");
 
+        priceNumberLabel.setForeground(new java.awt.Color(255, 255, 255));
         priceNumberLabel.setText("jLabel1");
 
         titleLabel.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        titleLabel.setForeground(new java.awt.Color(255, 255, 255));
         titleLabel.setText("Varukorg");
 
         listPanel.setToolTipText("");
@@ -126,10 +133,13 @@ public class CartWizardView extends javax.swing.JPanel {
                 .addComponent(cartList, javax.swing.GroupLayout.DEFAULT_SIZE, 451, Short.MAX_VALUE))
         );
 
+        nameLabel.setForeground(new java.awt.Color(255, 255, 255));
         nameLabel.setText("Namn");
 
+        prisLabel.setForeground(new java.awt.Color(255, 255, 255));
         prisLabel.setText("Pris");
 
+        amountLabel.setForeground(new java.awt.Color(255, 255, 255));
         amountLabel.setText("Antal");
 
         javax.swing.GroupLayout cartPanelLayout = new javax.swing.GroupLayout(cartPanel);
@@ -192,25 +202,27 @@ public class CartWizardView extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addGap(75, 75, 75)
                 .addComponent(backButton)
+                .addGap(221, 221, 221)
+                .addComponent(cartPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(nextButton)
                 .addGap(75, 75, 75))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(390, 390, 390)
-                .addComponent(cartPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(progressPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(cartPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 539, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(backButton)
-                    .addComponent(nextButton))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(cartPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 539, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(45, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(backButton)
+                            .addComponent(nextButton))
+                        .addGap(23, 23, 23))))
         );
     }// </editor-fold>//GEN-END:initComponents
 

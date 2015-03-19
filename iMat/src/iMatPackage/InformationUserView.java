@@ -45,6 +45,8 @@ public class InformationUserView extends javax.swing.JPanel {
         backButton = new javax.swing.JButton();
         nextButton = new javax.swing.JButton();
 
+        setBackground(new java.awt.Color(207, 219, 231));
+
         progressPanel.setBackground(new java.awt.Color(0, 153, 255));
 
         iconLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -61,17 +63,22 @@ public class InformationUserView extends javax.swing.JPanel {
             .addComponent(iconLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
+        jPanel1.setBackground(new java.awt.Color(51, 153, 255));
         jPanel1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         titleLabel.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        titleLabel.setForeground(new java.awt.Color(255, 255, 255));
         titleLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         titleLabel.setText("Logga in");
 
+        passwordLabel.setForeground(new java.awt.Color(255, 255, 255));
         passwordLabel.setText("Lösenord");
         passwordLabel.setToolTipText("");
 
+        userNameLabel.setForeground(new java.awt.Color(255, 255, 255));
         userNameLabel.setText("Användarnamn");
 
+        errorPanel.setBackground(new java.awt.Color(51, 153, 255));
         errorPanel.setLayout(new java.awt.BorderLayout());
 
         passwordField.addActionListener(new java.awt.event.ActionListener() {

@@ -55,10 +55,15 @@ public class ShoppingCartView extends javax.swing.JPanel implements ShoppingCart
         scrollPane = new javax.swing.JScrollPane();
         itemList = new javax.swing.JPanel();
 
+        setBackground(new java.awt.Color(51, 153, 255));
         setPreferredSize(new java.awt.Dimension(272, 367));
 
+        favoriteButton.setBackground(new java.awt.Color(51, 102, 255));
+        favoriteButton.setForeground(new java.awt.Color(255, 255, 255));
         favoriteButton.setText("Spara lista");
 
+        clearButton.setBackground(new java.awt.Color(51, 102, 255));
+        clearButton.setForeground(new java.awt.Color(255, 255, 255));
         clearButton.setText("Rensa");
         clearButton.addActionListener(this);
 
@@ -73,6 +78,7 @@ public class ShoppingCartView extends javax.swing.JPanel implements ShoppingCart
 
         scrollPane.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
 
+        itemList.setBackground(new java.awt.Color(255, 255, 255));
         itemList.setMinimumSize(new java.awt.Dimension(270, 0));
         itemList.setLayout(new java.awt.GridLayout(0, 1));
         scrollPane.setViewportView(itemList);

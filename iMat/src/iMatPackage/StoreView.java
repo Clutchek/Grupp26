@@ -326,7 +326,7 @@ public class StoreView extends javax.swing.JPanel implements KeyListener{
             .addGap(0, 398, Short.MAX_VALUE)
         );
 
-        leftPanel.setBackground(new java.awt.Color(51, 102, 255));
+        leftPanel.setBackground(new java.awt.Color(51, 153, 255));
         leftPanel.setPreferredSize(new java.awt.Dimension(125, 510));
         leftPanel.setLayout(new java.awt.GridLayout(0, 1));
 
@@ -546,7 +546,7 @@ public class StoreView extends javax.swing.JPanel implements KeyListener{
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(0, 0, 0)
                 .addComponent(framePanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );

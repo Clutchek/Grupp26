@@ -34,6 +34,10 @@ public class InformationChooseView extends javax.swing.JPanel {
         iconLabel = new javax.swing.JLabel();
         backButton = new javax.swing.JButton();
 
+        setBackground(new java.awt.Color(207, 219, 231));
+
+        userButton.setBackground(new java.awt.Color(51, 153, 255));
+        userButton.setForeground(new java.awt.Color(255, 255, 255));
         userButton.setText("Logga in");
         userButton.setToolTipText("");
         userButton.addActionListener(new java.awt.event.ActionListener() {
@@ -42,6 +46,8 @@ public class InformationChooseView extends javax.swing.JPanel {
             }
         });
 
+        guestButton.setBackground(new java.awt.Color(51, 153, 255));
+        guestButton.setForeground(new java.awt.Color(255, 255, 255));
         guestButton.setText("Handla som Gäst");
         guestButton.setToolTipText("");
         guestButton.addActionListener(new java.awt.event.ActionListener() {
@@ -50,12 +56,16 @@ public class InformationChooseView extends javax.swing.JPanel {
             }
         });
 
+        createButton.setBackground(new java.awt.Color(51, 153, 255));
+        createButton.setForeground(new java.awt.Color(255, 255, 255));
         createButton.setText("Registrera ny användare");
         createButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 createButtonActionPerformed(evt);
             }
         });
+
+        progressPanel.setBackground(new java.awt.Color(51, 153, 255));
 
         iconLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         iconLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/3.png"))); // NOI18N
