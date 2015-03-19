@@ -743,7 +743,10 @@ public class StoreView extends javax.swing.JPanel implements KeyListener{
     }
     protected static void logout(){
         cardManager.show(logInCardPanel, "LogInPanel");
+        featureCardManager.show(featurePanel, "FeatureScrollPane");
         MainWindow.logOut();
+        featurePanel.revalidate();
+        itemResultPanel.revalidate();
     }
     protected static void showLoggedIn(){
         refreshLoggedInPanel();
