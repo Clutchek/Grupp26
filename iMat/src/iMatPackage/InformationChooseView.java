@@ -85,6 +85,8 @@ public class InformationChooseView extends javax.swing.JPanel {
                 .addComponent(iconLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
+        backButton.setBackground(new java.awt.Color(51, 153, 255));
+        backButton.setForeground(new java.awt.Color(255, 255, 255));
         backButton.setText("< Tillbaka");
         backButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

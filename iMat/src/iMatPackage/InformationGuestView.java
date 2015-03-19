@@ -64,6 +64,10 @@ public class InformationGuestView extends javax.swing.JPanel {
         adressLabel = new javax.swing.JLabel();
         errorPanel = new javax.swing.JPanel();
 
+        setBackground(new java.awt.Color(207, 219, 231));
+
+        nextButton.setBackground(new java.awt.Color(51, 153, 255));
+        nextButton.setForeground(new java.awt.Color(255, 255, 255));
         nextButton.setText("Nästa >");
         nextButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -71,12 +75,16 @@ public class InformationGuestView extends javax.swing.JPanel {
             }
         });
 
+        backButton.setBackground(new java.awt.Color(51, 153, 255));
+        backButton.setForeground(new java.awt.Color(255, 255, 255));
         backButton.setText("< Tillbaka");
         backButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 backButtonActionPerformed(evt);
             }
         });
+
+        progressPanel.setBackground(new java.awt.Color(51, 153, 255));
 
         iconLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         iconLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/3.png"))); // NOI18N
@@ -92,8 +100,10 @@ public class InformationGuestView extends javax.swing.JPanel {
             .addComponent(iconLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
+        infoPanel.setBackground(new java.awt.Color(51, 153, 255));
         infoPanel.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
+        firstNameLabel.setForeground(new java.awt.Color(255, 255, 255));
         firstNameLabel.setText("Förnamn*");
 
         firstNameField.addActionListener(new java.awt.event.ActionListener() {
@@ -102,13 +112,17 @@ public class InformationGuestView extends javax.swing.JPanel {
             }
         });
 
+        lastNameLabel.setForeground(new java.awt.Color(255, 255, 255));
         lastNameLabel.setText("Efternamn*");
 
+        emailLabel.setForeground(new java.awt.Color(255, 255, 255));
         emailLabel.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         emailLabel.setText("Email");
 
+        mobileNumberLabel.setForeground(new java.awt.Color(255, 255, 255));
         mobileNumberLabel.setText("Mobilnummer*");
 
+        phoneNumberLabel.setForeground(new java.awt.Color(255, 255, 255));
         phoneNumberLabel.setText("Telefonnummer*");
         phoneNumberLabel.setToolTipText("");
 
@@ -118,6 +132,7 @@ public class InformationGuestView extends javax.swing.JPanel {
             }
         });
 
+        postAddressLabel.setForeground(new java.awt.Color(255, 255, 255));
         postAddressLabel.setText("Postadress");
 
         postAddressField.addActionListener(new java.awt.event.ActionListener() {
@@ -126,20 +141,25 @@ public class InformationGuestView extends javax.swing.JPanel {
             }
         });
 
+        postCodeLabel.setForeground(new java.awt.Color(255, 255, 255));
         postCodeLabel.setText("Postkod");
 
+        countryLabel.setForeground(new java.awt.Color(255, 255, 255));
         countryLabel.setText("Land");
 
         countryComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Danmark", "Finland", "Norge", "Sverige" }));
         countryComboBox.setSelectedIndex(3);
 
         titleLabel.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        titleLabel.setForeground(new java.awt.Color(255, 255, 255));
         titleLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         titleLabel.setText("Användaruppgifter - Gäst");
         titleLabel.setToolTipText("");
 
+        requirementLabel.setForeground(new java.awt.Color(255, 255, 255));
         requirementLabel.setText("* Namn, Adress och minst ett nummer måste vara i fyllt.");
 
+        adressLabel.setForeground(new java.awt.Color(255, 255, 255));
         adressLabel.setText("Adress*");
 
         javax.swing.GroupLayout infoPanelLayout = new javax.swing.GroupLayout(infoPanel);
@@ -150,11 +170,11 @@ public class InformationGuestView extends javax.swing.JPanel {
                 .addContainerGap()
                 .addGroup(infoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, infoPanelLayout.createSequentialGroup()
-                        .addGap(29, 29, 29)
+                        .addGap(37, 37, 37)
                         .addGroup(infoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(postAddressLabel)
                             .addComponent(postCodeLabel))
-                        .addGap(32, 32, 32)
+                        .addGap(24, 24, 24)
                         .addGroup(infoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(requirementLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addGroup(infoPanelLayout.createSequentialGroup()
@@ -233,6 +253,7 @@ public class InformationGuestView extends javax.swing.JPanel {
                 .addGap(26, 26, 26))
         );
 
+        errorPanel.setBackground(new java.awt.Color(207, 219, 231));
         errorPanel.setMinimumSize(new java.awt.Dimension(246, 206));
         errorPanel.setLayout(new java.awt.BorderLayout());
 
@@ -270,7 +291,7 @@ public class InformationGuestView extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(nextButton)
                     .addComponent(backButton))
-                .addGap(24, 24, 24))
+                .addGap(13, 13, 13))
         );
     }// </editor-fold>//GEN-END:initComponents
 

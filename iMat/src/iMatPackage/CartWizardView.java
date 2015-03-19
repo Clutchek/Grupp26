@@ -222,7 +222,7 @@ public class CartWizardView extends javax.swing.JPanel {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(backButton)
                             .addComponent(nextButton))
-                        .addGap(23, 23, 23))))
+                        .addGap(13, 13, 13))))
         );
     }// </editor-fold>//GEN-END:initComponents
 

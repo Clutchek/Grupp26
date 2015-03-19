@@ -71,13 +71,17 @@ public class InformationRegisterView extends javax.swing.JPanel {
         progressPanel = new javax.swing.JPanel();
         iconLabel = new javax.swing.JLabel();
 
+        setBackground(new java.awt.Color(207, 219, 231));
         setMaximumSize(new java.awt.Dimension(1200, 699));
         setPreferredSize(new java.awt.Dimension(1200, 699));
 
+        infoPanel.setBackground(new java.awt.Color(51, 153, 255));
         infoPanel.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
+        countryLabel.setForeground(new java.awt.Color(255, 255, 255));
         countryLabel.setText("Land");
 
+        emailLabel.setForeground(new java.awt.Color(255, 255, 255));
         emailLabel.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         emailLabel.setText("Email");
 
@@ -89,10 +93,13 @@ public class InformationRegisterView extends javax.swing.JPanel {
             }
         });
 
+        firstNameLabel.setForeground(new java.awt.Color(255, 255, 255));
         firstNameLabel.setText("Förnamn*");
 
+        postCodeLabel.setForeground(new java.awt.Color(255, 255, 255));
         postCodeLabel.setText("Postkod");
 
+        lastNameLabel.setForeground(new java.awt.Color(255, 255, 255));
         lastNameLabel.setText("Efternamn*");
 
         postAddressField.addActionListener(new java.awt.event.ActionListener() {
@@ -107,10 +114,13 @@ public class InformationRegisterView extends javax.swing.JPanel {
             }
         });
 
+        postAddressLabel.setForeground(new java.awt.Color(255, 255, 255));
         postAddressLabel.setText("Postadress ");
 
+        mobileNumberLabel.setForeground(new java.awt.Color(255, 255, 255));
         mobileNumberLabel.setText("Mobilnummer*");
 
+        phoneNumberLabel.setForeground(new java.awt.Color(255, 255, 255));
         phoneNumberLabel.setText("Telefonnummer*");
         phoneNumberLabel.setToolTipText("");
 
@@ -132,19 +142,25 @@ public class InformationRegisterView extends javax.swing.JPanel {
             }
         });
 
+        userNameLabel.setForeground(new java.awt.Color(255, 255, 255));
         userNameLabel.setText("Användarnamn*");
 
+        confirmPasswordLabel.setForeground(new java.awt.Color(255, 255, 255));
         confirmPasswordLabel.setText("Bekräfta lösenord*");
 
+        passwordLabel.setForeground(new java.awt.Color(255, 255, 255));
         passwordLabel.setText("Lösenord*");
 
         titleLabel.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        titleLabel.setForeground(new java.awt.Color(255, 255, 255));
         titleLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         titleLabel.setText("Registrera Användare");
         titleLabel.setToolTipText("");
 
+        requirementLabel.setForeground(new java.awt.Color(255, 255, 255));
         requirementLabel.setText("* Användarnamn, Lösenord, Namn, Adress och minst ett telefonnummer måste fyllas i.");
 
+        adressLabel.setForeground(new java.awt.Color(255, 255, 255));
         adressLabel.setText("Adress*");
 
         javax.swing.GroupLayout infoPanelLayout = new javax.swing.GroupLayout(infoPanel);
@@ -180,16 +196,16 @@ public class InformationRegisterView extends javax.swing.JPanel {
                             .addComponent(confirmPasswordField)
                             .addComponent(userNameField)))
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, infoPanelLayout.createSequentialGroup()
-                        .addGap(34, 34, 34)
+                        .addGap(42, 42, 42)
                         .addGroup(infoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(postAddressLabel)
                             .addComponent(adressLabel)
                             .addComponent(postCodeLabel))
-                        .addGap(31, 31, 31)
+                        .addGap(23, 23, 23)
                         .addGroup(infoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(requirementLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 506, Short.MAX_VALUE)
+                            .addComponent(requirementLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 506, Short.MAX_VALUE)
                             .addGroup(infoPanelLayout.createSequentialGroup()
-                                .addGap(12, 12, 12)
+                                .addGap(16, 16, 16)
                                 .addGroup(infoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(postCodeField, javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addComponent(postAddressField)
@@ -203,7 +219,7 @@ public class InformationRegisterView extends javax.swing.JPanel {
         infoPanelLayout.setVerticalGroup(
             infoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, infoPanelLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(63, Short.MAX_VALUE)
                 .addComponent(titleLabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(infoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -256,6 +272,7 @@ public class InformationRegisterView extends javax.swing.JPanel {
                 .addGap(16, 16, 16))
         );
 
+        nextButton.setBackground(new java.awt.Color(51, 153, 255));
         nextButton.setText("Nästa >");
         nextButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -263,6 +280,7 @@ public class InformationRegisterView extends javax.swing.JPanel {
             }
         });
 
+        backButton.setBackground(new java.awt.Color(51, 153, 255));
         backButton.setText("< Tillbaka");
         backButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -270,7 +288,10 @@ public class InformationRegisterView extends javax.swing.JPanel {
             }
         });
 
+        errorPanel.setBackground(new java.awt.Color(207, 219, 231));
         errorPanel.setLayout(new java.awt.BorderLayout());
+
+        progressPanel.setBackground(new java.awt.Color(51, 153, 255));
 
         iconLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         iconLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/3.png"))); // NOI18N
@@ -292,17 +313,18 @@ public class InformationRegisterView extends javax.swing.JPanel {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(progressPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
-                .addGap(126, 126, 126)
+                .addGap(75, 75, 75)
                 .addComponent(backButton)
                 .addGap(41, 41, 41)
                 .addComponent(infoPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(errorPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
+                        .addComponent(errorPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 244, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(nextButton)
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addContainerGap())
+                        .addGap(75, 75, 75))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -315,10 +337,10 @@ public class InformationRegisterView extends javax.swing.JPanel {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(nextButton))
                     .addGroup(layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 27, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 20, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(backButton)
-                            .addComponent(infoPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 576, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(infoPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents

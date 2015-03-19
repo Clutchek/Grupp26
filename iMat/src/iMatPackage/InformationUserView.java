@@ -126,6 +126,8 @@ public class InformationUserView extends javax.swing.JPanel {
                 .addGap(28, 28, 28))
         );
 
+        backButton.setBackground(new java.awt.Color(51, 153, 255));
+        backButton.setForeground(new java.awt.Color(255, 255, 255));
         backButton.setText("< Tillbaka");
         backButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -133,6 +135,8 @@ public class InformationUserView extends javax.swing.JPanel {
             }
         });
 
+        nextButton.setBackground(new java.awt.Color(51, 153, 255));
+        nextButton.setForeground(new java.awt.Color(255, 255, 255));
         nextButton.setText("Nästa >");
         nextButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
