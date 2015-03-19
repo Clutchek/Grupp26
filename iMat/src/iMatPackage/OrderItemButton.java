@@ -5,6 +5,7 @@
  */
 package iMatPackage;
 
+import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import se.chalmers.ait.dat215.project.Order;
@@ -23,6 +24,7 @@ public class OrderItemButton extends javax.swing.JPanel {
         this.order = e;
         this.itemInfoPanel = new ItemInfoPanel(e);
         orderIDButton.setText("" + e.getDate());
+        
     }
     
    /* @Override
@@ -52,6 +54,8 @@ public class OrderItemButton extends javax.swing.JPanel {
 
         orderIDButton = new javax.swing.JButton();
 
+        orderIDButton.setBackground(new java.awt.Color(51, 153, 255));
+        orderIDButton.setForeground(new java.awt.Color(255, 255, 255));
         orderIDButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 orderIDButtonActionPerformed(evt);

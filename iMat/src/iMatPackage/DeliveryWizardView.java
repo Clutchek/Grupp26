@@ -51,6 +51,10 @@ public class DeliveryWizardView extends javax.swing.JPanel {
         backButton = new javax.swing.JButton();
         nextButton = new javax.swing.JButton();
 
+        setBackground(new java.awt.Color(207, 219, 231));
+
+        progressPanel.setBackground(new java.awt.Color(51, 153, 255));
+
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/4.png"))); // NOI18N
 
@@ -65,25 +69,41 @@ public class DeliveryWizardView extends javax.swing.JPanel {
             .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
+        jPanel1.setBackground(new java.awt.Color(51, 153, 255));
         jPanel1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
+        billingAddress.setForeground(new java.awt.Color(255, 255, 255));
         billingAddress.setText("1. Faktureringsaddress");
 
+        deliveryAlternativeLabel.setForeground(new java.awt.Color(255, 255, 255));
         deliveryAlternativeLabel.setText("2. Leveransalternativ");
 
+        deliveryRadioButton.setBackground(new java.awt.Color(51, 153, 255));
+        deliveryRadioButton.setForeground(new java.awt.Color(255, 255, 255));
         deliveryRadioButton.setText("Leverans");
 
+        pickupRadioButton.setBackground(new java.awt.Color(51, 153, 255));
+        pickupRadioButton.setForeground(new java.awt.Color(255, 255, 255));
         pickupRadioButton.setText("Hämta i Butik");
 
         cardPanel.setLayout(new java.awt.CardLayout());
 
+        deliveryAddressPanel.setBackground(new java.awt.Color(51, 153, 255));
+
+        deliveryAddressLabel.setForeground(new java.awt.Color(255, 255, 255));
         deliveryAddressLabel.setText("3. Leveransaddress");
 
+        billingRadioButton.setBackground(new java.awt.Color(51, 153, 255));
+        billingRadioButton.setForeground(new java.awt.Color(255, 255, 255));
         billingRadioButton.setText("Leverera till faktureringsadress");
 
+        differentAdressRadioButton.setBackground(new java.awt.Color(51, 153, 255));
+        differentAdressRadioButton.setForeground(new java.awt.Color(255, 255, 255));
         differentAdressRadioButton.setText("Leverera till annan adress");
 
         cardAddressPanel.setLayout(new java.awt.CardLayout());
+
+        otherAddressPanel.setBackground(new java.awt.Color(51, 153, 255));
 
         javax.swing.GroupLayout otherAddressPanelLayout = new javax.swing.GroupLayout(otherAddressPanel);
         otherAddressPanel.setLayout(otherAddressPanelLayout);
@@ -190,6 +210,8 @@ public class DeliveryWizardView extends javax.swing.JPanel {
                 .addContainerGap(164, Short.MAX_VALUE))
         );
 
+        backButton.setBackground(new java.awt.Color(51, 153, 255));
+        backButton.setForeground(new java.awt.Color(255, 255, 255));
         backButton.setText("< Tillbaka");
         backButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -197,6 +219,8 @@ public class DeliveryWizardView extends javax.swing.JPanel {
             }
         });
 
+        nextButton.setBackground(new java.awt.Color(51, 153, 255));
+        nextButton.setForeground(new java.awt.Color(255, 255, 255));
         nextButton.setText("Nästa >");
         nextButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

@@ -71,9 +71,14 @@ public class PaymentWizardView extends javax.swing.JPanel {
         cardNbrField2 = new javax.swing.JTextField();
         cardNbrField3 = new javax.swing.JTextField();
         cardNbrField4 = new javax.swing.JTextField();
+        jRadioButton1 = new javax.swing.JRadioButton();
+        jRadioButton2 = new javax.swing.JRadioButton();
+        jRadioButton3 = new javax.swing.JRadioButton();
+        jRadioButton4 = new javax.swing.JRadioButton();
 
         setPreferredSize(new java.awt.Dimension(1200, 699));
 
+        mainPanel.setBackground(new java.awt.Color(207, 219, 231));
         mainPanel.setPreferredSize(new java.awt.Dimension(1200, 699));
 
         backButton1.setText("< Tillbaka");
@@ -82,6 +87,8 @@ public class PaymentWizardView extends javax.swing.JPanel {
                 backButton1ActionPerformed(evt);
             }
         });
+
+        progressPanel.setBackground(new java.awt.Color(51, 153, 255));
 
         iconLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         iconLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/5.png"))); // NOI18N
@@ -139,14 +146,17 @@ public class PaymentWizardView extends javax.swing.JPanel {
                 .addComponent(changeDeliveryAddressButton1))
         );
 
+        buyPanel.setBackground(new java.awt.Color(207, 219, 231));
+
         priceLabel.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
         priceLabel.setText("Pris:");
 
         amountLabel.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
         amountLabel.setText("Antal varor: ");
 
-        buyButton.setBackground(new java.awt.Color(0, 204, 51));
+        buyButton.setBackground(new java.awt.Color(255, 0, 0));
         buyButton.setFont(new java.awt.Font("Lucida Grande", 0, 36)); // NOI18N
+        buyButton.setForeground(new java.awt.Color(255, 255, 255));
         buyButton.setText("Slutför köp");
         buyButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -221,15 +231,24 @@ public class PaymentWizardView extends javax.swing.JPanel {
         jSeparator1.setOrientation(javax.swing.SwingConstants.VERTICAL);
 
         billingPicLabel.setText("BILD - Faktura");
+        billingPicLabel.setBorder(javax.swing.BorderFactory.createEtchedBorder(null, java.awt.Color.black));
 
         bankPicLabel.setText("BILD - Banköverföring");
+        bankPicLabel.setBorder(javax.swing.BorderFactory.createEtchedBorder(null, java.awt.Color.black));
 
         cartPicLabel.setText("BILD - Kortköp");
+        cartPicLabel.setBorder(javax.swing.BorderFactory.createEtchedBorder(null, java.awt.Color.black));
 
         payPalLabel.setText("BILD - PayPal");
+        payPalLabel.setBorder(javax.swing.BorderFactory.createEtchedBorder(null, java.awt.Color.black));
 
         cardNbrLabel.setText("Kortnummer: ");
 
+        cardNbrField1.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                cardNbrField1FocusGained(evt);
+            }
+        });
         cardNbrField1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 cardNbrField1MousePressed(evt);
@@ -243,6 +262,11 @@ public class PaymentWizardView extends javax.swing.JPanel {
 
         expireTextLabel.setText("Utgångsdatum");
 
+        dayTextField.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                dayTextFieldFocusGained(evt);
+            }
+        });
         dayTextField.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 dayTextFieldMousePressed(evt);
@@ -251,6 +275,11 @@ public class PaymentWizardView extends javax.swing.JPanel {
 
         slashTextLabel.setText("/");
 
+        monthTextField.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                monthTextFieldFocusGained(evt);
+            }
+        });
         monthTextField.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 monthTextFieldMousePressed(evt);
@@ -264,6 +293,11 @@ public class PaymentWizardView extends javax.swing.JPanel {
 
         cvcTextLabel.setText("CVC:");
 
+        cvcTextField.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                cvcTextFieldFocusGained(evt);
+            }
+        });
         cvcTextField.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 cvcTextFieldMousePressed(evt);
@@ -281,6 +315,11 @@ public class PaymentWizardView extends javax.swing.JPanel {
 
         amExTextLabel.setText("American Express");
 
+        cardNbrField2.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                cardNbrField2FocusGained(evt);
+            }
+        });
         cardNbrField2.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 cardNbrField2MousePressed(evt);
@@ -292,6 +331,11 @@ public class PaymentWizardView extends javax.swing.JPanel {
             }
         });
 
+        cardNbrField3.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                cardNbrField3FocusGained(evt);
+            }
+        });
         cardNbrField3.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 cardNbrField3MousePressed(evt);
@@ -303,6 +347,11 @@ public class PaymentWizardView extends javax.swing.JPanel {
             }
         });
 
+        cardNbrField4.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                cardNbrField4FocusGained(evt);
+            }
+        });
         cardNbrField4.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 cardNbrField4MousePressed(evt);
@@ -314,12 +363,43 @@ public class PaymentWizardView extends javax.swing.JPanel {
             }
         });
 
+        jRadioButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioButton1ActionPerformed(evt);
+            }
+        });
+
+        jRadioButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioButton2ActionPerformed(evt);
+            }
+        });
+
+        jRadioButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioButton3ActionPerformed(evt);
+            }
+        });
+
+        jRadioButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioButton4ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout cardInfoPanelLayout = new javax.swing.GroupLayout(cardInfoPanel);
         cardInfoPanel.setLayout(cardInfoPanelLayout);
         cardInfoPanelLayout.setHorizontalGroup(
             cardInfoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(cardInfoPanelLayout.createSequentialGroup()
-                .addGap(33, 33, 33)
+                .addContainerGap()
+                .addGroup(cardInfoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(cardInfoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jRadioButton1)
+                        .addComponent(jRadioButton2)
+                        .addComponent(jRadioButton3))
+                    .addComponent(jRadioButton4))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(cardInfoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(billingPicLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(bankPicLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 255, Short.MAX_VALUE)
@@ -367,14 +447,34 @@ public class PaymentWizardView extends javax.swing.JPanel {
             .addGroup(cardInfoPanelLayout.createSequentialGroup()
                 .addGroup(cardInfoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(cardInfoPanelLayout.createSequentialGroup()
-                        .addGap(16, 16, 16)
-                        .addComponent(billingPicLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(bankPicLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(cartPicLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(payPalLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(cardInfoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(cardInfoPanelLayout.createSequentialGroup()
+                                .addGap(16, 16, 16)
+                                .addComponent(billingPicLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(cardInfoPanelLayout.createSequentialGroup()
+                                .addGap(42, 42, 42)
+                                .addComponent(jRadioButton1)))
+                        .addGroup(cardInfoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(cardInfoPanelLayout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(bankPicLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(cardInfoPanelLayout.createSequentialGroup()
+                                .addGap(41, 41, 41)
+                                .addComponent(jRadioButton2)))
+                        .addGroup(cardInfoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(cardInfoPanelLayout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(cartPicLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(cardInfoPanelLayout.createSequentialGroup()
+                                .addGap(40, 40, 40)
+                                .addComponent(jRadioButton3)))
+                        .addGroup(cardInfoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(cardInfoPanelLayout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(payPalLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(cardInfoPanelLayout.createSequentialGroup()
+                                .addGap(39, 39, 39)
+                                .addComponent(jRadioButton4))))
                     .addGroup(cardInfoPanelLayout.createSequentialGroup()
                         .addGap(107, 107, 107)
                         .addGroup(cardInfoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -409,17 +509,17 @@ public class PaymentWizardView extends javax.swing.JPanel {
             .addGroup(mainPanelLayout.createSequentialGroup()
                 .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(mainPanelLayout.createSequentialGroup()
-                        .addGap(16, 16, 16)
-                        .addComponent(backButton1))
-                    .addGroup(mainPanelLayout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(cardInfoPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(deliveryMethodPanel1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(billingAddressPanel1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(deliveryAddressPanel1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(buyPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(cardInfoPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(deliveryMethodPanel1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(billingAddressPanel1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(deliveryAddressPanel1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(buyPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addGroup(mainPanelLayout.createSequentialGroup()
+                        .addGap(75, 75, 75)
+                        .addComponent(backButton1)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         mainPanelLayout.setVerticalGroup(
@@ -428,10 +528,7 @@ public class PaymentWizardView extends javax.swing.JPanel {
                 .addComponent(progressPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(mainPanelLayout.createSequentialGroup()
-                        .addComponent(cardInfoPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(19, 19, 19)
-                        .addComponent(backButton1))
+                    .addComponent(cardInfoPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(mainPanelLayout.createSequentialGroup()
                         .addComponent(billingAddressPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -440,7 +537,9 @@ public class PaymentWizardView extends javax.swing.JPanel {
                         .addComponent(deliveryMethodPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(buyPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(68, 68, 68))
+                .addGap(35, 35, 35)
+                .addComponent(backButton1)
+                .addGap(23, 23, 23))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -566,6 +665,50 @@ public class PaymentWizardView extends javax.swing.JPanel {
         cvcTextField.setText("");
     }//GEN-LAST:event_cvcTextFieldMousePressed
 
+    private void jRadioButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jRadioButton1ActionPerformed
+
+    private void jRadioButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jRadioButton2ActionPerformed
+
+    private void jRadioButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton3ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jRadioButton3ActionPerformed
+
+    private void jRadioButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton4ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jRadioButton4ActionPerformed
+
+    private void cardNbrField1FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_cardNbrField1FocusGained
+        cardNbrField1.setText("");
+    }//GEN-LAST:event_cardNbrField1FocusGained
+
+    private void cardNbrField2FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_cardNbrField2FocusGained
+        cardNbrField2.setText("");
+    }//GEN-LAST:event_cardNbrField2FocusGained
+
+    private void cardNbrField3FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_cardNbrField3FocusGained
+        cardNbrField3.setText("");
+    }//GEN-LAST:event_cardNbrField3FocusGained
+
+    private void cardNbrField4FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_cardNbrField4FocusGained
+        cardNbrField4.setText("");
+    }//GEN-LAST:event_cardNbrField4FocusGained
+
+    private void dayTextFieldFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_dayTextFieldFocusGained
+        dayTextField.setText("");
+    }//GEN-LAST:event_dayTextFieldFocusGained
+
+    private void monthTextFieldFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_monthTextFieldFocusGained
+        monthTextField.setText("");
+    }//GEN-LAST:event_monthTextFieldFocusGained
+
+    private void cvcTextFieldFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_cvcTextFieldFocusGained
+        cvcTextField.setText("");
+    }//GEN-LAST:event_cvcTextFieldFocusGained
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel amExTextLabel;
@@ -594,6 +737,10 @@ public class PaymentWizardView extends javax.swing.JPanel {
     private javax.swing.JLabel errorLabel;
     private javax.swing.JLabel expireTextLabel;
     private javax.swing.JLabel iconLabel;
+    private javax.swing.JRadioButton jRadioButton1;
+    private javax.swing.JRadioButton jRadioButton2;
+    private javax.swing.JRadioButton jRadioButton3;
+    private javax.swing.JRadioButton jRadioButton4;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JPanel mainPanel;
     private javax.swing.JLabel masterCardTextLabel;

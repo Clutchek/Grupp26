@@ -96,6 +96,8 @@ public class ItemInfoPanel extends javax.swing.JPanel {
 
         setLayout(new java.awt.GridLayout(0, 1));
 
+        itemInfoPanel.setBackground(new java.awt.Color(51, 153, 255));
+
         orderList.setModel(listModel);
         orderList.setToolTipText("");
         orderScrollPane.setViewportView(orderList);

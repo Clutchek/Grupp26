@@ -71,13 +71,23 @@ public class OrderHistoryView extends javax.swing.JPanel{
         backButton = new javax.swing.JButton();
         orderHistoryLabel = new javax.swing.JLabel();
 
+        setBackground(new java.awt.Color(207, 219, 231));
+
+        orderIDPane.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);
+
+        orderIDPanel.setBackground(new java.awt.Color(255, 255, 255));
         orderIDPanel.setLayout(new java.awt.GridLayout(0, 1));
         orderIDPane.setViewportView(orderIDPanel);
 
+        orderResultScrollPane.setBackground(new java.awt.Color(51, 153, 255));
+
+        orderResultPanel.setBackground(new java.awt.Color(255, 255, 255));
         orderResultPanel.setPreferredSize(new java.awt.Dimension(270, 200));
         orderResultPanel.setLayout(new java.awt.GridLayout(0, 1));
         orderResultScrollPane.setViewportView(orderResultPanel);
 
+        backButton.setBackground(new java.awt.Color(51, 153, 255));
+        backButton.setForeground(new java.awt.Color(255, 255, 255));
         backButton.setText("Tillbaka");
         backButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

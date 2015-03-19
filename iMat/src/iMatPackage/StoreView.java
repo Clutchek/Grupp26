@@ -125,6 +125,12 @@ public class StoreView extends javax.swing.JPanel implements KeyListener{
             }
         });
 
+        passwordField.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                passwordFieldKeyTyped(evt);
+            }
+        });
+
         userNameLabel.setForeground(new java.awt.Color(255, 255, 255));
         userNameLabel.setText("Användarnamn");
 
@@ -186,8 +192,10 @@ public class StoreView extends javax.swing.JPanel implements KeyListener{
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
+        loggedInPanel.setBackground(new java.awt.Color(51, 102, 255));
         loggedInPanel.setBorder(javax.swing.BorderFactory.createEtchedBorder(null, java.awt.Color.black));
 
+        myPageButton.setBackground(new java.awt.Color(255, 255, 255));
         myPageButton.setText("Min sida");
         myPageButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -195,6 +203,7 @@ public class StoreView extends javax.swing.JPanel implements KeyListener{
             }
         });
 
+        logOutButton.setBackground(new java.awt.Color(255, 255, 255));
         logOutButton.setText("Logga ut");
         logOutButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -202,6 +211,7 @@ public class StoreView extends javax.swing.JPanel implements KeyListener{
             }
         });
 
+        loggedInLabel.setForeground(new java.awt.Color(255, 255, 255));
         loggedInLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         loggedInLabel.setText("Välkommen " + backend.getUser().getUserName()+"!");
 
@@ -232,8 +242,19 @@ public class StoreView extends javax.swing.JPanel implements KeyListener{
                 .addContainerGap())
         );
 
-        favouriteButton.setText("Sparade listor och favoriter");
+        myPagePanel.setBackground(new java.awt.Color(51, 153, 255));
 
+        favouriteButton.setBackground(new java.awt.Color(51, 102, 255));
+        favouriteButton.setForeground(new java.awt.Color(255, 255, 255));
+        favouriteButton.setText("Sparade listor och favoriter");
+        favouriteButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                favouriteButtonActionPerformed(evt);
+            }
+        });
+
+        orderHistoryButton.setBackground(new java.awt.Color(51, 102, 255));
+        orderHistoryButton.setForeground(new java.awt.Color(255, 255, 255));
         orderHistoryButton.setText("Orderhistorik");
         orderHistoryButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -241,8 +262,12 @@ public class StoreView extends javax.swing.JPanel implements KeyListener{
             }
         });
 
+        contactsButton.setBackground(new java.awt.Color(51, 102, 255));
+        contactsButton.setForeground(new java.awt.Color(255, 255, 255));
         contactsButton.setText("Kontakter");
 
+        infoButton.setBackground(new java.awt.Color(51, 102, 255));
+        infoButton.setForeground(new java.awt.Color(255, 255, 255));
         infoButton.setText("Mina Uppgifter");
 
         javax.swing.GroupLayout myPagePanelLayout = new javax.swing.GroupLayout(myPagePanel);
@@ -276,9 +301,11 @@ public class StoreView extends javax.swing.JPanel implements KeyListener{
                 .addGap(43, 43, 43))
         );
 
+        confirmationPanel.setBackground(new java.awt.Color(51, 153, 255));
         confirmationPanel.setBorder(javax.swing.BorderFactory.createEtchedBorder(null, java.awt.Color.black));
 
         titleLabel.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        titleLabel.setForeground(new java.awt.Color(255, 255, 255));
         titleLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         titleLabel.setText("Grattis, Köpet är genomfört!");
 
@@ -500,9 +527,7 @@ public class StoreView extends javax.swing.JPanel implements KeyListener{
                                 .addComponent(featurePanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(rightPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 261, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(framePanelLayout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(errorPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(errorPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addContainerGap(24, Short.MAX_VALUE))
                     .addGroup(framePanelLayout.createSequentialGroup()
                         .addGap(137, 137, 137)
@@ -593,6 +618,16 @@ public class StoreView extends javax.swing.JPanel implements KeyListener{
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void favouriteButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_favouriteButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_favouriteButtonActionPerformed
+
+    private void passwordFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_passwordFieldKeyTyped
+       if(evt.getKeyChar() == java.awt.event.KeyEvent.VK_ENTER){
+           login();
+       }
+    }//GEN-LAST:event_passwordFieldKeyTyped
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
